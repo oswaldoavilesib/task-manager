@@ -14,12 +14,15 @@ router.get("/signup", (req, res, next) => {
 
 
 
-//----log in PAGE ROUTES----//
+//----LOGIN PAGE ROUTES----//
+/* GET LOGIN page */
+router.get("/login", (req, res, next) => {
 
-router.get("/signup", (req, res, next) => {
-
-    res.render("auth/signup");
+    res.render("auth/login");
 });
 
+
+//----ABOUT US PAGE ROUTES----//
+/* GET ABOUT US page */
 
 module.exports = router;
