@@ -24,5 +24,10 @@ router.get("/login", (req, res, next) => {
 
 //----ABOUT US PAGE ROUTES----//
 /* GET ABOUT US page */
+router.get("/about-us", (req, res, next) => {
+
+    res.render("about-us");
+});
+
 
 module.exports = router;
