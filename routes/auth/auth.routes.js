@@ -10,10 +10,6 @@ router.get("/signup", (req, res, next) => {
 
 
 
-
-
-
-
 //----LOGIN PAGE ROUTES----//
 /* GET LOGIN page */
 router.get("/login", (req, res, next) => {
