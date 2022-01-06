@@ -23,6 +23,7 @@ router.post("/signup", async (req,res,next)=>{
         const regex = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
         if(!regex.test(password)){
             res.render("auth/signup",{errorMessage: "Password must have at least six characters, 1 uppercase, 1 lowercase, and 1 number."})
+            return
         }
 
         const salt = await bcryptjs.genSaltSync(10)
