@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const User = require('../models/User.model')
+const User = require('../../models/User.model')
 
 const bcryptjs = require('bcryptjs')
 
@@ -32,7 +32,7 @@ router.post("/signup", async (req,res,next)=>{
         res.render('profile',{username})
 
     }catch(error){
-        console.log(error)
+        console.log("ERROR EN POST DE SIGNUP",error)
     }
 })
 
