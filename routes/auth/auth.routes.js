@@ -32,7 +32,6 @@ router.post("/signup", async (req,res,next)=>{
         console.log(hashPassword)
         const user = await User.create({username,email,password:hashPassword})
         res.redirect('/profile')
-        console.log(req.data)
 
     }catch(error){
         console.log("ERROR EN POST DE SIGNUP",error)
@@ -82,7 +81,15 @@ router.post('/login',async (req,res,next)=>{
 /* GET PROFILE page */
 router.get('/profile', isLoggedOut ,(req,res,next)=>{
     res.render('private/profile',{user:req.session.currentUser})
+
   })
+
+
+//----WORKSPACE PAGE ROUTES----//
+/* GET WORKSPACE page */
+router.get('/workspace',(req,res,next)=>{
+    res.render('private/workspace')
+})
 
 
 
@@ -102,7 +109,12 @@ router.get('/logout',(req,res,next)=>{
 })
 
 
+
+
+
 module.exports = router;
+
+
 
 
 //https://app.clickup.com/api?client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&redirect_uri=https://task-managermx.herokuapp.com/profile
