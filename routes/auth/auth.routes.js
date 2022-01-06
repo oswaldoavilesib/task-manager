@@ -29,7 +29,7 @@ router.post("/signup", async (req,res,next)=>{
         const hashPassword = await bcryptjs.hashSync(password,salt)
         
         const user = await User.create({username,email,password:hashPassword})
-        res.render('profile',{username})
+        res.redirect('/profile')
 
     }catch(error){
         console.log("ERROR EN POST DE SIGNUP",error)
@@ -53,7 +53,6 @@ router.get('/profile',(req,res,next)=>{
 //----ABOUT US PAGE ROUTES----//
 /* GET ABOUT US page */
 router.get("/about-us", (req, res, next) => {
-
     res.render("about-us");
 });
 
