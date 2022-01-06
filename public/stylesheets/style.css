@@ -50,3 +50,17 @@ nav {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
 }
+
+.my-container {
+  padding-top: 20px;
+  width: 95%;
+  margin: 0 auto;
+}
+
+.my-container img {
+  width: 20%;
+}
+
+.aviso-legal {
+  font-size: 14px;
+}
