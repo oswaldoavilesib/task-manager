@@ -30,7 +30,8 @@ router.post("/signup", async (req,res,next)=>{
         const hashPassword = await bcryptjs.hashSync(password,salt)
         console.log(hashPassword)
         const user = await User.create({username,email,password:hashPassword})
-        res.redirect('/profile')
+        res.redirect('https://app.clickup.com/api?client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&redirect_uri=https://task-managermx.herokuapp.com/profile')
+        console.log(req.data)
 
     }catch(error){
         console.log("ERROR EN POST DE SIGNUP",error)
