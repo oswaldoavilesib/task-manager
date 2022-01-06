@@ -17,7 +17,7 @@ const hbs = require("hbs");
 const app = express();
 
 //Serve static files
-//app.use(express.static('public'));
+app.use(express.static('public'));
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
@@ -30,7 +30,7 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
 // 👇 Start handling routes here
 const index = require("./routes/index");
-const signupRoutes = require("./routes/auth/auth.routes")
+const signupRoutes = require("./routes/auth.routes")
 
 app.use("/", index);
 app.use("/", signupRoutes);
