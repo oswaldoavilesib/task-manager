@@ -30,7 +30,7 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 
 // 👇 Start handling routes here
 const index = require("./routes/index");
-const signupRoutes = require("./routes/auth.routes")
+const signupRoutes = require("./routes/auth/auth.routes")
 
 app.use("/", index);
 app.use("/", signupRoutes);
