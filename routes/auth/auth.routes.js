@@ -81,9 +81,12 @@ router.post('/login',async (req,res,next)=>{
 /* GET PROFILE page */
 router.get('/profile', isLoggedOut ,(req,res,next)=>{
     res.render('private/profile',{user:req.session.currentUser})
-    console.log(req.params.code)
-  })
+})
 
+  /* POST PROFILE page */
+router.post('/profile', isLoggedOut ,(req,res,next)=>{
+    console.log(req.params.code)
+})
 
 //----WORKSPACE PAGE ROUTES----//
 /* GET WORKSPACE page */
