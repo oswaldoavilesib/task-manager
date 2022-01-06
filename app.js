@@ -16,11 +16,15 @@ const hbs = require("hbs");
 
 const app = express();
 
+//Sesion config
+require('./config/session.config')(app)
+
 //Serve static files
 app.use(express.static('public'));
 
 // ℹ️ This function is getting exported from the config folder. It runs most pieces of middleware
 require("./config")(app);
+
 
 // default value for title local
 const projectName = "taskManager";

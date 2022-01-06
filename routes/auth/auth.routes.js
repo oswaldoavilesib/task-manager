@@ -45,6 +45,7 @@ router.get("/login", (req, res, next) => {
     res.render("auth/login");
 });
 
+
 //----PROFILE PAGE ROUTES----//
 /* GET ABOUT US page */
 router.get('/profile',(req,res,next)=>{
