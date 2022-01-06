@@ -84,7 +84,7 @@ router.get('/profile', isLoggedOut ,(req,res,next)=>{
 })
 
   /* POST PROFILE page */
-router.post('/profile', isLoggedOut ,(req,res,next)=>{
+router.get('/profile/:code', isLoggedOut ,(req,res,next)=>{
     console.log(req.params.code)
 })
 
