@@ -15,7 +15,7 @@ router.get("/signup", (req, res, next) => {
 router.post("/signup", async (req,res,next)=>{
     try{
         const {username,email,password,...rest} = req.body
-
+        console.log(req.body)
         if(!username || !email){
             res.render('auth/signup',{errorMessage: "You need to provide a username and password"})
             return;
@@ -28,7 +28,7 @@ router.post("/signup", async (req,res,next)=>{
 
         const salt = await bcryptjs.genSaltSync(10)
         const hashPassword = await bcryptjs.hashSync(password,salt)
-        
+        console.log(hashPassword)
         const user = await User.create({username,email,password:hashPassword})
         res.redirect('/profile')
 
