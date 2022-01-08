@@ -1,7 +1,7 @@
 const axios = require('axios');
 
 
-class CharactersApi {
+class ClickUpApi {
     constructor(){
         this.api = axios.create({
             baseURL:'https://api.clickup.com/api/v2/'
@@ -21,4 +21,4 @@ class CharactersApi {
     //deleteCharacter = characterId => this.api.delete(`/characters/${characterId}`);
 }
 
-module.exports = CharactersApi;
+module.exports = ClickUpApi;
