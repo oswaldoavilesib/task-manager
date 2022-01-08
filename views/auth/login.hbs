@@ -1,14 +1,14 @@
 <main class="form-signin">
   <form action="/login" method="POST">
-    <img class="mb-4" src="/images/logo.png" alt="" width="120" height="57">
+    <img class="mb-4" src="/images/logo1.png" alt="" width="120" height="120">
     <h1 class="h3 mb-3 fw-normal">Please Log in</h1>
 
     <div class="form-floating">
-      <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
+      <input type="email" class="form-control" name="email" id="floatingInput" placeholder="name@example.com" required>
       <label for="floatingInput">Email</label>
     </div>
     <div class="form-floating">
-      <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password" required>
+      <input type="password" class="form-control" name="password" id="floatingPassword" placeholder="Password" required>
       <label for="floatingPassword">Password</label>
     </div>
 
@@ -20,6 +20,7 @@
     <button class="w-100 btn btn-lg btn-primary" type="submit">Login</button>
   </form>
 </main>
+
 
 {{#if errorMessage}}
 <p>{{errorMessage}}</p>
