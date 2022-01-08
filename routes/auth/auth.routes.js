@@ -4,6 +4,8 @@ const bcryptjs = require('bcryptjs')
 const {isLoggedIn, isLoggedOut} = require('../../utils/route-guard')
 const querystring = require('querystring')
 
+let clickUpCodeApi;
+
 //----SIGN UP PAGE ROUTES----//
 /* GET signup page */
 router.get("/signup", (req, res, next) => {
@@ -80,7 +82,9 @@ router.post('/login',async (req,res,next)=>{
 /* GET PROFILE page */
 router.get('/profile', isLoggedOut ,(req,res,next)=>{
     console.log(req.query.code)
+    clickUpCodeApi = req.query.code
     res.render('private/profile',{user:req.session.currentUser})
+    console.log('clickUpCodeApi',clickUpCodeApi)
 })
 
   /* POST PROFILE page */
