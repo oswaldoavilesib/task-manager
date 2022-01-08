@@ -72,7 +72,8 @@ router.post('/login',async (req,res,next)=>{
             console.log('req.ses',req.session)
             res.redirect('/profile')
         } else {
-            res.render('auth/login',{errorMessage: "Email or password is incorrect"})
+            res.redirect('https://app.clickup.com/api?client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&redirect_uri=https://task-managermx.herokuapp.com/profile')
+            //res.render('auth/login',{errorMessage: "Email or password is incorrect"})
         }
     }
     catch(error){
