@@ -82,7 +82,8 @@ router.post('/login',async (req,res,next)=>{
 /* GET PROFILE page */
 router.get('/profile', isLoggedOut ,(req,res,next)=>{
     console.log(req.query.code)
-    clickUpCodeApi = req.query.code
+    req.session.currentUser.clickUpCode = req.query.code
+    console.log(req.session.currentUser)
     res.render('private/profile',{user:req.session.currentUser})
     console.log('clickUpCodeApi',clickUpCodeApi)
 })
