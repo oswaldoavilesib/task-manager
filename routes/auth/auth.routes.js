@@ -90,10 +90,11 @@ router.get('/profile', isLoggedOut ,(req,res,next)=>{
     
     clickUpApiHandler.
     getAccessToken()
-    .then(response => console.log(response))
+    .then(response =>{
+        console.log(response)
+        res.render('private/profile',{user:req.session.currentUser})
+    })
     .catch(error => console.log('ERROR EN GET ACCESS TOKEN',error))
-    
-    res.render('private/profile',{user:req.session.currentUser})
     //console.log('clickUpCodeApi',clickUpCodeApi)
 })
 
