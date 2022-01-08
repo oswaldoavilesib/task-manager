@@ -51,9 +51,7 @@ const teamRoutes = require("./routes/team/team.routes")
 
 app.use("/", index);
 app.use("/", signupRoutes);
-<<<<<<< HEAD
 app.use("/", teamRoutes);
-=======
 app.get("/",(req,res,next)=>{
     res.send('<a href ="/auth/google">Authenticate with Google </a>')
 })
@@ -77,7 +75,6 @@ app.get("/auth/failure",(req,res)=>{
 app.get("/protected", isLoggedIn,(req,res,net)=>{
     res.send("Hello!")
 })
->>>>>>> c317b75f5b9583847ef0e89aa0ed4edc952fbc09
 
 
 // ❗ To handle errors. Routes that don't exist or errors that you handle in specific routes
