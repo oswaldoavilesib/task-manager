@@ -3,6 +3,9 @@ const User = require('../../models/User.model')
 const bcryptjs = require('bcryptjs')
 const {isLoggedIn, isLoggedOut} = require('../../utils/route-guard')
 const querystring = require('querystring')
+const clickUpService = require('../../service/index')
+
+const clickUpApiHandler = new clickUpService();
 
 let clickUpCodeApi;
 
@@ -81,11 +84,17 @@ router.post('/login',async (req,res,next)=>{
 //----PROFILE PAGE ROUTES----//
 /* GET PROFILE page */
 router.get('/profile', isLoggedOut ,(req,res,next)=>{
-    console.log(req.query.code)
+    //console.log(req.query.code)
     req.session.currentUser.clickUpCode = req.query.code
-    console.log(req.session.currentUser)
+    //console.log(req.session.currentUser)
+    
+    clickUpApiHandler.
+    getAccessToken()
+    .then(response => console.log(response))
+    .catch(error => console.log('ERROR EN GET ACCESS TOKEN',error))
+    
     res.render('private/profile',{user:req.session.currentUser})
-    console.log('clickUpCodeApi',clickUpCodeApi)
+    //console.log('clickUpCodeApi',clickUpCodeApi)
 })
 
   /* POST PROFILE page */
