@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const User = require('../../models/User.model')
-
 const bcryptjs = require('bcryptjs')
 const {isLoggedIn, isLoggedOut} = require('../../utils/route-guard')
+const querystring = require('querystring')
 
 //----SIGN UP PAGE ROUTES----//
 /* GET signup page */
@@ -51,7 +51,6 @@ router.get("/login", isLoggedIn ,(req, res, next) => {
 router.post('/login',async (req,res,next)=>{
     try{
         const {email,password,...rest} = req.body;
-
         if(!email || !password){
             res.render('auth/login',{errorMessage:"There is an empty field"})
             return
@@ -80,13 +79,13 @@ router.post('/login',async (req,res,next)=>{
 //----PROFILE PAGE ROUTES----//
 /* GET PROFILE page */
 router.get('/profile', isLoggedOut ,(req,res,next)=>{
+    console.log(req.query.code)
     res.render('private/profile',{user:req.session.currentUser})
 })
 
   /* POST PROFILE page */
-router.get('/profile/:code', isLoggedOut ,(req,res,next)=>{
-    console.log(req.params.code)
-})
+// router.post('/profile', isLoggedOut ,(req,res,next)=>{
+// })
 
 //----WORKSPACE PAGE ROUTES----//
 /* GET WORKSPACE page */
