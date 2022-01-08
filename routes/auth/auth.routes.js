@@ -89,6 +89,9 @@ router.get('/profile', isLoggedOut ,(req,res,next)=>{
     req.session.currentUser.clickUpCode = req.query.code
     //console.log(req.session.currentUser)
     
+    res.render('private/profile',{user:req.session.currentUser})
+
+    /*
     clickUpApiHandler.
     getAccessToken(req.session.currentUser.clickUpCode)
     .then(response =>{
@@ -96,7 +99,7 @@ router.get('/profile', isLoggedOut ,(req,res,next)=>{
         res.render('private/profile',{user:req.session.currentUser})
     })
     .catch(error => console.log('ERROR EN GET ACCESS TOKEN',error))
-    //console.log('clickUpCodeApi',clickUpCodeApi)
+    //console.log('clickUpCodeApi',clickUpCodeApi)*/
 })
 
   /* POST PROFILE page */
