@@ -9,7 +9,7 @@ class ClickUpApi {
     }
 
     getAccessToken = (code) => {
-        return this.api.get(`/oauth/token?code=${{code}}&client_id=${process.env.CLIENTID}&client_secret=${process.env.CLIENTSECRET}`)
+        return this.api.get(`/oauth/token?code=${code}&client_id=${process.env.CLIENTID}&client_secret=${process.env.CLIENTSECRET}`)
     }
     
     getTeams = () => this.api.get('/team')
