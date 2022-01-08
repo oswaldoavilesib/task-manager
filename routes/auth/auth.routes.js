@@ -33,6 +33,7 @@ router.post("/signup", async (req,res,next)=>{
         const hashPassword = await bcryptjs.hashSync(password,salt)
         console.log(hashPassword)
         const user = await User.create({username,email,password:hashPassword})
+        req.session.currentUser = user
         res.redirect('/profile')
 
     }catch(error){
