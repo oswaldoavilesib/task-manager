@@ -23,7 +23,8 @@
     "multer": "^1.4.4",
     "multer-storage-cloudinary": "^4.0.0",
     "nodemon": "^2.0.15",
+    "passport": "^0.5.2",
+    "passport-google-oauth2": "^0.2.0",
     "serve-favicon": "^2.5.0"
-  },
-  "devDependencies": {}
+  }
 }
