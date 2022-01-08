@@ -11,7 +11,7 @@ const userSchema = new Schema(
     },
     password:{
       type: String,
-      required: [true, "You must provide a password"]
+      //required: [true, "You must provide a password"]
     },
     email:{
       type: String,
@@ -20,6 +20,9 @@ const userSchema = new Schema(
     profile_pic: {
       type: String,
       default: "/images/defaultprofile.png"
+    },
+    googleID:{
+      type: String
     }
   },
   {
