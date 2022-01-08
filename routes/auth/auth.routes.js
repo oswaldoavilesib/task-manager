@@ -89,7 +89,7 @@ router.get('/profile', isLoggedOut ,(req,res,next)=>{
     //console.log(req.session.currentUser)
     
     clickUpApiHandler.
-    getAccessToken()
+    getAccessToken(req.session.currentUser.clickUpCode)
     .then(response =>{
         console.log(response)
         res.render('private/profile',{user:req.session.currentUser})

@@ -8,8 +8,8 @@ class ClickUpApi {
         });
     }
 
-    getAccessToken = () => {
-        this.api.get('/oauth/token?code=1Z1DCR8Q5M51XT5AWAXDGZSZU2EIZ945&client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&client_secret=LRQU1S2ZFFLFAPVW1WYD5BI2DV2UFIBPRU6G4Z024IB01A33GI3598JA2828HWZL')
+    getAccessToken = (code) => {
+        return this.api.get(`/oauth/token?code=${{code}}&client_id=${process.env.CLIENTID}&client_secret=${process.env.CLIENTSECRET}`)
     }
     
     getTeams = () => this.api.get('/team')
