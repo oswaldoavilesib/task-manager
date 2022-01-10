@@ -1,1 +1,13 @@
-<h1>SPACES HERE</h1>
+<h1>SPACES</h1>
+
+{{#each spaces}}
+<div class="card" style="width: 18rem;">
+        <img src="{{avatar}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title"><strong>Team's name: {{name}}</strong></h5>
+            <h5 class="card-title"><strong>Members</strong></h5>
+            <p>Number of members: {{members.length}}</p>
+            <p>List of members</p>
+        </div>
+</div>
+{{/each}}
