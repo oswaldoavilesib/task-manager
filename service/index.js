@@ -38,6 +38,16 @@ class ClickUpApi {
         })
     }
 
+
+    //-----FOLDERS------//
+    getFolders(){
+        return this.api.get('/team//space',{
+            headers:{
+                'Authorization': clickUpAccessToken
+            }
+        })
+    }
+
     //getAllCharacters = () => this.api.get('/characters')
 
     //getOneCharacter = characterId => this.api.get(`/characters/${characterId}`)
