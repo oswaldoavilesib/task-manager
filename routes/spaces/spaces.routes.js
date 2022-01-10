@@ -4,8 +4,6 @@ const {isLoggedIn, isLoggedOut} = require('../../utils/route-guard')
 const axios = require('axios');
 const clickUpService = require('../../service/index')
 
-const
-
 const clickUpApiHandler = new clickUpService();
 
 
