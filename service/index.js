@@ -20,6 +20,15 @@ class ClickUpApi {
         })
     }
 
+    getSpaces(clickUpAccessToken){
+
+        return this.api.get('/team/12602813/space',{
+            headers:{
+                'Authorization': clickUpAccessToken
+            }
+        })
+    }
+
     //getAllCharacters = () => this.api.get('/characters')
 
     //getOneCharacter = characterId => this.api.get(`/characters/${characterId}`)
