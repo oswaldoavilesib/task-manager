@@ -1,5 +1,12 @@
 <h1>SPACES</h1>
 
+<h2>Create a new space</h2>
+<form action="/profile/spaces" method="POST">
+    <label for="">Team name:</label>
+    <input type="text" name="teamName" placeholder="Team's name" id="" required>
+    <button type="submit">Create Space</button>
+</form>
+
 {{#each spaces}}
 <div>
     <img src="{{avatar}}" class="card-img-top" alt="...">
@@ -14,3 +21,4 @@
     {{/each}}
 </div>
 {{/each}}
+
