@@ -94,7 +94,7 @@ router.get('/profile', isLoggedOut ,(req,res,next)=>{
     
     res.render('private/profile',{user:req.session.currentUser})
 
-    axios.get(`https://api.clickup.com/api/v2/oauth/token?code=${req.query.code}&client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&client_secret=LRQU1S2ZFFLFAPVW1WYD5BI2DV2UFIBPRU6G4Z024IB01A33GI3598JA2828HWZL`)
+    axios.post(`https://api.clickup.com/api/v2/oauth/token?code=${req.query.code}&client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&client_secret=LRQU1S2ZFFLFAPVW1WYD5BI2DV2UFIBPRU6G4Z024IB01A33GI3598JA2828HWZL`)
     .then(response=>console.log(response))
     .catch(error=>console.log('ERROR EN GET TOKE ACCESS FROM CLICKUP API',error))
     /*clickUpApiHandler.
