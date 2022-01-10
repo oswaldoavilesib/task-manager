@@ -21,10 +21,11 @@ router.get('/profile/spaces',(req,res,next)=>{
 
 //------POST TO CREATE A SPACE-----//
 router.post('/profile/spaces',(req,res,next)=>{
+    const accessToken = req.session.currentUser.clickUpAccessToken;
     const {spaceName} = req.body
     const spaceId = Math.floor(Math.random()*899999 + 100000)
     clickUpApiHandler
-    .createSpace(spaceId)
+    .createSpace(spaceId,accessToken)
     .then(response => {
         console.log(response)
         res.redirect('/profile/spaces')
