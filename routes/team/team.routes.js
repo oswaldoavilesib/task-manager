@@ -6,7 +6,11 @@ const clickUpService = require('../../service/index')
 const clickUpApiHandler = new clickUpService();
 
 router.get('/profile/teams',(req,res)=>{
-    axios.get(`https://api.clickup.com/api/v2/team`)
+    axios.get(`https://api.clickup.com/api/v2/team`,{
+        headers: {
+            'Authorization': clickUpAccessToken,
+        }
+    })
     .then(response=>{
         res.render(response)
     })

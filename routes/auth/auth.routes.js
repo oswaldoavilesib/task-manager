@@ -3,13 +3,27 @@ const User = require('../../models/User.model')
 const bcryptjs = require('bcryptjs')
 const {isLoggedIn, isLoggedOut} = require('../../utils/route-guard')
 const querystring = require('querystring')
+
+//AXIOS
 const axios = require('axios');
+axios.interceptors.request.use(
+    config =>{
+        config.headers.authorization = `Authorization ${accessToken}`
+        return config
+    },
+    error => {
+        return Promise.reject(error)
+    }
+)
+
 const clickUpService = require('../../service/index')
 
 
 const clickUpApiHandler = new clickUpService();
 
 let clickUpCodeApi;
+
+let clickUpAccessToken;
 
 //----SIGN UP PAGE ROUTES----//
 /* GET signup page */
@@ -102,7 +116,8 @@ router.get('/workspace',(req,res,next)=>{
         req.session.currentUser.clickUpCode = req.query.code
         req.session.currentUser.clickUpAccessToken = response.data.access_token;
         console.log('req.ses WITH TOKENS',req.session)
-        console.log(res.body)
+        console.log(response)
+        clickUpAccessToken = req.session.currentUser.clickUpAccessToken
         res.render('private/workspace')
     })
     .catch(error=>console.log('ERROR EN GET TOKE ACCESS FROM CLICKUP API',error))
