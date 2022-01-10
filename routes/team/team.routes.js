@@ -5,20 +5,21 @@ const clickUpService = require('../../service/index')
 
 const clickUpApiHandler = new clickUpService();
 
-router.get('/profile/teams',(req,res)=>{
-    console.log(req.session.currentUser.clickUpAccessToken)
-    const accessToken = req.session.currentUser.clickUpAccessToken
-    console.log('accessToken: ',accessToken)
-    axios.get('https://api.clickup.com/api/v2/team',{
-        headers: {
-            'Authorization': `${accessToken}`,
-        }
-    })
-    .then(response=>{
-        res.render(response)
-    })
-    .catch(error =>console.log('ERROR EN TEAMS ENDPOINT API',error))
-    res.render('private/teams')
+router.get('/profile/teams',async (req,res)=>{
+
+    try {
+        console.log(req.session.currentUser.clickUpAccessToken)
+        const accessToken = req.session.currentUser.clickUpAccessToken
+        const response = axios.get('https://api.clickup.com/api/v2/team',{
+            headers:{
+                'Authorization': accessToken,
+            }
+        })
+        console.log(response)
+        res.render('private/teams')
+    } catch(error){
+        console.log('ERROR EN TEAMS ENDPOINT API',error)
+    }
 })
 
 
