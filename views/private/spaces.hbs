@@ -8,6 +8,12 @@
             <h5 class="card-title"><strong>Members</strong></h5>
             <p>Number of members: {{members.length}}</p>
             <p>List of members</p>
+            {{#each members}}
+            <ul>
+                <li>{{user.profilePicture}}</li>
+                <li>{{user.username}}</li>
+            </ul>
+            {{/each}}
         </div>
 </div>
 {{/each}}
