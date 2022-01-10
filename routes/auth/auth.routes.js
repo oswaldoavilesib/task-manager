@@ -3,13 +3,18 @@ const User = require('../../models/User.model')
 const bcryptjs = require('bcryptjs')
 const {isLoggedIn, isLoggedOut} = require('../../utils/route-guard')
 const querystring = require('querystring')
+
+//AXIOS
 const axios = require('axios');
+
+
 const clickUpService = require('../../service/index')
 
 
 const clickUpApiHandler = new clickUpService();
 
 let clickUpCodeApi;
+
 
 //----SIGN UP PAGE ROUTES----//
 /* GET signup page */
@@ -100,13 +105,12 @@ router.get('/workspace',(req,res,next)=>{
     axios.post(`https://api.clickup.com/api/v2/oauth/token?code=${req.query.code}&client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&client_secret=LRQU1S2ZFFLFAPVW1WYD5BI2DV2UFIBPRU6G4Z024IB01A33GI3598JA2828HWZL`)
     .then(response=>{
         req.session.currentUser.clickUpCode = req.query.code
-        console.log(req.session.currentUser.clickUpCode)
         req.session.currentUser.clickUpAccessToken = response.data.access_token;
-        console.log("ACCESSING TO ACCESS_TOKEN",req.session.currentUser.clickUpAccessToken)
         console.log('req.ses WITH TOKENS',req.session)
+        console.log(response)
+        res.render('private/workspace')
     })
     .catch(error=>console.log('ERROR EN GET TOKE ACCESS FROM CLICKUP API',error))
-    res.render('private/workspace')
 })
 
 
