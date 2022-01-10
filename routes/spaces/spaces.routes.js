@@ -15,7 +15,7 @@ router.get('/profile/spaces',(req,res,next)=>{
     .getSpaces(accessToken)
     .then(response=>{
         console.log(response.data)
-        response.data.forEach((space=>{
+        response.data.spaces.forEach((space=>{
             const {id,name} = space
             Space.create({id,name})
             .then(response=>console.log(response))
