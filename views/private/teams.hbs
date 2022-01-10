@@ -10,9 +10,15 @@
     {{#each teams}}
         <img src="{{avatar}}" class="card-img-top" alt="...">
         <div class="card-body">
-            <h5 class="card-title">Team's name: {{name}}</h5>
-            <p>Number of members: {{teams.members.length}}</p>
-            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+            <h5 class="card-title"><strong>Team's name: {{name}}</strong></h5>
+            <h5 class="card-title"><strong>Members</strong></h5>
+            <p>Number of members: {{members.length}}</p>
+            <p>List of members</p>
+            {{#each teams.members}}
+            <ul>
+                <li>{{username}}</li>
+            </ul>
+            {{/each}}
         </div>
     {{/each}}
 </div>
