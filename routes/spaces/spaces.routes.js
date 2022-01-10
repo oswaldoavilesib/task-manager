@@ -27,6 +27,7 @@ router.post('/profile.spaces',(req,res,next)=>{
     .createSpace(spaceId)
     .then(response => {
         console.log(response)
+        res.redirect('/profile/spaces')
     })
     .catch(error => console.log(error))
 })
