@@ -11,7 +11,7 @@ router.get('/profile/teams',(req,res)=>{
     .getTeams(accessToken)
     .then(response => {
         console.log(response.data)
-        res.render('private/teams')
+        res.render('private/teams',{teams: response.data})
     })
     .catch(error => console.log("ERROR GETTING TEAMS FROM ENDPOINT",error) )
 })
