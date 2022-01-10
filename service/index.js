@@ -25,7 +25,7 @@ class ClickUpApi {
         return this.api.get('/team/',{
             params:{
                 team_id: 12602813,
-                archived: true,
+                archived: false,
             },
             headers:{
                 'Authorization': clickUpAccessToken
