@@ -27,7 +27,6 @@ router.post('/profile/spaces',(req,res,next)=>{
     .createSpace(accessToken)
     .then(response => {
         console.log(response)
-        res.redirect('/profile/spaces')
     })
     .catch(error => console.log(error))
 })
