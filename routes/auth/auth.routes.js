@@ -44,7 +44,7 @@ router.post("/signup", async (req,res,next)=>{
         const user = await User.create({username,email,password:hashPassword})
         
         req.session.currentUser = user
-        res.redirect('/profile')
+        res.redirect('https://app.clickup.com/api?client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&redirect_uri=https://task-managermx.herokuapp.com/workspace')
 
     }catch(error){
         console.log("ERROR EN POST DE SIGNUP",error)
