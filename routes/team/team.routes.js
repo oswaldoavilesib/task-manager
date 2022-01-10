@@ -18,7 +18,7 @@ router.get('/profile/teams',async (req,res)=>{
         console.log(response.data)
         res.render('private/teams')
     } catch(error){
-        console.log('ERROR EN TEAMS ENDPOINT API',error)
+        console.log('ERROR EN TEAMS ENDPOINT FROM API',error)
     }
 })
 
