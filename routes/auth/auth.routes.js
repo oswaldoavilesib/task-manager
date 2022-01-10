@@ -3,7 +3,9 @@ const User = require('../../models/User.model')
 const bcryptjs = require('bcryptjs')
 const {isLoggedIn, isLoggedOut} = require('../../utils/route-guard')
 const querystring = require('querystring')
+const axios = require('axios');
 const clickUpService = require('../../service/index')
+
 
 const clickUpApiHandler = new clickUpService();
 
@@ -37,7 +39,7 @@ router.post("/signup", async (req,res,next)=>{
         console.log(hashPassword)
         const user = await User.create({username,email,password:hashPassword})
         req.session.currentUser = user
-        res.redirect('https://app.clickup.com/api?client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&redirect_uri=https://task-managermx.herokuapp.com/profile')
+        res.redirect(`https://app.clickup.com/api?client_id=${process.env.CLIENTID}&redirect_uri=https://task-managermx.herokuapp.com/profile`)
     }catch(error){
         console.log("ERROR EN POST DE SIGNUP",error)
     }
@@ -72,7 +74,7 @@ router.post('/login',async (req,res,next)=>{
             console.log('req.ses',req.session)
             res.redirect('/profile')
         } else {
-            res.redirect('https://app.clickup.com/api?client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&redirect_uri=https://task-managermx.herokuapp.com/profile')
+            res.redirect(`https://app.clickup.com/api?client_id=${process.env.CLIENTID}&redirect_uri=https://task-managermx.herokuapp.com/profile`)
             //res.render('auth/login',{errorMessage: "Email or password is incorrect"})
         }
     }
@@ -91,15 +93,17 @@ router.get('/profile', isLoggedOut ,(req,res,next)=>{
     
     res.render('private/profile',{user:req.session.currentUser})
 
-    /*
-    clickUpApiHandler.
+    
+    /*clickUpApiHandler.
     getAccessToken(req.session.currentUser.clickUpCode)
     .then(response =>{
         console.log(response)
         res.render('private/profile',{user:req.session.currentUser})
     })
-    .catch(error => console.log('ERROR EN GET ACCESS TOKEN',error))
-    //console.log('clickUpCodeApi',clickUpCodeApi)*/
+    .catch(error => console.log('ERROR EN GET ACCESS TOKEN',error))*/
+
+
+    //console.log('clickUpCodeApi',clickUpCodeApi)
 })
 
   /* POST PROFILE page */
