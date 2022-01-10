@@ -38,8 +38,10 @@ router.post("/signup", async (req,res,next)=>{
         const hashPassword = await bcryptjs.hashSync(password,salt)
         console.log(hashPassword)
         const user = await User.create({username,email,password:hashPassword})
+        
         req.session.currentUser = user
         res.redirect(`https://app.clickup.com/api?client_id=${process.env.CLIENTID}&redirect_uri=https://task-managermx.herokuapp.com/profile`)
+
     }catch(error){
         console.log("ERROR EN POST DE SIGNUP",error)
     }
@@ -72,7 +74,7 @@ router.post('/login',async (req,res,next)=>{
         if(bcryptjs.compareSync(password,user.password)){
             req.session.currentUser = user
             console.log('req.ses',req.session)
-            res.redirect(`https://app.clickup.com/api?client_id=${process.env.CLIENTID}&redirect_uri=https://task-managermx.herokuapp.com/profile`)
+            res.redirect(`/profile`)
         } else {
             res.render('auth/login',{errorMessage: "Email or password is incorrect"})
         }
@@ -92,7 +94,7 @@ router.get('/profile', isLoggedOut ,(req,res,next)=>{
     
     res.render('private/profile',{user:req.session.currentUser})
 
-    axios.get(`https://api.clickup.com/api/v2/oauth/token?code=${req.session.currentUser.clickUpCode}&client_id=${CLIENTID}&client_secret=${CLIENTSECRET}`)
+    axios.get(`https://api.clickup.com/api/v2/oauth/token?code=${req.session.currentUser.clickUpCode}&client_id=${process.env.CLIENTID}&client_secret=${process.env.CLIENTSECRET}`)
     .then(response=>console.log(response))
     .catch(error=>console.log('ERROR EN GET TOKE ACCESS FROM CLICKUP API',error))
     /*clickUpApiHandler.
