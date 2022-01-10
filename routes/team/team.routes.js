@@ -9,9 +9,9 @@ router.get('/profile/teams',(req,res)=>{
     console.log(req.session.currentUser.clickUpAccessToken)
     const accessToken = req.session.currentUser.clickUpAccessToken
     console.log('accessToken: ',accessToken)
-    axios.get(`https://api.clickup.com/api/v2/team`,{
+    axios.get('https://api.clickup.com/api/v2/team',{
         headers: {
-            'Authorization': accessToken,
+            'Authorization': `${accessToken}`,
         }
     })
     .then(response=>{
