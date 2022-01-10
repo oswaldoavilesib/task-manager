@@ -25,7 +25,7 @@ router.post('/profile/spaces',(req,res,next)=>{
     const {spaceName} = req.body
     const spaceId = Math.floor(Math.random()*899999 + 100000)
     clickUpApiHandler
-    .createSpace(spaceId,accessToken)
+    .createSpace(spaceName,spaceId,accessToken)
     .then(response => {
         console.log(response)
         res.redirect('/profile/spaces')

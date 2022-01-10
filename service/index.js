@@ -29,8 +29,11 @@ class ClickUpApi {
         })
     }
 
-    createSpace(spaceId,clickUpAccessToken){
+    createSpace(spaceName,spaceId,clickUpAccessToken){
         return this.api.post(`/team/${{spaceId}}/space`,{
+            data: {
+                name: spaceName
+            },
             headers: {
                 'Authorization': clickUpAccessToken
             }
