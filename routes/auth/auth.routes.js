@@ -102,7 +102,7 @@ router.get('/profile', isLoggedOut ,(req,res,next)=>{
 //----WORKSPACE PAGE ROUTES----//
 /* GET WORKSPACE page */
 router.get('/workspace',(req,res,next)=>{
-    axios.post(`https://api.clickup.com/api/v2/oauth/token?code=${req.query.code}&client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&client_secret=LRQU1S2ZFFLFAPVW1WYD5BI2DV2UFIBPRU6G4Z024IB01A33GI3598JA2828HWZL`)
+    axios.post(`https://api.clickup.com/api/v2/oauth/token?code=${req.query.code}&client_id=${process.env.CLIENTID}&client_secret=${process.env.CLIENTSECRET}`)
     .then(response=>{
         req.session.currentUser.clickUpCode = req.query.code
         req.session.currentUser.clickUpAccessToken = response.data.access_token;
