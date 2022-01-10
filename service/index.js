@@ -29,6 +29,25 @@ class ClickUpApi {
         })
     }
 
+    createSpace(clickUpAccessToken){
+        const spaceId = Math.floor(Math.random()*899999 + 100000)
+        return this.api.post(`/team/${spaceId}/space`,{
+            headers: {
+                'Authorization': clickUpAccessToken
+            }
+        })
+    }
+
+
+    //-----FOLDERS------//
+    getFolders(){
+        return this.api.get('/team//space',{
+            headers:{
+                'Authorization': clickUpAccessToken
+            }
+        })
+    }
+
     //getAllCharacters = () => this.api.get('/characters')
 
     //getOneCharacter = characterId => this.api.get(`/characters/${characterId}`)
