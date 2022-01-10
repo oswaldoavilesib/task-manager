@@ -48,10 +48,14 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 const index = require("./routes/index");
 const signupRoutes = require("./routes/auth/auth.routes")
 const teamRoutes = require("./routes/team/team.routes")
+const spacesRoutes = require('./routes/spaces/spaces.routes.js')
 
 app.use("/", index);
 app.use("/", signupRoutes);
 app.use("/", teamRoutes);
+app.use("/", spacesRoutes);
+
+
 app.get("/",(req,res,next)=>{
     res.send('<a href ="/auth/google">Authenticate with Google </a>')
 })
