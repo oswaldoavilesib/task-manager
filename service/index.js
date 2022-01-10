@@ -29,7 +29,8 @@ class ClickUpApi {
         })
     }
 
-    createSpace(spaceId,clickUpAccessToken){
+    createSpace(clickUpAccessToken){
+        const spaceId = Math.floor(Math.random()*899999 + 100000)
         return this.api.post(`/team/${spaceId}/space`,{
             headers: {
                 'Authorization': clickUpAccessToken
