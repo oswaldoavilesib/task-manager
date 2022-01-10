@@ -12,7 +12,13 @@ class ClickUpApi {
         return this.api.post(`/oauth/token?code=${clickUpCode}&client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&client_secret=LRQU1S2ZFFLFAPVW1WYD5BI2DV2UFIBPRU6G4Z024IB01A33GI3598JA2828HWZL`)
     }
     
-    getTeams = () => this.api.get('/team')
+    getTeams(clickUpAccessToken){
+        return this.api.get('https://api.clickup.com/api/v2/team',{
+            headers:{
+                'Authorization': clickUpAccessToken
+            }
+        })
+    }
 
     //getAllCharacters = () => this.api.get('/characters')
 

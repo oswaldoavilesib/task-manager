@@ -140,5 +140,3 @@ module.exports = router;
 
 
 
-
-//https://app.clickup.com/api?client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&redirect_uri=https://task-managermx.herokuapp.com/profile
