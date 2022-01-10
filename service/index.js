@@ -20,6 +20,19 @@ class ClickUpApi {
         })
     }
 
+    getSpaces(clickUpAccessToken){
+
+        return this.api.get('/team/',{
+            params:{
+                team_id: 12602813,
+                archived: true,
+            },
+            headers:{
+                'Authorization': clickUpAccessToken
+            }
+        })
+    }
+
     //getAllCharacters = () => this.api.get('/characters')
 
     //getOneCharacter = characterId => this.api.get(`/characters/${characterId}`)
