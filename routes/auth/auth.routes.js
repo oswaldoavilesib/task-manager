@@ -93,7 +93,9 @@ router.get('/profile', isLoggedOut ,(req,res,next)=>{
     
     res.render('private/profile',{user:req.session.currentUser})
 
-    
+    axios.get(`https://api.clickup.com/api/v2/oauth/token?code=${req.session.currentUser.clickUpCode}&client_id=${CLIENTID}&client_secret=${CLIENTSECRET}`)
+    .then(response=>console.log(response))
+    .catch(error=>console.log('ERROR EN GET TOKE ACCESS FROM CLICKUP API',error))
     /*clickUpApiHandler.
     getAccessToken(req.session.currentUser.clickUpCode)
     .then(response =>{
