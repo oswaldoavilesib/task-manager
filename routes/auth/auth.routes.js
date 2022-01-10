@@ -72,9 +72,9 @@ router.post('/login',async (req,res,next)=>{
         if(bcryptjs.compareSync(password,user.password)){
             req.session.currentUser = user
             console.log('req.ses',req.session)
-            res.redirect('/profile')
+            res.redirect('https://app.clickup.com/api?client_id=${process.env.CLIENTID}&redirect_uri=https://task-managermx.herokuapp.com/profile')
         } else {
-            res.redirect(`https://app.clickup.com/api?client_id=${process.env.CLIENTID}&redirect_uri=https://task-managermx.herokuapp.com/profile`)
+            res.redirect(`login`)
             //res.render('auth/login',{errorMessage: "Email or password is incorrect"})
         }
     }
