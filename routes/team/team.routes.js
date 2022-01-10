@@ -15,7 +15,7 @@ router.get('/profile/teams',async (req,res)=>{
                 'Authorization': accessToken,
             }
         })
-        console.log(response)
+        console.log(response.data)
         res.render('private/teams')
     } catch(error){
         console.log('ERROR EN TEAMS ENDPOINT API',error)
