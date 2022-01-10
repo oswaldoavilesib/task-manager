@@ -6,15 +6,7 @@ const querystring = require('querystring')
 
 //AXIOS
 const axios = require('axios');
-axios.interceptors.request.use(
-    config =>{
-        config.headers.authorization = `Authorization ${accessToken}`
-        return config
-    },
-    error => {
-        return Promise.reject(error)
-    }
-)
+
 
 const clickUpService = require('../../service/index')
 
