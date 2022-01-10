@@ -90,8 +90,14 @@ router.get('/profile', isLoggedOut ,(req,res,next)=>{
     //console.log(req.query.code)
     req.session.currentUser.clickUpCode = req.query.code
     console.log(req.session.currentUser.clickUpCode)
-    
-    res.render('private/profile',{user:req.session.currentUser})
+    axios.post(`https://api.clickup.com/api/v2/oauth/token?code=${req.query.code}&client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&client_secret=LRQU1S2ZFFLFAPVW1WYD5BI2DV2UFIBPRU6G4Z024IB01A33GI3598JA2828HWZL`)
+    .then(response=>{
+        req.session.currentUser.clickUpAccessToken = response.data.access_token;
+        console.log("ACCESSING TO ACCESS_TOKEN",req.session.currentUser.clickUpAccessToken)
+        console.log('req.ses WITH TOKENS',req.session)
+        res.render('private/profile',{user:req.session.currentUser})
+    })
+    .catch(error=>console.log('ERROR EN GET TOKE ACCESS FROM CLICKUP API',error))
     //console.log('clickUpCodeApi',clickUpCodeApi)
 })
 
@@ -99,15 +105,7 @@ router.get('/profile', isLoggedOut ,(req,res,next)=>{
 //----WORKSPACE PAGE ROUTES----//
 /* GET WORKSPACE page */
 router.get('/workspace',(req,res,next)=>{
-    axios.post(`https://api.clickup.com/api/v2/oauth/token?code=${req.query.code}&client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&client_secret=LRQU1S2ZFFLFAPVW1WYD5BI2DV2UFIBPRU6G4Z024IB01A33GI3598JA2828HWZL`)
-    .then(response=>{
-        req.session.currentUser.clickUpAccessToken = response.data.access_token;
-        console.log("ACCESSING TO ACCESS_TOKEN",req.session.currentUser.clickUpAccessToken)
-        console.log('req.ses WITH TOKENS',req.session)
-        res.render('private/workspace')
-    })
-    .catch(error=>console.log('ERROR EN GET TOKE ACCESS FROM CLICKUP API',error))
-
+    res.render('private/workspace')
 })
 
 
