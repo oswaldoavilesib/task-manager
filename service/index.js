@@ -9,7 +9,7 @@ class ClickUpApi {
     }
 
     getAccessToken(clickUpCode) {
-        return this.api.post(`/oauth/token?code=${clickUpCode}&${process.env.CLIENTID}&client_secret=${process.env.CLIENTSECRET}`)
+        return this.api.post(`/oauth/token?code=${clickUpCode}&client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&client_secret=LRQU1S2ZFFLFAPVW1WYD5BI2DV2UFIBPRU6G4Z024IB01A33GI3598JA2828HWZL`)
     }
     
     getTeams(clickUpAccessToken){
