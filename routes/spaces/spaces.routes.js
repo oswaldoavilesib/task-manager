@@ -20,7 +20,7 @@ router.get('/profile/spaces',(req,res,next)=>{
 })
 
 //------POST TO CREATE A SPACE-----//
-router.post('/profile.spaces',(req,res,next)=>{
+router.post('/profile/spaces',(req,res,next)=>{
     const {spaceName} = req.body
     const spaceId = Math.floor(Math.random()*899999 + 100000)
     clickUpApiHandler
