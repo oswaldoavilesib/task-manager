@@ -15,7 +15,6 @@ const clickUpApiHandler = new clickUpService();
 
 let clickUpCodeApi;
 
-let clickUpAccessToken;
 
 //----SIGN UP PAGE ROUTES----//
 /* GET signup page */
@@ -109,7 +108,6 @@ router.get('/workspace',(req,res,next)=>{
         req.session.currentUser.clickUpAccessToken = response.data.access_token;
         console.log('req.ses WITH TOKENS',req.session)
         console.log(response)
-        clickUpAccessToken = req.session.currentUser.clickUpAccessToken
         res.render('private/workspace')
     })
     .catch(error=>console.log('ERROR EN GET TOKE ACCESS FROM CLICKUP API',error))
