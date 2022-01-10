@@ -23,7 +23,9 @@ router.get('/profile/teams',(req,res)=>{
 //----GET ALL SPACES WORKSPACE"-----//
 router.get('/profile/spaces',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken;
-    axios.get('https://api.clickup.com/api/v2/team/12602813/space?archived=false')
+    axios.get('https://api.clickup.com/api/v2/team/12602813/space?archived=false',{
+        'Authorization': clickUpAccessToken
+    })
     .then(response=>console.log(response.data))
     .catch(error=>console.log("ERROR EN GET SPACES API",error))
 
