@@ -15,7 +15,7 @@ router.get('/profile/teams',(req,res)=>{
     // .then(response=>{
     //     res.render(response)
     // })
-    //res.render('private/teams')
+    res.render('private/teams')
 })
 
 
