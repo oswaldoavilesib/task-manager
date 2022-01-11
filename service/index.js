@@ -11,7 +11,7 @@ class ClickUpApi {
     }
 
     saveAccessToken(code){
-        this.accessToken = Number(code);
+        this.accessToken = code;
         console.log("TIPO DE DATO THIS ACCESSTOKEN",typeof this.accessToken)
     }
 
