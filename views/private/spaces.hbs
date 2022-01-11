@@ -1,0 +1,25 @@
+<h1>SPACES</h1>
+
+<h2>Create a new space</h2>
+<form action="/profile/spaces" method="POST">
+    <label for="">Team name:</label>
+    <input type="text" name="teamName" placeholder="Team's name" id="" required>
+    <button type="submit">Create Space</button>
+</form>
+
+{{#each spaces}}
+<div>
+    <img src="{{avatar}}" class="card-img-top" alt="...">
+    <h5 class="card-title"><strong>Team's name: {{name}}</strong></h5>
+    <h5 class="card-title"><strong>Members</strong></h5>
+    <p>Number of members: {{members.length}}</p>
+    <p>List of members</p>
+    <a href="/profile/folders/{{id}}">See all folders</a>
+    {{#each members}}
+        <ul>
+            <li><span><img src="{{user.profilePicture}}" alt=""></span>{{user.username}}</li>
+        </ul>
+    {{/each}}
+</div>
+{{/each}}
+
