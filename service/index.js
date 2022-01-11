@@ -7,7 +7,7 @@ class ClickUpApi {
             baseURL:'https://api.clickup.com/api/v2/'
         });
 
-        this.accessToken = "";
+        this.accessToken = 0;
     }
 
     saveAccessToken(code){
