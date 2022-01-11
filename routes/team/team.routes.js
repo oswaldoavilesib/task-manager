@@ -16,8 +16,10 @@ router.get('/profile/teams',(req,res)=>{
         console.log(response.data)
         response.data.teams.forEach((team)=>{
             const {id, name,...rest} = team
-            const isInDB = Team.findOne({id})
+
+            const isInDB = Team.find({id: {$exists:true}})
             .then(console.log('RESPONSE FROM Team.findOne: ',response)).catch(error => console.log("ERROR EN FINDING NEW TEAMS IN DB",error))
+            console.log("IS IN DBBBB",isInDB)
             if (!isInDB){
                 Team.create({id,name})
                 .then(response=>console.log('WE CREATED A TEAM',response))
