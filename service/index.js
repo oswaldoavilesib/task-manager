@@ -31,11 +31,12 @@ class ClickUpApi {
                 'Authorization': clickUpAccessToken
             }
         })
-
+        
     }
 
     getSpaces(clickUpAccessToken){
-        return this.api.get(`/team/${this.teamId}/space`,{
+        console.log(this.teamId)
+        return this.api.get('/team/12602813/space',{
             headers:{
                 'Authorization': clickUpAccessToken
             }
