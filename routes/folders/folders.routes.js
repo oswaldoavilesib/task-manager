@@ -14,7 +14,7 @@ router.get('/profile/folders/:id',(req,res,next)=>{
     Space.findOne({id})
     .then(response =>{
         console.log(response)
-        res.send("SIRVIO BROH")
+        res.send("SIRVIO BROHH")
     })
     .catch(error=>console.log('EL ERROR EN PARAMS FOLDERS',error))
 
