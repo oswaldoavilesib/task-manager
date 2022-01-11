@@ -6,6 +6,12 @@ class ClickUpApi {
         this.api = axios.create({
             baseURL:'https://api.clickup.com/api/v2/'
         });
+
+        this.accesscode = "";
+    }
+
+    saveAccessToken(code){
+        this.accesscode = code;
     }
 
     getAccessToken(clickUpCode) {
@@ -15,7 +21,7 @@ class ClickUpApi {
     getTeams(clickUpAccessToken){
         return this.api.get('https://api.clickup.com/api/v2/team',{
             headers:{
-                'Authorization': clickUpAccessToken
+                'Authorization': this.accesscode,
             }
         })
     }
