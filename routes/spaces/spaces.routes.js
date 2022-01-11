@@ -17,7 +17,7 @@ router.get('/profile/spaces',(req,res,next)=>{
         console.log(response.data)
         response.data.spaces.forEach((space=>{
             const {id,name,...rest} = space
-            Team.find({id: {$eq:id}})
+            Space.find({id: {$eq:id}})
             .then(response =>{
                 if(!response.length){
                     Space.create({id,name})
