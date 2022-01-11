@@ -1,4 +1,5 @@
 const router = require("express").Router();
+const Team = require('../../models/Team.model')
 const {isLoggedIn, isLoggedOut} = require('../../utils/route-guard')
 const axios = require('axios');
 const clickUpService = require('../../service/index')
@@ -13,6 +14,12 @@ router.get('/profile/teams',(req,res)=>{
     .getTeams(accessToken)
     .then(response => {
         console.log(response.data)
+        response.data.teams.forEach((team)=>{
+            const {id, name,...rest} = team
+            Team.create({id,name})
+            .then(response=>console.log(response))
+            .catch(error=>console.log("ERROR EN FOREACH DE TEAMS:",error))
+        })
         res.render('private/teams',{teams: response.data.teams})
     })
     .catch(error => console.log("ERROR GETTING TEAMS FROM ENDPOINT",error) )
