@@ -20,14 +20,19 @@ class ClickUpApi {
         return this.api.post(`/oauth/token?code=${clickUpCode}&client_id=${process.env.CLIENTID}&client_secret=${process.env.CLIENTSECRET}`)
     }
     
-    getTeams(){
+    getTeams(clickUpAccessToken){
         console.log('THIS IS THE APIIIII',this.api)
         // const config = {
         //     headers:{
         //         'Authorization': this.accessToken,
         //     }
         // }
-        return this.api.get('/team')
+        
+        return this.api.get('/team',{
+            headers:{
+                'Authorization': clickUpAccessToken
+            }
+        })
     }
 
     getSpaces(clickUpAccessToken){

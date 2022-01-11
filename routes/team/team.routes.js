@@ -10,7 +10,7 @@ const clickUpApiHandler = new clickUpService();
 router.get('/profile/teams',(req,res)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken;
     clickUpApiHandler
-    .getTeams()
+    .getTeams(accessToken)
     .then(response => {
         console.log(response.data)
         res.render('private/teams',{teams: response.data.teams})
