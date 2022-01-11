@@ -37,8 +37,7 @@ class ClickUpApi {
     }
 
     getSpaces(clickUpAccessToken){
-        console.log('THIS IS THE APIIIII',this.api.defaults.headers.common)
-        console.log('THIS IS THE APIIIII',this.api)
+
         return this.api.get('/team/12602813/space',{
             headers:{
                 'Authorization': clickUpAccessToken
@@ -65,15 +64,7 @@ class ClickUpApi {
         })
     }
 
-    //getAllCharacters = () => this.api.get('/characters')
 
-    //getOneCharacter = characterId => this.api.get(`/characters/${characterId}`)
-
-   //getCharacterInfo = characterInfo => this.api.post(`/characters`,characterInfo)
-
-    //editCharacter = (characterId,characterInfo) => this.api.put(`/characters${characterId}`,characterInfo)
-
-    //deleteCharacter = characterId => this.api.delete(`/characters/${characterId}`);
 }
 
 module.exports = ClickUpApi;
