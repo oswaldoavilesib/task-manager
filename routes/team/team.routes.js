@@ -16,9 +16,13 @@ router.get('/profile/teams',(req,res)=>{
         console.log(response.data)
         response.data.teams.forEach((team)=>{
             const {id, name,...rest} = team
-            Team.create({id,name})
-            .then(response=>console.log(response))
-            .catch(error=>console.log("ERROR EN FOREACH DE TEAMS:",error))
+            const isInDB = find.One({id})
+            .then().catch(console.log("ERROR EN FINDING NEW TEAMS IN DB",error))
+            if (!isInDB){
+                Team.create({id,name})
+                .then(response=>console.log(response))
+                .catch(error=>console.log("ERROR EN FOREACH DE TEAMS:",error))
+            }
         })
         res.render('private/teams',{teams: response.data.teams})
     })
