@@ -17,7 +17,7 @@ router.get('/profile/teams',(req,res)=>{
         response.data.teams.forEach((team)=>{
             const {id, name,...rest} = team
             console.log("TE IDAPI=",id)
-            const isInDB = Team.find({id: {$eq:id}})
+            Team.find({id: {$eq:id}})
             .then(response => {
                 console.log('RESPONSE FROM Team.findOne: ',response)
                 if(!response.length){

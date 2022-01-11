@@ -16,9 +16,17 @@ router.get('/profile/spaces',(req,res,next)=>{
     .then(response=>{
         console.log(response.data)
         response.data.spaces.forEach((space=>{
-            const {id,name} = space
-            Space.create({id,name})
-            .then(response=>console.log(response))
+            const {id,name,...rest} = space
+            Team.find({id: {$eq:id}})
+            .then(response =>{
+                if(!response.length){
+                    Space.create({id,name})
+                    .then(response=>console.log(response))
+                    .catch(error=>console.log("ERROR EN CREAR SPACES EN BASE DE DATOS",error))
+                } else {
+                    console.log("SPACE is already on DB")
+                }
+            })
             .catch(error=>console.log("ERROR EN CREAR SPACES EN BASE DE DATOS",error))
         }))
         res.render('private/spaces',{spaces:response.data.spaces})
