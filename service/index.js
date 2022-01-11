@@ -11,9 +11,9 @@ class ClickUpApi {
     }
 
     saveAccessToken(code){
-        this.api.defaults.headers.common['Authorization'] = code
+        this.api.defaults.headers['Authorization'] = code
         //this.accessToken = code;
-        console.log("THIS API",this.api.defaults.headers.common)
+        console.log("THIS API",this.api.defaults.headers)
     }
 
     getAccessToken(clickUpCode) {
