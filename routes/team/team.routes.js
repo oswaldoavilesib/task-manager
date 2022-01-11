@@ -21,18 +21,14 @@ router.get('/profile/teams',(req,res)=>{
             .then(response => {
                 console.log('RESPONSE FROM Team.findOne: ',response)
                 if(!response.length){
-                    console.log("EMPTY ARRAY BITCH")
+                    Team.create({id,name})
+                    .then(response=>console.log('WE CREATED A TEAM',response))
+                    .catch(error=>console.log("ERROR EN CREAR EL  TEAMS:",error))
                 } else{
-                    console.log("I WILL ADD TO DB HERE BITCH")
+                    console.log("Team is already on DB")
                 }
             })
             .catch(error => console.log("ERROR EN FINDING NEW TEAMS IN DB",error))
-            console.log("IS IN DBBBB",isInDB)
-            if (!isInDB){
-                Team.create({id,name})
-                .then(response=>console.log('WE CREATED A TEAM',response))
-                .catch(error=>console.log("ERROR EN FOREACH DE TEAMS:",error))
-            }
         })
         res.render('private/teams',{teams: response.data.teams})
     })
