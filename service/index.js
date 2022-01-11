@@ -6,14 +6,30 @@ class ClickUpApi {
         this.api = axios.create({
             baseURL:'https://api.clickup.com/api/v2/'
         });
+
+        this.accessToken = ""
+    }
+
+    saveAccessToken(code){
+        this.api.defaults.headers['Authorization'] = code
+        //this.accessToken = code;
+        console.log("THIS API",this.api.defaults.headers)
     }
 
     getAccessToken(clickUpCode) {
-        return this.api.post(`/oauth/token?code=${clickUpCode}&client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&client_secret=LRQU1S2ZFFLFAPVW1WYD5BI2DV2UFIBPRU6G4Z024IB01A33GI3598JA2828HWZL`)
+        return this.api.post(`/oauth/token?code=${clickUpCode}&client_id=${process.env.CLIENTID}&client_secret=${process.env.CLIENTSECRET}`)
     }
     
     getTeams(clickUpAccessToken){
-        return this.api.get('https://api.clickup.com/api/v2/team',{
+        console.log('THIS IS THE APIIIII',this.api.defaults.headers.common)
+        console.log('THIS IS THE APIIIII',this.api)
+        // const config = {
+        //     headers:{
+        //         'Authorization': this.accessToken,
+        //     }
+        // }
+        
+        return this.api.get('/team',{
             headers:{
                 'Authorization': clickUpAccessToken
             }
@@ -48,15 +64,7 @@ class ClickUpApi {
         })
     }
 
-    //getAllCharacters = () => this.api.get('/characters')
 
-    //getOneCharacter = characterId => this.api.get(`/characters/${characterId}`)
-
-   //getCharacterInfo = characterInfo => this.api.post(`/characters`,characterInfo)
-
-    //editCharacter = (characterId,characterInfo) => this.api.put(`/characters${characterId}`,characterInfo)
-
-    //deleteCharacter = characterId => this.api.delete(`/characters/${characterId}`);
 }
 
 module.exports = ClickUpApi;
