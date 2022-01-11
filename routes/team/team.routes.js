@@ -11,12 +11,12 @@ const clickUpApiHandler = new clickUpService();
 router.get('/profile/teams',(req,res)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken;
     clickUpApiHandler
-    .getTeams(accessToken,callback)
+    .getTeams(accessToken)
     .then(response => {
         console.log(response.data)
-        callback = () => {
-            return response.data.teams.id
-        }
+        clickUpApiHandler.getTeamsId(response.data.teams.id)
+
+        //Agregar a bse de datos
         response.data.teams.forEach((team)=>{
             const {id, name,...rest} = team
             console.log("TE IDAPI=",id)

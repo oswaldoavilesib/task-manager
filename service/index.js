@@ -7,13 +7,17 @@ class ClickUpApi {
             baseURL:'https://api.clickup.com/api/v2/'
         });
 
-        this.accessToken = ""
+        this.teamId;
     }
 
     saveAccessToken(code){
         this.api.defaults.headers['Authorization'] = code
         //this.accessToken = code;
         console.log("THIS API",this.api.defaults.headers)
+    }
+
+    getTeamsId(teamId){
+        return this.teamId = teamId;
     }
 
     getAccessToken(clickUpCode) {
@@ -27,11 +31,11 @@ class ClickUpApi {
                 'Authorization': clickUpAccessToken
             }
         })
+
     }
 
-    getSpaces(clickUpAccessToken,callback){
-        console.log("LA CALLBACK",callback)
-        return this.api.get('/team/12602813/space',{
+    getSpaces(clickUpAccessToken){
+        return this.api.get(`/team/${this.teamId}/space`,{
             headers:{
                 'Authorization': clickUpAccessToken
             }
