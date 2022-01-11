@@ -7,6 +7,9 @@ const spaceSchema = new Schema({
     name:{
         type: String,
     },
+    _user: {
+        type:Schema.Types.ObjectId, ref:"User"
+    },
 },
 {
     timestamps: true,
