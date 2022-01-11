@@ -20,7 +20,11 @@ router.get('/profile/teams',(req,res)=>{
             const isInDB = Team.find({id: {$eq:id}})
             .then(response => {
                 console.log('RESPONSE FROM Team.findOne: ',response)
-                return
+                if(!response){
+                    console.log("EMPTY ARRAY BITCH")
+                } else{
+                    console.log("I WILL ADD TO DB HERE BITCH")
+                }
             })
             .catch(error => console.log("ERROR EN FINDING NEW TEAMS IN DB",error))
             console.log("IS IN DBBBB",isInDB)
