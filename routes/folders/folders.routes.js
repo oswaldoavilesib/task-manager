@@ -11,7 +11,7 @@ const clickUpApiHandler = new clickUpService();
 router.get('/profile/folders/:id',(req,res,next)=>{
     const {id} = req.params
     console.log('EL ID DEL PARAMETRO',id)
-    Space.findOne(id)
+    Space.findById(id)
     .then(response =>{
         console.log(response)
         res.send("SIRVIO BROH")
