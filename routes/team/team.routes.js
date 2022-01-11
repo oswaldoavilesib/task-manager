@@ -20,7 +20,7 @@ router.get('/profile/teams',(req,res)=>{
             const isInDB = Team.find({id: {$eq:id}})
             .then(response => {
                 console.log('RESPONSE FROM Team.findOne: ',response)
-                if(!response){
+                if(!response.length){
                     console.log("EMPTY ARRAY BITCH")
                 } else{
                     console.log("I WILL ADD TO DB HERE BITCH")
