@@ -13,7 +13,7 @@ router.get('/profile/teams',(req,res)=>{
     .getTeams()
     .then(response => {
         console.log(response.data)
-        
+        clickUpApiHandler.saveAccessToken(response.data.access_token)
         res.render('private/teams',{teams: response.data.teams})
     })
     .catch(error => console.log("ERROR GETTING TEAMS FROM ENDPOINT",error) )
