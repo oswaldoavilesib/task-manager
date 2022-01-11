@@ -21,6 +21,9 @@ router.get('/profile/folders/:id',(req,res,next)=>{
     Space.findOne({id})
     .then(response =>{
         console.log(response)
+        console.log(response.id)
+        getFolders(response.id)
+
         res.render('private/folder/lists/')
     })
     .catch(error=>console.log('EL ERROR EN PARAMS FOLDERS',error))
