@@ -7,12 +7,12 @@ class ClickUpApi {
             baseURL:'https://api.clickup.com/api/v2/'
         });
 
-        this.accessToken = 0;
+        this.accessToken;
     }
 
     saveAccessToken(code){
-        this.accessToken = code;
-        console.log(this.accessToken)
+        this.accessToken = Number(code);
+        console.log("TIPO DE DATO THIS ACCESSTOKEN",typeof this.accessToken)
     }
 
     getAccessToken(clickUpCode) {
