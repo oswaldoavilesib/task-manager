@@ -21,7 +21,7 @@ class ClickUpApi {
     }
     
     getTeams(){
-        console.log('GET TEAMS CONSOLE',this.accessToken)
+        console.log('THIS IS THE APIIIII',this.api)
         // const config = {
         //     headers:{
         //         'Authorization': this.accessToken,
