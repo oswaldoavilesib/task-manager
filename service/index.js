@@ -7,21 +7,22 @@ class ClickUpApi {
             baseURL:'https://api.clickup.com/api/v2/'
         });
 
-        this.accesscode = "";
+        this.accessToken = "";
     }
 
     saveAccessToken(code){
-        this.accesscode = code;
+        this.accessToken = code;
+        console.log(this.accessToken)
     }
 
     getAccessToken(clickUpCode) {
         return this.api.post(`/oauth/token?code=${clickUpCode}&client_id=${process.env.CLIENTID}&client_secret=${process.env.CLIENTSECRET}`)
     }
     
-    getTeams(clickUpAccessToken){
-        return this.api.get('https://api.clickup.com/api/v2/team',{
+    getTeams(){
+        return this.api.get('/team',{
             headers:{
-                'Authorization': this.accesscode,
+                'Authorization': this.accessToken,
             }
         })
     }
