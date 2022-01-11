@@ -20,11 +20,13 @@ class ClickUpApi {
     }
     
     getTeams(){
-        return this.api.get('/team',{
+        console.log(this.accessToken)
+        const config = {
             headers:{
                 'Authorization': this.accessToken,
             }
-        })
+        }
+        return this.api.get('/team',config)
     }
 
     getSpaces(clickUpAccessToken){
