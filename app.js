@@ -50,12 +50,14 @@ const signupRoutes = require("./routes/auth/auth.routes")
 const teamRoutes = require("./routes/team/team.routes")
 const spacesRoutes = require('./routes/spaces/spaces.routes.js')
 const foldersRoutes = require('./routes/folders/folders.routes.js')
+const listsRoutes = require('./routes/lists/lists.routes')
 
 app.use("/", index);
 app.use("/", signupRoutes);
 app.use("/", teamRoutes);
 app.use("/", spacesRoutes);
 app.use("/", foldersRoutes);
+app.use("/", listsRoutes);
 
 
 app.get("/",(req,res,next)=>{
