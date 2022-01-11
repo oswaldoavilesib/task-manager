@@ -35,7 +35,7 @@ class ClickUpApi {
     }
 
     getSpaces(clickUpAccessToken){
-        console.log(this.teamId)
+        console.log('THIS.TEAMID',this.teamId)
         return this.api.get('/team/12602813/space',{
             headers:{
                 'Authorization': clickUpAccessToken

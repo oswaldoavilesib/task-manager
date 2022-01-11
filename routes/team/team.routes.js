@@ -17,6 +17,9 @@ router.get('/profile/teams',(req,res)=>{
         console.log('CONSOLE TEAMS_ID',response.data.teams.id)
         //clickUpApiHandler.getTeamsId(response.data.teams.id)
 
+        //Extraer el id de cada Team y mandar
+
+
         //Agregar a bse de datos
         response.data.teams.forEach((team)=>{
             const {id, name,...rest} = team
