@@ -25,7 +25,7 @@ router.get('/profile/teams',(req,res)=>{
                     .then(response=>console.log('WE CREATED A TEAM',response))
                     .catch(error=>console.log("ERROR EN CREAR EL  TEAMS:",error))
                 } else{
-                    console.log("Team is already on DB")
+                    console.log("Team is already on DBB")
                 }
             })
             .catch(error => console.log("ERROR EN FINDING NEW TEAMS IN DB",error))
