@@ -11,8 +11,9 @@ class ClickUpApi {
     }
 
     saveAccessToken(code){
-        this.accessToken = code;
-        console.log("THIS ACCESSTOKEN",this.accessToken)
+        this.api.headers.common['Authorization'] = code
+        //this.accessToken = code;
+        console.log("THIS API",this.api)
     }
 
     getAccessToken(clickUpCode) {
@@ -20,13 +21,13 @@ class ClickUpApi {
     }
     
     getTeams(){
-        console.log(this.accessToken)
-        const config = {
-            headers:{
-                'Authorization': this.accessToken,
-            }
-        }
-        return this.api.get('/team',config)
+        console.log('GET TEAMS CONSOLE',this.accessToken)
+        // const config = {
+        //     headers:{
+        //         'Authorization': this.accessToken,
+        //     }
+        // }
+        return this.api.get('/team')
     }
 
     getSpaces(clickUpAccessToken){
