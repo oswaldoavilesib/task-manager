@@ -22,9 +22,13 @@ router.get('/profile/folders/:id',(req,res,next)=>{
     .then(response =>{
         console.log(response)
         console.log(response.id)
-        getFolders(response.id)
+        clickUpApiHandler
+        .getFolders(response.id)
+        .then(response => {
+            console.log(response)
+        })
+        .catch(error=>console.log("ERROR EN GET FOLDER PROMISE",error))
 
-        res.render('private/folder/lists/')
     })
     .catch(error=>console.log('EL ERROR EN PARAMS FOLDERS',error))
 
