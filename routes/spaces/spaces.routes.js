@@ -8,11 +8,11 @@ const clickUpApiHandler = new clickUpService();
 
 
 //----GET ALL SPACES WORKSPACE"-----//
-router.get('/profile/spaces',(req,res,next)=>{
+router.get('/profile/spaces/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken;
-
+    const {id} = req.params
     clickUpApiHandler
-    .getSpaces(accessToken)
+    .getSpaces(id,accessToken)
     .then(response=>{
         console.log(response.data)
         response.data.spaces.forEach((space=>{
