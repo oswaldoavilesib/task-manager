@@ -10,6 +10,10 @@ const spaceSchema = new Schema({
     _user: {
         type:Schema.Types.ObjectId, ref:"User"
     },
+
+    _team: {
+        type:Schema.Types.ObjectId, ref:"Team"
+    }
 },
 {
     timestamps: true,
