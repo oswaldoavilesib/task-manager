@@ -46,7 +46,7 @@ router.get('/profile/folders/:id',(req,res,next)=>{
         console.log("RESPONSE OF getFOLDERS APIHANDLER",response)
         res.render('private/folders')
     })
-    .catch(error=>console.log('ERROR EN GET FOLDERS APIHANDLER'))
+    .catch(error=>console.log('ERROR EN GET FOLDERS APIHANDLER',error))
 
 })
 
