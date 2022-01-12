@@ -36,9 +36,9 @@ const clickUpApiHandler = new clickUpService();
 //----TRYING TO GET THE ID OF AN SPACE FOM A DATABASE TO SENDIT TO THE GETFOLDERS APIHANDLER------//
 
 router.get('/profile/folders/:id',(req,res,next)=>{
-    const {spaceId} = req.params
+    const {id} = req.params
     const accessToken = req.session.currentUser.clickUpAccessToken;
-    console.log("THE ID FROM GET /PROFILE",spaceId)
+    console.log("THE ID FROM GET /PROFILE",id)
     console.log("THE accessTOKEN FROM GET /PROFILE",accessToken)
     clickUpApiHandler
     .getFolders(spaceId,accessToken)
