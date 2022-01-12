@@ -11,7 +11,7 @@ const clickUpApiHandler = new clickUpService();
 //----GET ALL SPACES WORKSPACE"-----//
 
 router.get("/profile/lists/:id", (req, res, next) => {
-    const {id}
+    //const {id}
 
     res.render("private/lists");
 });
