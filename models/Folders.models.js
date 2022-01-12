@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const modelSchema = new Schema({
+const foldersSchema = new Schema({
     id: {
         type: Number
     },
@@ -22,4 +22,4 @@ const modelSchema = new Schema({
 
 })
 
-module.exports = model('Model',modelSchema)
+module.exports = model('Folders',foldersSchema)

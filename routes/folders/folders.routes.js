@@ -20,6 +20,10 @@ router.get('/profile/folders/:id',(req,res,next)=>{
     .then(response =>{
         //console.log("RESPONSE OF getFOLDERS APIHANDLER",response)
         console.log("RESPONSE.DATA OF getFOLDERS APIHANDLER",response.data)
+        response.data.folders.forEach((folder =>{
+            const {id,name,...rest} = folderM;
+            Folders.find
+        }))
         res.render('private/folders',{folders:response.data.folders})
     })
     .catch(error=>console.log('ERROR EN GET FOLDERS APIHANDLER',error))
