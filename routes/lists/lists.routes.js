@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const Space = require('../../models/Space.model')
+const List = require('../../models/List.model')
 const {isLoggedIn, isLoggedOut} = require('../../utils/route-guard')
 const axios = require('axios');
 const clickUpService = require('../../service/index')
@@ -9,10 +9,30 @@ const clickUpApiHandler = new clickUpService();
 
 //----GET ALL SPACES WORKSPACE"-----//
 
-router.get("/profile/lists/:id", (req, res, next) => {
-    //const {id} = req.params
+router.get("/profile/lists", (req, res, next) => {
+    const accessToken = req.session.currentUser.clickUpAccessToken;
+    const {id} = req.params
 
-    res.render("private/lists");
+    //Clickup API Handler
+    clickUpApiHandler
+    .getLists(id,accessToken)
+    .then(response => {
+        response.data.lists.forEach((list => {
+            const {id,name,...rest} = list;
+            List.find({id: {$eq:id}})
+            .then(response => {
+                if(!response.length){
+                    List.create({id,name})
+                    .then(response => console.log(response))
+                    .catch(error => console.log("ERROR EN CREAR LISTS EN DB", error))
+                } else {
+                    console.log("Space is alreado on DB")
+                }
+            })
+        }))
+        res.render("private/lists");
+    })
+    .cath(error => console.log("ERROR EN GET LISTS ROUTE",error))
 });
 
 
