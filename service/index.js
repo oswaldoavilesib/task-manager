@@ -9,20 +9,12 @@ class ClickUpApi {
 
     }
 
-    // saveAccessToken(code){
-    //     this.api.defaults.headers['Authorization'] = code
-    //     this.accessToken = code;
-    //     console.log("THIS API",this.api.defaults.headers)
-    // }
-
-    // getTeamsId(teamId){
-    //     return this.teamId = teamId;
-    // }
-
+    //-----GET ACCESS TOKEN------//
     getAccessToken(clickUpCode) {
         return this.api.post(`/oauth/token?code=${clickUpCode}&client_id=${process.env.CLIENTID}&client_secret=${process.env.CLIENTSECRET}`)
     }
-    
+
+    //-----TEAMS------//
     getTeams(clickUpAccessToken){
         
         return this.api.get('/team',{
@@ -33,30 +25,31 @@ class ClickUpApi {
         
     }
 
-    getSpaces(clickUpAccessToken){
-        console.log('THIS.TEAMID',this.teamId)
-        return this.api.get('/team/12602813/space',{
+    //-----SPACES------//
+    getSpaces(teamId,clickUpAccessToken){
+        console.log('THIS.TEAMID',teamId)
+        return this.api.get(`/team/${teamId}/space`,{
             headers:{
                 'Authorization': clickUpAccessToken
             }
         })
     }
 
-    createSpace(clickUpAccessToken){
-        const spaceId = Math.floor(Math.random()*899999 + 100000)
-        return this.api.post(`/team/${spaceId}/space`,{
-            headers: {
+    //-----FOLDERS------//
+    getFolders(spaceId,clickUpAccessToken){
+        console.log("CLICKUPTOKEN ON APIHANDLER",clickUpAccessToken)
+        console.log("spaceId ON APIHANDLER",spaceId)
+        return this.api.get(`/space/${spaceId}/folder`,{
+            headers:{
                 'Authorization': clickUpAccessToken
             }
         })
     }
 
-
-    //-----FOLDERS------//
-    getFolders(spaceId,clickUpAccessToken){
-        console.log("CLICKUPTOKEN ON APIHANDLER",clickUpAccessToken)
-        console.log("spaceId ON APIHANDLER",spaceId)
-        return this.api.get(`/team/${spaceId}/space`,{
+    
+    //-----LISTS------//
+    getLists(folderId,clickUpAccessToken){
+        return this.api.get(`/folder/${folderId}/list`,{
             headers:{
                 'Authorization': clickUpAccessToken
             }

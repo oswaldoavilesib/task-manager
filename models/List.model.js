@@ -1,6 +1,6 @@
 const { Schema, model } = require("mongoose");
 
-const foldersSchema = new Schema({
+const listSchema = new Schema({
     id: {
         type: Number
     },
@@ -10,6 +10,11 @@ const foldersSchema = new Schema({
     _user: {
         type:Schema.Types.ObjectId, ref:"User"
     },
+
+    _folder: {
+        type:Schema.Types.ObjectId, ref:"Folders"
+    },
+
     _space: {
         type:Schema.Types.ObjectId, ref:"Space"
     },
@@ -22,4 +27,4 @@ const foldersSchema = new Schema({
 
 })
 
-module.exports = model('Folders',foldersSchema)
+module.exports = model('List',listSchema)

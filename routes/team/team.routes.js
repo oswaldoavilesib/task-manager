@@ -13,6 +13,8 @@ router.get('/profile/teams',(req,res)=>{
     clickUpApiHandler
     .getTeams(accessToken)
     .then(response => {
+
+        console.log('RESPONSE DE TEAMS',response)
         console.log('RESPONSE.DATA DE TEAMS',response.data)
         console.log('CONSOLE TEAMS_ID',response.data.teams.id)
         //clickUpApiHandler.getTeamsId(response.data.teams.id)

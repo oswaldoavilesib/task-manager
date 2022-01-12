@@ -107,6 +107,7 @@ router.get('/workspace', (req,res,next)=>{
     clickUpApiHandler
     .getAccessToken(clickUpCode)
     .then(response=>{
+        console.log("RESPONSE.DATA OF getACcessTOken",response.data)
         req.session.currentUser.clickUpCode = req.query.code
         req.session.currentUser.clickUpAccessToken = response.data.access_token;
         console.log('req.ses WITH TOKENS',req.session)
