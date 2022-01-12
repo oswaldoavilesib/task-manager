@@ -40,7 +40,13 @@ router.get('/profile/folders/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken;
     console.log("THE ID FROM GET /PROFILE",id)
     console.log("THE accessTOKEN FROM GET /PROFILE",accessToken)
-    res.render('private/folders')
+    .clickUpApiHandler
+    .getFolders(id,accessToken)
+    .then(response =>{
+        console.log("RESPONSE OF getFOLDERS APIHANDLER",response)
+        res.render('private/folders')
+    })
+    .catch(error=>console.log('ERROR EN GET FOLDERS APIHANDLER'))
 
 })
 
