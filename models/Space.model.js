@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const spaceSchema = new Schema({
-    id: {
+    spaceId: {
         type: Number
     },
     name:{
