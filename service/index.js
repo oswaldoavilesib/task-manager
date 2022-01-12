@@ -7,7 +7,7 @@ class ClickUpApi {
             baseURL:'https://api.clickup.com/api/v2/'
         });
 
-        this.accessToken = ""
+        this.teamId;
     }
 
     saveAccessToken(code){
@@ -16,28 +16,26 @@ class ClickUpApi {
         console.log("THIS API",this.api.defaults.headers)
     }
 
+    getTeamsId(teamId){
+        return this.teamId = teamId;
+    }
+
     getAccessToken(clickUpCode) {
         return this.api.post(`/oauth/token?code=${clickUpCode}&client_id=${process.env.CLIENTID}&client_secret=${process.env.CLIENTSECRET}`)
     }
     
     getTeams(clickUpAccessToken){
-        console.log('THIS IS THE APIIIII',this.api.defaults.headers.common)
-        console.log('THIS IS THE APIIIII',this.api)
-        // const config = {
-        //     headers:{
-        //         'Authorization': this.accessToken,
-        //     }
-        // }
         
         return this.api.get('/team',{
             headers:{
                 'Authorization': clickUpAccessToken
             }
         })
+        
     }
 
     getSpaces(clickUpAccessToken){
-
+        console.log('THIS.TEAMID',this.teamId)
         return this.api.get('/team/12602813/space',{
             headers:{
                 'Authorization': clickUpAccessToken
@@ -56,8 +54,9 @@ class ClickUpApi {
 
 
     //-----FOLDERS------//
-    getFolders(){
-        return this.api.get('/team//space',{
+    getFolders(spaceId,clickUpAccessToken){
+        console.log(spaceId)
+        return this.api.get(`/team/${spaceId}/space`,{
             headers:{
                 'Authorization': clickUpAccessToken
             }
