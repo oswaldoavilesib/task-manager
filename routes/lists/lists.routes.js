@@ -32,8 +32,8 @@ router.get("/profile/lists/:id", (req, res, next) => {
                     console.log("list is alreado on DB")
                 }
             })
+            res.render("private/lists");
         }))
-        res.render("private/lists");
     })
     .cath(error => console.log("ERROR EN GET LISTS ROUTE",error))
 });
