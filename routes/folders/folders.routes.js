@@ -29,7 +29,7 @@ router.get('/profile/folders/:id',(req,res,next)=>{
                     .then(response=>console.log(response))
                     .catch(error=>console.log("ERROR EN CREAR FOLDERS EN DB",error))
                 } else {
-                    console.log("Space is already on DB")
+                    console.log("Folders is already on DB")
                 }
             })
         }))

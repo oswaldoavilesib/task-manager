@@ -17,6 +17,7 @@ router.get("/profile/lists", (req, res, next) => {
     clickUpApiHandler
     .getLists(id,accessToken)
     .then(response => {
+        console.log("RESPONSE.DATA OF LISTS API",error)
         response.data.lists.forEach((list => {
             const {id,name,...rest} = list;
             List.find({id: {$eq:id}})
@@ -26,7 +27,7 @@ router.get("/profile/lists", (req, res, next) => {
                     .then(response => console.log(response))
                     .catch(error => console.log("ERROR EN CREAR LISTS EN DB", error))
                 } else {
-                    console.log("Space is alreado on DB")
+                    console.log("list is alreado on DB")
                 }
             })
         }))
