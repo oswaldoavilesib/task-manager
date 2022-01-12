@@ -42,21 +42,21 @@ class ClickUpApi {
         })
     }
 
-    createSpace(clickUpAccessToken){
-        const spaceId = Math.floor(Math.random()*899999 + 100000)
-        return this.api.post(`/team/${spaceId}/space`,{
-            headers: {
-                'Authorization': clickUpAccessToken
-            }
-        })
-    }
+    // createSpace(clickUpAccessToken){
+    //     const spaceId = Math.floor(Math.random()*899999 + 100000)
+    //     return this.api.post(`/team/${spaceId}/space`,{
+    //         headers: {
+    //             'Authorization': clickUpAccessToken
+    //         }
+    //     })
+    // }
 
 
     //-----FOLDERS------//
     getFolders(spaceId,clickUpAccessToken){
         console.log("CLICKUPTOKEN ON APIHANDLER",clickUpAccessToken)
         console.log("spaceId ON APIHANDLER",spaceId)
-        return this.api.get(`/team/${spaceId}/space`,{
+        return this.api.get(`/space/${spaceId}/folder`,{
             headers:{
                 'Authorization': clickUpAccessToken
             }
