@@ -9,7 +9,7 @@ const clickUpApiHandler = new clickUpService();
 
 //----GET ALL SPACES WORKSPACE"-----//
 
-router.get("/profile/lists", (req, res, next) => {
+router.get("/profile/lists/:id", (req, res, next) => {
     const accessToken = req.session.currentUser.clickUpAccessToken;
     const {id} = req.params
 
@@ -17,7 +17,9 @@ router.get("/profile/lists", (req, res, next) => {
     clickUpApiHandler
     .getLists(id,accessToken)
     .then(response => {
-        console.log("RESPONSE.DATA OF LISTS API",error)
+        console.log("RESPONSE.DATA OF LISTS API",response.data)
+
+        //Adding to DB
         response.data.lists.forEach((list => {
             const {id,name,...rest} = list;
             List.find({id: {$eq:id}})

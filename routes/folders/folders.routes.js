@@ -15,11 +15,15 @@ router.get('/profile/folders/:id',(req,res,next)=>{
     const id = req.params.id
     console.log("THE ID FROM GET /PROFILE",id)
     console.log("THE accessTOKEN FROM GET /PROFILE",accessToken)
+
+    //Clickup API Handler
     clickUpApiHandler
     .getFolders(id,accessToken)
     .then(response =>{
         //console.log("RESPONSE OF getFOLDERS APIHANDLER",response)
         console.log("RESPONSE.DATA OF getFOLDERS APIHANDLER",response.data)
+
+        //Adding to DB
         response.data.folders.forEach((folder =>{
             const {id,name,...rest} = folder;
             Folders.find({id:{$eq:id}})
