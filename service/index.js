@@ -46,6 +46,8 @@ class ClickUpApi {
         })
     }
 
+    
+    //-----LISTS------//
     getLists(folderId,clickUpAccessToken){
         return this.api.get(`/folder/${folderId}/list`,{
             headers:{
