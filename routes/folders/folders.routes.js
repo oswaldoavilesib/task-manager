@@ -10,21 +10,56 @@ const clickUpApiHandler = new clickUpService();
 
 //----GET ALL FOLDERS FROM A WORKSPACE"-----//
 
-router.get("/profile/folders", (req, res, next) => {
+// router.get("/profile/folders", (req, res, next) => {
+//     Space.findOne({id})
+//     .then(response =>{
+//         console.log(response)
+//         console.log(response.id)
+//         clickUpApiHandler
+//         .getFolders(response.id,accessToken)
+//         .then(response => {
+//             console.log(response)
+//             res.redirect('/private/folders')
+//         })
+//         .catch(error=>console.log("ERROR EN GET FOLDER PROMISE",error))
 
-    res.render("private/folders");
-});
+
+//     res.render("private/folders");
+// });
+
+
+
+
+
+
+
+//----TRYING TO GET THE ID OF AN SPACE FOM A DATABASE TO SENDIT TO THE GETFOLDERS APIHANDLER------//
 
 router.get('/profile/folders/:id',(req,res,next)=>{
     const {id} = req.params
-    console.log('EL ID DEL PARAMETRO',id)
-    Space.findOne({id})
-    .then(response =>{
-        console.log(response)
-        res.render('private/folder/lists/')
-    })
-    .catch(error=>console.log('EL ERROR EN PARAMS FOLDERS',error))
+    const accessToken = req.session.currentUser.clickUpAccessToken;
+    console.log("THE ID FROM GET /PROFILE",id)
+    console.log("THE accessTOKEN FROM GET /PROFILE",accessToken)
+    res.render('private/folders')
 
 })
+
+
+// console.log('EL ID DEL PARAMETRO',id)
+//     Space.findOne({id})
+//     .then(response =>{
+//         console.log(response)
+//         console.log(response.id)
+//         clickUpApiHandler
+//         .getFolders(response.id,accessToken)
+//         .then(response => {
+//             console.log(response)
+//            res.redirect('/private/folders')
+//         })
+//         .catch(error=>console.log("ERROR EN GET FOLDER PROMISE",error))
+
+//     })
+//     .catch(error=>console.log('EL ERROR EN PARAMS FOLDERS',error))
+
 
 module.exports = router;

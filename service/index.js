@@ -54,8 +54,9 @@ class ClickUpApi {
 
 
     //-----FOLDERS------//
-    getFolders(){
-        return this.api.get('/team//space',{
+    getFolders(spaceId,clickUpAccessToken){
+        console.log(spaceId)
+        return this.api.get(`/team/${spaceId}/space`,{
             headers:{
                 'Authorization': clickUpAccessToken
             }
