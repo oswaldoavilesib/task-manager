@@ -38,7 +38,7 @@ const clickUpApiHandler = new clickUpService();
 router.get('/profile/folders/:id',(req,res,next)=>{
     const {spaceId} = req.params
     const accessToken = req.session.currentUser.clickUpAccessToken;
-    console.log("THE ID FROM GET /PROFILE",id)
+    console.log("THE ID FROM GET /PROFILE",spaceId)
     console.log("THE accessTOKEN FROM GET /PROFILE",accessToken)
     clickUpApiHandler
     .getFolders(spaceId,accessToken)
