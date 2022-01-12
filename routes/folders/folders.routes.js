@@ -21,8 +21,17 @@ router.get('/profile/folders/:id',(req,res,next)=>{
         //console.log("RESPONSE OF getFOLDERS APIHANDLER",response)
         console.log("RESPONSE.DATA OF getFOLDERS APIHANDLER",response.data)
         response.data.folders.forEach((folder =>{
-            const {id,name,...rest} = folderM;
-            Folders.find
+            const {id,name,...rest} = folder;
+            Folders.find({id:{$eq:id}})
+            .then(response => {
+                if(!response.length){
+                    Folders.create({id,name})
+                    .then(response=>console.log(response))
+                    .catch(error=>console.log("ERROR EN CREAR FOLDERS EN DB",error))
+                } else {
+                    console.log("Space is already on DB")
+                }
+            })
         }))
         res.render('private/folders',{folders:response.data.folders})
     })
