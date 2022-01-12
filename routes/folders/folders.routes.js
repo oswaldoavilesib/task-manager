@@ -43,8 +43,9 @@ router.get('/profile/folders/:id',(req,res,next)=>{
     clickUpApiHandler
     .getFolders(id,accessToken)
     .then(response =>{
-        console.log("RESPONSE OF getFOLDERS APIHANDLER",response)
-        res.render('private/folders')
+        //console.log("RESPONSE OF getFOLDERS APIHANDLER",response)
+        console.log("RESPONSE.DATA OF getFOLDERS APIHANDLER",response.data)
+        res.render('private/folders',{folders:response.data.folders})
     })
     .catch(error=>console.log('ERROR EN GET FOLDERS APIHANDLER',error))
 

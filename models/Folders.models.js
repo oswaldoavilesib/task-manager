@@ -10,6 +10,12 @@ const modelSchema = new Schema({
     _user: {
         type:Schema.Types.ObjectId, ref:"User"
     },
+    _space: {
+        type:Schema.Types.ObjectId, ref:"Space"
+    },
+    _team: {
+        type:Schema.Types.ObjectId, ref:"Team"
+    }
 },
 {
     timestamps: true,

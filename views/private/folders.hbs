@@ -1,1 +1,18 @@
 <h1>folders</h1>
+
+
+{{#each folders}}
+<div>
+    <img src="{{avatar}}" class="card-img-top" alt="...">
+    <ul>
+        <li><strong>Space's name: {{space.name}}</strong></li>
+        <li><strong>Folder's name: {{name}}</strong></li>
+        <li>Number of tasks in this folder: {{task_count}}</li>
+        <li>Lists on this folder: {{lists.lengh}}</li>
+        {{#each lists}}
+            <ul>
+                <li>{{name}}</li>
+            </ul>
+        {{#each lists}}
+    </ul>
+{{/each}}
