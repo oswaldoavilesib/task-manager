@@ -1,13 +1,23 @@
-<h1>Lists</h1>
-
+<h1 class="workspace-titles" >Lists</h1>
 
 {{#each lists}}
-<div>
-    <ul>
-        <li><strong>Space's name: {{space.name}}</strong></li>
-        <li><strong>Folder's name: {{folder.name}}</strong></li>
-        <li><strong>List name: {{name}}</strong></li>
-        <li>Number of tasks in this folder: {{task_count}}</li>
-        <li><a href="/profile/tasks/{{id}}">See all tasks in this list</a></li>
-    </ul>
+<div class="table-responsive table-container">
+    <h2 class="workspace-titles" >Space: {{space.name}}</h2>
+    <h4 class="workspace-titles" >Folder: {{folder.name}}</h4>
+    <table class="table folders-table table-hover">
+    <thead>
+        <tr>
+            <th scope="col">List name</th>
+            <th scope="col">Number of tasks</th>
+            <th scope="col">Go to your tasks</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td>{{name}}</td>
+            <td>{{task_count}}</td>
+            <td><a href="/profile/tasks/{{id}}">See all Tasks.</a></td>
+        </tr>
+    </table>
+</div>
 {{/each}}
