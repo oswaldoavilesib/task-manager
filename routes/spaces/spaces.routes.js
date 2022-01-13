@@ -46,8 +46,8 @@ router.get('/profile/spaces/:id',(req,res,next)=>{
     clickUpApiHandler
     createSpace(id,accessToken)
     .then(response => {
-        console.log(response)
-        res.redirect('/private/spaces')
+        console.log("RESPONSE OF POST SPACES",response)
+        res.redirect(`/private/spaces/${id}`)
     })
     .catch(error = console.log("ERROR EN CREAR SPACE",error))
 })
