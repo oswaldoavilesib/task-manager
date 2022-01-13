@@ -45,11 +45,6 @@ class ClickUpApi {
             headers:{
                 'Authorization': clickUpAccessToken
             }
-        },
-        {
-            data:{
-                'Authorization': clickUpAccessToken,
-            }
         })
     }
 
