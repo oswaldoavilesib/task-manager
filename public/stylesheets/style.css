@@ -12368,8 +12368,11 @@ p {
   border-radius: 30px;
   background-color: white;
   width: 90%;
+  padding: 15px;
+  margin: 10px auto;
+}
+
+.app-btn a {
   color: #4c489d;
   font-weight: 700;
-  padding: 15px;
-  margin-bottom: 10px;
 }
