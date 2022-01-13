@@ -35,9 +35,18 @@ router.get('/profile/spaces/:id',(req,res,next)=>{
     .catch(error=>console.log("ERROR EN GET SPACES API",error))
 })
 
-//----GET ONE SPACE"-----//
+//----POST TO CREATE A NEW SPACE"-----//
 router.get('/profile/spaces/:id',(req,res,next)=>{
-    
+    const accessToken = req.session.currentUser.clickUpAccessToken;
+    const {id} = req.params
+
+    clickUpApiHandler
+    createSpace(id,accessToken)
+    .then(response => {
+        console.log(response)
+        res.redirect('/private/spaces')
+    })
+    .catch(error = console.log("ERROR EN CREAR SPACE",error))
 })
 
 

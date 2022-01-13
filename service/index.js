@@ -36,14 +36,14 @@ class ClickUpApi {
         })
     }
         //create spaces//
-    // createSpaces(teamId,clickUpAccessToken){
-    //     return this.api.get(`/folder/${teamId}/list`,{
-    //         headers:{
-    //             'Authorization': clickUpAccessToken
-    //         }
-    //     })
+    createSpace(teamId,clickUpAccessToken){
+        return this.api.post(`/team/${teamId}/space`,{
+            headers:{
+                'Authorization': clickUpAccessToken
+            }
+        })
+    }
 
-    // }
 
     //-----FOLDERS------//
     getFolders(spaceId,clickUpAccessToken){
