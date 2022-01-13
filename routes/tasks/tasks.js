@@ -18,6 +18,10 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
     .then(response=>{
         console.log("RESPONSE:DATA FROM TASKS",response.data) //We recieve al th data from api call
 
+        console.log("ASSIGNESS FROM TASKS",response.data.tasks.assignees)
+
+        console.log("ASSIGNESS FROM TASKS",response.data.tasks.checklists)
+
         //Now we neet to iterate in each of the tasks to make sure they are on our database and if they are, do not add the, again
         response.data.tasks.forEach((task => {
             const {id,name,...rest} = task
