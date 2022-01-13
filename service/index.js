@@ -42,20 +42,20 @@ class ClickUpApi {
                 console.log("spaceNAME ON APIHANDLER",spaceName)
         return this.api.post(`/team/${teamId}/space`,
         {
-            data:{
-                name: spaceName,
+            headers:{
+                'Authorization': clickUpAccessToken
             }
         },
         {
-            headers:{
-                'Authorization': clickUpAccessToken
+            data:{
+                name: spaceName,
             }
         })
     }
 
 
     //-----FOLDERS------//
-    getFolders(spaceId,clickUpAccessToken,spaceName){
+    getFolders(spaceId,clickUpAccessToken){
         console.log("CLICKUPTOKEN ON APIHANDLER",clickUpAccessToken)
         console.log("spaceId ON APIHANDLER",spaceId)
         return this.api.get(`/space/${spaceId}/folder`,
