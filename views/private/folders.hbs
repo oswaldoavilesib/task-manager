@@ -1,26 +1,36 @@
-<h1>Folders of <strong>{{space.name}}</strong> space:</h1>
+<h1 class="workspace-titles">Folders of <strong>{{space.name}}</strong></h1>
 
 {{#each folders}}
-<table class="table">
-  <thead>
-    <tr>
-      <th scope="col">Folder Name</th>
-      <th scope="col">Number of lists</th>
-      <th scope="col">Number of tasks</th>
-      <th scope="col">Handle</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">{{name}}</th>
-      <td>{{lists.lengh}}</td>
-      <td>{{task_count}}</td>
-      <td>@<a href="/profile/lists/{{id}}">See all lists in this folder</a></td>
-    </tr>
-</table>
+<div class="table-responsive table-container">
+    <table class="table folders-table table-hover">
+    <thead>
+        <tr>
+        <th scope="col">Folder Name</th>
+        <th scope="col">Number of lists</th>
+        <th scope="col">Number of tasks</th>
+        <th scope="col">Specific lists</th>
+        <th scope="col">All your lists</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">{{name}}</th>
+            <td>{{lists.length}}</td>
+            <td>{{task_count}}</td>
+            <td>
+                {{#each lists}}
+                    <li class="table-uri"><a href="/profile/lists/{{id}}">{{name}}</a></li>
+                {{/each}}
+            </td>
+            <td><a href="/profile/lists/{{id}}">See all lists.</a></td>
+        </tr>
+    </table>
+</div>
 {{/each}}
 
-{{#each folders}}
+
+{{!-- {{#each folders}}
 <div>
     <ul>
         <li><strong>Space's name: {{space.name}}</strong></li>
@@ -34,4 +44,4 @@
             </ul>
         {{/each}}
     </ul>
-{{/each}}
+{{/each}} --}}

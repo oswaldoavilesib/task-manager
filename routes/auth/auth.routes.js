@@ -137,6 +137,11 @@ router.get('/logout',(req,res,next)=>{
 
 
 
+//-----ROUTE FOR TESTING UI------/
+router.get('/testing',(req,res,next)=>{
+    res.render('private/testing')
+})
+
 
 
 module.exports = router;

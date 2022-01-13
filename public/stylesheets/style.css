@@ -12324,3 +12324,21 @@ a {
 #signup {
   padding-top: 70px;
 }
+
+.table-container {
+  margin: 50px auto 25px;
+  width: 80%;
+}
+
+.table-container a {
+  color: yellow;
+}
+
+.table-uri {
+  list-style-type: none;
+}
+
+.workspace-titles {
+  margin-top: 30px;
+  margin-left: 10%;
+}
