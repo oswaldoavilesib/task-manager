@@ -18,11 +18,6 @@
             <th scope="row">{{name}}</th>
             <td>{{lists.length}}</td>
             <td>{{task_count}}</td>
-            <td>
-                {{#each lists}}
-                    <li class="table-uri"><a href="/profile/lists/{{id}}">{{name}}</a></li>
-                {{/each}}
-            </td>
             <td><a href="/profile/lists/{{id}}">See all lists.</a></td>
         </tr>
     </table>
