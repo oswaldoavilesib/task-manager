@@ -30,7 +30,10 @@ router.get('/profile/spaces/:id',(req,res,next)=>{
             })
             .catch(error=>console.log("ERROR EN CREAR SPACES EN BASE DE DATOS",error))
         }))
-        res.render('private/spaces',{spaces:response.data.spaces})
+        res.render('private/spaces',{
+            spaces:response.data.spaces,
+            id,
+        })
     })
     .catch(error=>console.log("ERROR EN GET SPACES API",error))
 })
