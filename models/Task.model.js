@@ -6,11 +6,25 @@ const taskSchema = new Schema({
     },
     name:{
         type: String,
-        required: [true,"You must provide a name for this task"]
     },
     _user: {
         type:Schema.Types.ObjectId, ref:"User"
     },
+
+    _list: {
+        type:Schema.Types.ObjectId, ref:"List"
+    },
+
+    _folder: {
+        type:Schema.Types.ObjectId, ref:"Folders"
+    },
+
+    _space: {
+        type:Schema.Types.ObjectId, ref:"Space"
+    },
+    _team: {
+        type:Schema.Types.ObjectId, ref:"Team"
+    }
 },
 {
     timestamps: true,

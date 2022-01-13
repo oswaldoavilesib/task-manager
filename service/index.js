@@ -66,6 +66,14 @@ class ClickUpApi {
         })
     }
 
+    //-----TASKS------//
+    getTasks(listId,clickUpAccessToken){
+        return this.api.get(`/list/${listId}/list`,{
+            headers:{
+                'Authorization': clickUpAccessToken
+            }
+        })
+    }
 
 }
 
