@@ -44,7 +44,7 @@ router.post('/profile/spaces/:id',(req,res,next)=>{
     const {id} = req.params
 
     clickUpApiHandler
-    createSpace(id,accessToken)
+    .createSpace(id,accessToken)
     .then(response => {
         console.log("RESPONSE OF POST SPACES",response)
         res.redirect(`/private/spaces/`)
