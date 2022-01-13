@@ -39,6 +39,11 @@ router.get('/profile/spaces/:id',(req,res,next)=>{
 })
 
 //----POST TO CREATE A NEW SPACE"-----//
+
+router.get('/profile/create-space',(req,res,next)=>{
+    res.render('private/createSpace')
+})
+
 router.post('/profile/spaces/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken;
     const {id} = req.params
