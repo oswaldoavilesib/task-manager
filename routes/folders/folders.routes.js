@@ -8,7 +8,7 @@ const clickUpService = require('../../service/index')
 const clickUpApiHandler = new clickUpService();
 
 
-//----TRYING TO GET THE ID OF AN SPACE FOM A DATABASE TO SENDIT TO THE GETFOLDERS APIHANDLER------//
+//----GET FOLDERS//
 
 router.get('/profile/folders/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken;
