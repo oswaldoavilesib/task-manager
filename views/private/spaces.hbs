@@ -1,9 +1,5 @@
 <h1 class="workspace-titles">Spaces</strong></h1>
 
-<p>Space id{{spaces.id}}</p>
-<p>Space id{{id}}</p>
-
-
 <div class="table-responsive table-container">
     <table class="table folders-table table-hover">
     <thead>
@@ -36,7 +32,7 @@
 
 <h2 class="workspace-titles">Create a new space</h2>
 <div class="table-responsive table-container">
-    <form action="/profile/spaces/${}">
+    <form action="/profile/spaces/{{id}}" method="post">
         <table class="table folders-table table-hover">
         <thead>
             <tr>
