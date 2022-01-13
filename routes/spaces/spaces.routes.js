@@ -47,7 +47,7 @@ router.post('/profile/spaces/:id',(req,res,next)=>{
     const {spaceName} = req.body;
 
     clickUpApiHandler
-    .createSpace(id,spaceName,accessToken)
+    .createSpace(id,accessToken)
     .then(response => {
         console.log("RESPONSE OF POST SPACES",response)
         res.redirect('/profile')
