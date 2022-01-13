@@ -15,9 +15,13 @@
         {{#each tasks}}
         <tr>
             <td>{{name}}</td>
-
-                <td>Number of assigness</td>
-
+            <td>{{assignees.length}}</td>
+            {{#each assignees}}
+                <td class="table-uri">
+                    <li>{{username}}</li>
+                    <li><img class="profile-image-spaces" src="{{profilePicture}}" alt=""></li>
+                </td>
+            {{/each}}
         </tr>
         {{/each}}
     </table>
