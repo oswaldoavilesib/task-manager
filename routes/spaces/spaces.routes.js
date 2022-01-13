@@ -20,9 +20,9 @@ router.get('/profile/spaces/:id',(req,res,next)=>{
             Space.create({id,name})
             .then(response=>{
                 if(!response.length){
-                    Space.create({id,name}
+                    Space.create({id,name})
                         .then(response=>console.log("RESPONSE OF CREATE SPACE",response))
-                        .catch(error=> console.log("ERROR EN CREAR SPACES EN DB",error)))
+                        .catch(error=> console.log("ERROR EN CREAR SPACES EN DB",error))
                 }
             })
             .catch(error=>console.log("ERROR EN CREAR SPACES EN BASE DE DATOS",error))
