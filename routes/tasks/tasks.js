@@ -16,6 +16,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
     .getLists(id,accessToken)
     .then(response=>{
         console.log(response.data)
+    })
     .catch(error => console.log("ERROR EN GET TASKS API",error))
 })
 
