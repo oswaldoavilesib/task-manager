@@ -36,10 +36,17 @@ class ClickUpApi {
         })
     }
         //create spaces//
-    createSpace(teamId,clickUpAccessToken){
+    createSpace(teamId,clickUpAccessToken,spaceName){
         console.log("TEAM ID",teamId)
         console.log("TOKEN: ",clickUpAccessToken )
-        return this.api.post(`/team/${teamId}/space`,{
+                console.log("spaceNAME ON APIHANDLER",spaceName)
+        return this.api.post(`/team/${teamId}/space`,
+        {
+            data:{
+                name: spaceName,
+            }
+        },
+        {
             headers:{
                 'Authorization': clickUpAccessToken
             }
@@ -51,7 +58,6 @@ class ClickUpApi {
     getFolders(spaceId,clickUpAccessToken,spaceName){
         console.log("CLICKUPTOKEN ON APIHANDLER",clickUpAccessToken)
         console.log("spaceId ON APIHANDLER",spaceId)
-        console.log("spaceNAME ON APIHANDLER",spaceName)
         return this.api.get(`/space/${spaceId}/folder`,
         {
             headers:{
