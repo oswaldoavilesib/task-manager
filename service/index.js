@@ -48,10 +48,10 @@ class ClickUpApi {
 
 
     //-----FOLDERS------//
-    getFolders(spaceId,clickUpAccessToken){
+    getFolders(spaceId,spaceName,clickUpAccessToken){
         console.log("CLICKUPTOKEN ON APIHANDLER",clickUpAccessToken)
         console.log("spaceId ON APIHANDLER",spaceId)
-        return this.api.get(`/space/${spaceId}/folder`,{name: "hola"},{
+        return this.api.get(`/space/${spaceId}/folder`,{name: spaceName},{
             headers:{
                 'Authorization': clickUpAccessToken
             }
