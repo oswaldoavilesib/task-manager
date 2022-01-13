@@ -49,7 +49,7 @@ router.post('/profile/spaces/:id',(req,res,next)=>{
         console.log("RESPONSE OF POST SPACES",response)
         res.redirect(`/private/spaces/`)
     })
-    .catch(error = console.log("ERROR EN CREAR SPACEE",error))
+    .catch(error => console.log("ERROR EN CREAR SPACEE",error))
 })
 
 
