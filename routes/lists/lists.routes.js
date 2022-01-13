@@ -24,6 +24,7 @@ router.get("/profile/lists/:id", (req, res, next) => {
             const {id,name,...rest} = list;
             List.find({id: {$eq:id}})
             .then(response => {
+                console.log("RESPONSE.DATA DE LISTS",response.data)
                 if(!response.length){
                     List.create({id,name})
                     .then(response => console.log(response))
@@ -33,7 +34,7 @@ router.get("/profile/lists/:id", (req, res, next) => {
                 }
             })
         }))
-        res.render("private/lists");
+        res.render("private/lists",{lists: response.data.lists});
     })
     .catch(error => console.log("ERROR EN GET LISTS ROUTE",error))
 });
