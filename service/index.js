@@ -48,7 +48,7 @@ class ClickUpApi {
         },
         {
             data:{
-                name: spaceName,
+                'Authorization': clickUpAccessToken,
             }
         })
     }
