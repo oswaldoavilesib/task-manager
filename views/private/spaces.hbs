@@ -32,7 +32,7 @@
 
 <h2 class="workspace-titles">Create a new space</h2>
 <div class="table-responsive table-container">
-    <form action="/profile/spaces/{{id}}" method="post">
+    <form action="/profile/spaces" method="post">
         <table class="table folders-table table-hover">
         <thead>
             <tr>
@@ -43,8 +43,8 @@
         </thead>
         <tbody>
             <tr>
-                {{!-- <td><input class="input-create" type="text" name="spaceName" id="" placeholder="Write your space name." ></td>
-                <td><input class="input-create" type="text" name="spaceId" id="" placeholder="Write a 5 digit number"></td> --}}
+                <td><input class="input-create" type="text" name="spaceName" id="" placeholder="Write your space name." ></td>
+                <td><input class="input-create" type="text" name="spaceId" id="" placeholder="Write a 5 digit number"></td>
                 <td>
                     <button class="create-btn" type="submit">Create a new Space</button>
                 </td>
