@@ -12376,3 +12376,8 @@ p {
   color: #4c489d;
   font-weight: 700;
 }
+
+.profile-image-spaces {
+  border-radius: 50px;
+  width: 30px;
+}
