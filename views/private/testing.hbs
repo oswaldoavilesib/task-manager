@@ -1,13 +1,9 @@
 <div class="container profile-div">
 	<div class="screen profile-container">
-        <h1>Hi, Oswaldo!</h1>
-        <p>We love you are back to work. Are you prepare to be productive today?</p>
-        <button class="button login__submit">
-			<span class="button__text"><a href="https://app.clickup.com/api?client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&redirect_uri=https://task-managermx.herokuapp.com/workspace">Access your workspaces</a></span>
+        <h1>Welcome to your Workspace {{user.username}}!</h1>
+        <p>Now it is time to catch up with your Teams. <strong>Let's go!</strong> </p>
+        <button class="app-btn">
+			<span class="app-btn"><a href="/profile/teams">Access my teams</a></span>
 		</button>	
-        <div class="logout-btn">
-            <a href="/logout">Log out</a>
-        </div>
     </div>
 </div>	
-
