@@ -30,21 +30,24 @@
 </div>
 
 
-
-
-
-{{#each spaces}}
-<div>
-    <img src="{{avatar}}" class="card-img-top" alt="...">
-    <h5 class="card-title"><strong>Team's name: {{name}}</strong></h5>
-    <h5 class="card-title"><strong>Members</strong></h5>
-    <p>Number of members: {{members.length}}</p>
-    <p>List of members</p>
-    <a href="/profile/folders/{{id}}">See all folders</a>
-    {{#each members}}
-        <ul>
-            <li><span><img src="{{user.profilePicture}}" alt=""></span>{{user.username}}</li>
-        </ul>
-    {{/each}}
+<div class="table-responsive table-container">
+    <form action="">
+        <table class="table folders-table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Name your space</th>
+            <th scope="col">Asign an ID</th>
+            <th scope="col">Create your Space</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input class="input-create" type="text" name="spaceName" id="" placeholder="Write your space name."></td>
+                <td><input class="input-create" type="text" name="spaceId" id="" placeholder="Write a 5 digit number"></td>
+                <td>
+                    <button class="create-btn" type="submit">Create a new Space</button>
+                </td>
+            </tr>
+        </table>
+    </form>
 </div>
-{{/each}}

@@ -19,8 +19,8 @@
             <td>{{members.length}}</td>
             <td class="table-uri"> 
                 {{#each members}}
+                    <li><img class="profile-image-spaces" src="{{user.profilePicture}}" alt=""></li>
                     <li>{{user.username}}</li>
-                    <li><img clase="profile-image-spaces" src="{{user.profilePicture}}" alt=""></li>
                 {{/each}}
             </td>
             <td><a href="/profile/folders/{{id}}">See all Folders.</a></td>
@@ -34,8 +34,24 @@
 
 
 <h2>Create a new space</h2>
-<form action="/profile/spaces" method="POST">
-    <label for="">Team name:</label>
-    <input type="text" name="teamName" placeholder="Team's name" id="" required>
-    <button type="submit">Create Space</button>
-</form>
+<div class="table-responsive table-container">
+    <form action="">
+        <table class="table folders-table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Name your space</th>
+            <th scope="col">Asign an ID</th>
+            <th scope="col">Create your Space</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input class="input-create" type="text" name="spaceName" id="" placeholder="Write your space name."></td>
+                <td><input class="input-create" type="text" name="spaceId" id="" placeholder="Write a 5 digit number"></td>
+                <td>
+                    <button class="create-btn" type="submit">Create a new Space</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

@@ -12381,3 +12381,17 @@ p {
   border-radius: 50px;
   width: 30px;
 }
+
+.input-create {
+  background-color: transparent;
+  padding: 10px;
+  border: none;
+}
+
+.create-btn {
+  background: white;
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  margin: 0 auto;
+}
