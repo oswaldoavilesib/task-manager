@@ -23,7 +23,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
         response.data.tasks.forEach((task => {
             console.log("ASSIGNESS FROM TASKS",task.assignees)
 
-            console.log("ASSIGNESS FROM TASKS",task.checklists)
+            console.log("CHECKLISTS FROM TASKS",task.checklists)
             const {id,name,...rest} = task
             Task.find({id: {$eq:id}})
             .then(response => {
