@@ -11,18 +11,21 @@ const clickUpApiHandler = new clickUpService();
 router.get('/profile/spaces/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken;
     const {id} = req.params
+
     clickUpApiHandler
     .getSpaces(id,accessToken)
     .then(response=>{
         console.log(response.data)
         response.data.spaces.forEach((space=>{
             const {id,name} = space
-            Space.create({id,name})
+            Space.find({id,name})
             .then(response=>{
                 if(!response.length){
                     Space.create({id,name})
                         .then(response=>console.log("RESPONSE OF CREATE SPACE",response))
                         .catch(error=> console.log("ERROR EN CREAR SPACES EN DB",error))
+                } else {
+                    console.log("THIS SPACE IS ALREADY ON DB")
                 }
             })
             .catch(error=>console.log("ERROR EN CREAR SPACES EN BASE DE DATOS",error))
