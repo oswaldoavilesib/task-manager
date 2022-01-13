@@ -13,7 +13,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
     const {id} = req.params
 
     clickUpApiHandler
-    .getLists(id,accessToken)
+    .getTasks(id,accessToken)
     .then(response=>{
         console.log(response.data)
     })
