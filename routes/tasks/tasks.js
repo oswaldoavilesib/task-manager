@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const List = require('../../models/List.model')
+const Task = require('../../models/Task.model')
 const {isLoggedIn, isLoggedOut} = require('../../utils/route-guard')
 const axios = require('axios');
 const clickUpService = require('../../service/index')
