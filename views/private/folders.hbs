@@ -1,6 +1,5 @@
-<h1 class="workspace-titles">Folders of <strong>{{folders.space.name}}</strong></h1>
+<h1 class="workspace-titles">Folders</strong></h1>
 
-{{#each folders}}
 <div class="table-responsive table-container">
     <table class="table folders-table table-hover">
     <thead>
@@ -14,12 +13,13 @@
         </tr>
     </thead>
     <tbody>
+        {{#each folders}}
         <tr>
             <th scope="row">{{name}}</th>
             <td>{{lists.length}}</td>
             <td>{{task_count}}</td>
             <td><a href="/profile/lists/{{id}}">See all lists.</a></td>
-        </tr>
+        </tr>.
+        {{/each}}
     </table>
 </div>
-{{/each}}
