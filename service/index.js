@@ -68,6 +68,8 @@ class ClickUpApi {
 
     //-----TASKS------//
     getTasks(listId,clickUpAccessToken){
+        console.log("LIST ID EN APIHANDLER",listId)
+        console.log("ACCESS TOKEN",clickUpAccessToken)
         return this.api.get(`/list/${listId}/task`,{
             headers:{
                 'Authorization': clickUpAccessToken
