@@ -26,6 +26,7 @@ class ClickUpApi {
     }
 
     //-----SPACES------//
+        //get spaces//
     getSpaces(teamId,clickUpAccessToken){
         console.log('THIS.TEAMID',teamId)
         return this.api.get(`/team/${teamId}/space`,{
@@ -34,6 +35,15 @@ class ClickUpApi {
             }
         })
     }
+        //create spaces//
+    // createSpaces(teamId,clickUpAccessToken){
+    //     return this.api.get(`/folder/${teamId}/list`,{
+    //         headers:{
+    //             'Authorization': clickUpAccessToken
+    //         }
+    //     })
+
+    // }
 
     //-----FOLDERS------//
     getFolders(spaceId,clickUpAccessToken){
