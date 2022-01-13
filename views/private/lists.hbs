@@ -1,9 +1,8 @@
 <h1 class="workspace-titles" >Lists</h1>
+<h2 class="workspace-titles" >Space: {{lists.space.name}}</h2>
+<h4 class="workspace-titles" >Folder: {{lists.folder.name}}</h4>
 
-{{#each lists}}
 <div class="table-responsive table-container">
-    <h2 class="workspace-titles" >Space: {{space.name}}</h2>
-    <h4 class="workspace-titles" >Folder: {{folder.name}}</h4>
     <table class="table folders-table table-hover">
     <thead>
         <tr>
@@ -13,11 +12,35 @@
         </tr>
     </thead>
     <tbody>
-        <tr>
-            <td>{{name}}</td>
-            <td>{{task_count}}</td>
-            <td><a href="/profile/tasks/{{id}}">See all Tasks.</a></td>
-        </tr>
+        {{#each lists}}
+            <tr>
+                <td>{{name}}</td>
+                <td>{{task_count}}</td>
+                <td><a href="/profile/tasks/{{id}}">See all Tasks.</a></td>
+            </tr>
+        {{/each}}
     </table>
 </div>
-{{/each}}
+
+<h2 class="workspace-titles">Create a new space</h2>
+<div class="table-responsive table-container">
+    <form action="">
+        <table class="table folders-table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Name your list</th>
+            <th scope="col">Asign an ID</th>
+            <th scope="col">Create your list</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input class="input-create" type="text" name="listName" id="" placeholder="Write your list name." required></td>
+                <td><input class="input-create" type="text" name="listId" id="" placeholder="Write a 5 digit number" required></td>
+                <td>
+                    <button class="create-btn" type="submit">Create a new list</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
