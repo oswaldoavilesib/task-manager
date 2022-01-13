@@ -35,7 +35,7 @@ router.get("/profile/lists/:id", (req, res, next) => {
         }))
         res.render("private/lists");
     })
-    .cath(error => console.log("ERROR EN GET LISTS ROUTE",error))
+    .catch(error => console.log("ERROR EN GET LISTS ROUTE",error))
 });
 
 

@@ -8,25 +8,16 @@ const clickUpApiHandler = new clickUpService();
 
 
 //----GET ALL SPACES WORKSPACE"-----//
-router.get('/profile/spaces/:id',(req,res,next)=>{
+router.get('/profile/spaces',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken;
-    const {id} = req.params
     clickUpApiHandler
-    .getSpaces(id,accessToken)
+    .getSpaces(accessToken)
     .then(response=>{
         console.log(response.data)
         response.data.spaces.forEach((space=>{
-            const {id,name,...rest} = space
-            Space.find({id: {$eq:id}})
-            .then(response =>{
-                if(!response.length){
-                    Space.create({id,name})
-                    .then(response=>console.log(response))
-                    .catch(error=>console.log("ERROR EN CREAR SPACES EN BASE DE DATOS",error))
-                } else {
-                    console.log("SPACE is already on DB")
-                }
-            })
+            const {id,name} = space
+            Space.create({id,name})
+            .then(response=>console.log(response))
             .catch(error=>console.log("ERROR EN CREAR SPACES EN BASE DE DATOS",error))
         }))
         res.render('private/spaces',{spaces:response.data.spaces})
@@ -35,7 +26,9 @@ router.get('/profile/spaces/:id',(req,res,next)=>{
 })
 
 //----GET ONE SPACE"-----//
-
+router.get('/profile/spaces/:id',(req,res,next)=>{
+    
+})
 
 
 
