@@ -101,15 +101,18 @@ router.get('/profile', isLoggedOut ,(req,res,next)=>{
 
 //----WORKSPACE PAGE ROUTES----//
 /* GET WORKSPACE page */
-router.get('/workspace',async (req,res,next)=>{
+router.get('/workspace', (req,res,next)=>{
     const clickUpCode = req.query.code
+    console.log(clickUpCode)
     clickUpApiHandler
     .getAccessToken(clickUpCode)
     .then(response=>{
+        console.log("RESPONSE.DATA OF getACcessTOken",response.data)
         req.session.currentUser.clickUpCode = req.query.code
         req.session.currentUser.clickUpAccessToken = response.data.access_token;
         console.log('req.ses WITH TOKENS',req.session)
         console.log(response)
+        //clickUpApiHandler.saveAccessToken(response.data.access_token)
         res.render('private/workspace')
     })
     .catch(error=>console.log('ERROR EN GET TOKE ACCESS FROM CLICKUP API',error))
@@ -131,8 +134,6 @@ router.get('/logout',(req,res,next)=>{
         res.redirect('/')
     })
 })
-
-
 
 
 

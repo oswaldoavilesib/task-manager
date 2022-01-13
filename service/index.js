@@ -6,57 +6,57 @@ class ClickUpApi {
         this.api = axios.create({
             baseURL:'https://api.clickup.com/api/v2/'
         });
+
     }
 
+    //-----GET ACCESS TOKEN------//
     getAccessToken(clickUpCode) {
-        return this.api.post(`/oauth/token?code=${clickUpCode}&client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&client_secret=LRQU1S2ZFFLFAPVW1WYD5BI2DV2UFIBPRU6G4Z024IB01A33GI3598JA2828HWZL`)
+        return this.api.post(`/oauth/token?code=${clickUpCode}&client_id=${process.env.CLIENTID}&client_secret=${process.env.CLIENTSECRET}`)
     }
-    
+
+    //-----TEAMS------//
     getTeams(clickUpAccessToken){
-        return this.api.get('https://api.clickup.com/api/v2/team',{
+        
+        return this.api.get('/team',{
+            headers:{
+                'Authorization': clickUpAccessToken
+            }
+        })
+        
+    }
+
+    //-----SPACES------//
+    getSpaces(teamId,clickUpAccessToken){
+        console.log('THIS.TEAMID',teamId)
+        return this.api.get(`/team/${teamId}/space`,{
             headers:{
                 'Authorization': clickUpAccessToken
             }
         })
     }
-
-    getSpaces(clickUpAccessToken){
-
-        return this.api.get('/team/12602813/space',{
-            headers:{
-                'Authorization': clickUpAccessToken
-            }
-        })
-    }
-
-    createSpace(clickUpAccessToken){
-        const spaceId = Math.floor(Math.random()*899999 + 100000)
-        return this.api.post(`/team/${spaceId}/space`,{
-            headers: {
-                'Authorization': clickUpAccessToken
-            }
-        })
-    }
-
 
     //-----FOLDERS------//
-    getFolders(){
-        return this.api.get('/team//space',{
+    getFolders(spaceId,clickUpAccessToken){
+        console.log("CLICKUPTOKEN ON APIHANDLER",clickUpAccessToken)
+        console.log("spaceId ON APIHANDLER",spaceId)
+        return this.api.get(`/space/${spaceId}/folder`,{
             headers:{
                 'Authorization': clickUpAccessToken
             }
         })
     }
 
-    //getAllCharacters = () => this.api.get('/characters')
+    
+    //-----LISTS------//
+    getLists(folderId,clickUpAccessToken){
+        return this.api.get(`/folder/${folderId}/list`,{
+            headers:{
+                'Authorization': clickUpAccessToken
+            }
+        })
+    }
 
-    //getOneCharacter = characterId => this.api.get(`/characters/${characterId}`)
 
-   //getCharacterInfo = characterInfo => this.api.post(`/characters`,characterInfo)
-
-    //editCharacter = (characterId,characterInfo) => this.api.put(`/characters${characterId}`,characterInfo)
-
-    //deleteCharacter = characterId => this.api.delete(`/characters/${characterId}`);
 }
 
 module.exports = ClickUpApi;

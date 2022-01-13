@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
-const spaceSchema = new Schema({
-    spaceId: {
+const teamSchema = new Schema({
+    id: {
         type: Number
     },
     name:{
@@ -10,14 +10,10 @@ const spaceSchema = new Schema({
     _user: {
         type:Schema.Types.ObjectId, ref:"User"
     },
-
-    _team: {
-        type:Schema.Types.ObjectId, ref:"Team"
-    }
 },
 {
     timestamps: true,
 
 })
 
-module.exports = model('Space',spaceSchema)
+module.exports = model('Team',teamSchema)

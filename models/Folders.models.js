@@ -1,7 +1,7 @@
 const { Schema, model } = require("mongoose");
 
-const spaceSchema = new Schema({
-    spaceId: {
+const foldersSchema = new Schema({
+    id: {
         type: Number
     },
     name:{
@@ -10,7 +10,9 @@ const spaceSchema = new Schema({
     _user: {
         type:Schema.Types.ObjectId, ref:"User"
     },
-
+    _space: {
+        type:Schema.Types.ObjectId, ref:"Space"
+    },
     _team: {
         type:Schema.Types.ObjectId, ref:"Team"
     }
@@ -20,4 +22,4 @@ const spaceSchema = new Schema({
 
 })
 
-module.exports = model('Space',spaceSchema)
+module.exports = model('Folders',foldersSchema)
