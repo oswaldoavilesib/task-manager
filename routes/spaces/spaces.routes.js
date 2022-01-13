@@ -46,6 +46,7 @@ router.post('/profile/spaces/:id',(req,res,next)=>{
     const {id} = req.params;
     const {spaceName} = req.body;
     console.log("REQ.BODY",req.body)
+    console.log("SPACENAME: ",spaceName)
 
     clickUpApiHandler
     .createSpace(id,accessToken,spaceName)
