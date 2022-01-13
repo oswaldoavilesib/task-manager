@@ -23,7 +23,7 @@ router.get('/profile/teams',(req,res)=>{
 
 
         //Agregar a bse de datos
-        response.data.teams.forEach((team)=>{
+        response.data.teams.forEach((team=>{
             const {id, name,...rest} = team
             console.log("TE IDAPI=",id)
             Team.find({id: {$eq:id}})
@@ -38,7 +38,7 @@ router.get('/profile/teams',(req,res)=>{
                 }
             })
             .catch(error => console.log("ERROR EN FINDING NEW TEAMS IN DB",error))
-        })
+        }))
         res.render('private/teams',{teams: response.data.teams})
     })
     .catch(error => console.log("ERROR GETTING TEAMS FROM ENDPOINT",error) )

@@ -113,7 +113,7 @@ router.get('/workspace', (req,res,next)=>{
         console.log('req.ses WITH TOKENS',req.session)
         console.log(response)
         //clickUpApiHandler.saveAccessToken(response.data.access_token)
-        res.render('private/workspace')
+        res.render('private/workspace',{user:req.session.currentUser})
     })
     .catch(error=>console.log('ERROR EN GET TOKE ACCESS FROM CLICKUP API',error))
 })
@@ -136,6 +136,11 @@ router.get('/logout',(req,res,next)=>{
 })
 
 
+
+//-----ROUTE FOR TESTING UI------/
+router.get('/testing',(req,res,next)=>{
+    res.render('private/testing')
+})
 
 
 

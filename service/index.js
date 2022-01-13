@@ -36,20 +36,25 @@ class ClickUpApi {
         })
     }
         //create spaces//
-    // createSpaces(teamId,clickUpAccessToken){
-    //     return this.api.get(`/folder/${teamId}/list`,{
-    //         headers:{
-    //             'Authorization': clickUpAccessToken
-    //         }
-    //     })
+    createSpace(teamId,clickUpAccessToken,spaceName){
+        console.log("TEAM ID",teamId)
+        console.log("TOKEN: ",clickUpAccessToken )
+                console.log("spaceNAME ON APIHANDLER",spaceName)
+        return this.api.post(`/team/${teamId}/space`,
+        {
+            headers:{
+                'Authorization': clickUpAccessToken
+            }
+        })
+    }
 
-    // }
 
     //-----FOLDERS------//
     getFolders(spaceId,clickUpAccessToken){
         console.log("CLICKUPTOKEN ON APIHANDLER",clickUpAccessToken)
         console.log("spaceId ON APIHANDLER",spaceId)
-        return this.api.get(`/space/${spaceId}/folder`,{
+        return this.api.get(`/space/${spaceId}/folder`,
+        {
             headers:{
                 'Authorization': clickUpAccessToken
             }
@@ -66,6 +71,16 @@ class ClickUpApi {
         })
     }
 
+    //-----TASKS------//
+    getTasks(listId,clickUpAccessToken){
+        console.log("LIST ID EN APIHANDLER",listId)
+        console.log("ACCESS TOKEN",clickUpAccessToken)
+        return this.api.get(`/list/${listId}/task`,{
+            headers:{
+                'Authorization': clickUpAccessToken
+            }
+        })
+    }
 
 }
 

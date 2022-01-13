@@ -1,18 +1,47 @@
-<h1>folders</h1>
+<h1 class="workspace-titles">Folders</strong></h1>
 
-
-{{#each folders}}
-<div>
-    <ul>
-        <li><strong>Space's name: {{space.name}}</strong></li>
-        <li><strong>Folder's name: {{name}}</strong></li>
-        <li>Number of tasks in this folder: {{task_count}}</li>
-        <li>Lists on this folder: {{lists.lengh}}</li>
-        <li><a href="/profile/lists/{{id}}">See all lists in this folder</a></li>
-        {{#each lists}}
-            <ul>
-                <li>{{name}}</li>
-            </ul>
+<div class="table-responsive table-container">
+    <table class="table folders-table table-hover">
+    <thead>
+        <tr>
+        <th scope="col">Folder Name</th>
+        <th scope="col">Number of lists</th>
+        <th scope="col">Number of tasks</th>
+        <th scope="col">Go to your lists</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each folders}}
+        <tr>
+            <td>{{name}}</td>
+            <td>{{lists.length}}</td>
+            <td>{{task_count}}</td>
+            <td><a href="/profile/lists/{{id}}">See all lists.</a></td>
+        </tr>
         {{/each}}
-    </ul>
-{{/each}}
+    </table>
+</div>
+
+
+<h2 class="workspace-titles">Create a new folder</h2>
+<div class="table-responsive table-container">
+    <form action="">
+        <table class="table folders-table table-hover">
+        <thead>
+            <tr>
+            <th scope="col">Name your folder</th>
+            <th scope="col">Asign an ID</th>
+            <th scope="col">Create your folder</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input class="input-create" type="text" name="folderName" id="" placeholder="Write your folder name." required></td>
+                <td><input class="input-create" type="text" name="folderId" id="" placeholder="Write a 5 digit number" required></td>
+                <td>
+                    <button class="create-btn" type="submit">Create a new folder</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>
