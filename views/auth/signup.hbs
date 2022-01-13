@@ -1,30 +1,50 @@
-<main class="form-signin">
-  <form action="/signup" method="POST">
-    <img class="mb-4" src="/images/logo1.png" alt="" width="120" height="120">
-    <h1 class="h3 mb-3 fw-normal">Please sign up</h1>
 
-    <div class="form-floating">
-      <input type="text" name ="username" class="form-control" id="floatingInput" placeholder="Name" required>
-      <label for="floatingInput">Name</label>
-    </div>
-    <div class="form-floating">
-      <input type="email" name ="email" class="form-control" id="floatingInput" placeholder="name@example.com" required>
-      <label for="floatingInput">Email</label>
-    </div>
-    <div class="form-floating">
-      <input type="password" name ="password" class="form-control" id="floatingPassword" placeholder="Password" required>
-      <label for="floatingPassword">Password</label>
-    </div>
 
-    <div class="checkbox mb-3">
-      <label class="aviso-legal">
-        <input type="checkbox" value="remember-me" required> He leído y acepto la <a href="#">política de privacidad</a> y <a href="#">aviso legal</a>.
-      </label>
-    </div>
-    <button class="w-100 btn btn-lg btn-primary" type="submit">Sign up</button>
-  </form>
-</main>
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+			<form action="/signup" method="post"  id="signup"class="login">
+        <div class="login__field signup-di">
+					<i class="login__icon fas fa-user"></i>
+					<input name="username" type="text" class="login__input" placeholder="Name">
+				</div>
 
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input name="email" type="text" class="login__input" placeholder="Email">
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input name="password" type="password" class="login__input" placeholder="Password">
+				</div>
+				<button class="button login__submit" type="submit">
+					<span class="button__text">Sign Up Now</span>
+					<i class="button__icon fas fa-chevron-right"></i>
+				</button>				
+			</form>
+			<div class="social-login">
+				<h3>Sign Up via</h3>
+				<div class="social-icons">
+				<div class="google-btn">
+          <a href="/auth/google">
+  <div class="google-icon-wrapper">
+    <img id="googleLogo"href="/auth/google" class="google-icon" src="/images/google.png"/>
+  </div>
+  <p class="btn-text"><b><a href="/auth/google">Google Sign In</a></b></p>
+</div>
+        </a>
+		
+				</div>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
 
 {{#if errorMessage}}
 <p>{{errorMessage}}</p>
