@@ -30,19 +30,17 @@
 <h2 class="workspace-titles">Create a new task</h2>
 
 <div class="table-responsive table-container">
-    <form action="">
+    <form action="/profile/tasks/{{id}}" method="post">
         <table class="table folders-table table-hover">
         <thead>
             <tr>
             <th scope="col">Name your task</th>
-            <th scope="col">Asign an ID</th>
             <th scope="col">Create your task</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td><input class="input-create" type="text" name="taskName" id="" placeholder="Write your space name."></td>
-                <td><input class="input-create" type="text" name="taskId" id="" placeholder="Write a 5 digit number"></td>
                 <td>
                     <button class="create-btn" type="submit">Create a new task</button>
                 </td>

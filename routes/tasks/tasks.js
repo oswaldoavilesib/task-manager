@@ -39,9 +39,25 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
 
-        res.render('private/tasks',{tasks: response.data.tasks})
+        res.render('private/tasks',{tasks: response.data.tasks,id})
     })
     .catch(error => console.log("ERROR EN GET TASKS API",error))
+})
+
+
+//-------POST ROUTES------///
+
+router.post('/profile/tasks/:id',(req,res,next)=>{
+    const accessToken = req.session.currentUser.clickUpAccessToken;
+    const {id} = req.params;
+    const {taskName} = req.body;
+
+    clickUpApiHandler
+    .createTask(id,accessToken,taskName)
+    .then(response => {
+        res.redirect('back')
+    })
+    .catch(error => console.log("ERROR EN CREAR FOLDER",error))
 })
 
 
