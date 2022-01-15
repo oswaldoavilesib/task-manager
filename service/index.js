@@ -42,8 +42,8 @@ class ClickUpApi {
         console.log("spaceNAME ON APIHANDLER",spaceName)
         return this.api.post(`/team/${teamId}/space`,
         {
-            body: {
-                'name': "gerdaldf",
+            data: {
+                'name': spaceName,
             }
         },
         {
