@@ -8,7 +8,6 @@
         <tr>
             <th scope="col">Task name</th>
             <th scope="col">Number of assigness</th>
-            <th scope="col">List of assigness</th>
             <th scope="col">Remove task</th>
         </tr>
     </thead>
@@ -22,7 +21,7 @@
                     <li>{{username}}</li>
                     <li><img class="profile-image-spaces" src="{{profilePicture}}" alt=""></li>
             {{/each}}
-            <td><a class="delete-task" href="`https://api.clickup.com/api/v2/task/${{id}}/`">Delete</a></td>
+            <td><a class="delete-task" href="https://api.clickup.com/api/v2/task/${{id}}/">Delete</a></td>
         </tr>
         {{/each}}
     </table>
@@ -41,7 +40,9 @@
         </thead>
         <tbody>
             <tr>
-                <td><input class="input-create" type="text" name="taskName" id="" placeholder="Write your space name."></td>
+                <td><input class="input-create" type="text" name="taskName" id="" placeholder="Write your space name.">
+                </td>
+                <td>
                     <button class="create-btn" type="submit">Create a new task</button>
                 </td>
             </tr>
