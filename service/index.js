@@ -115,19 +115,30 @@ class ClickUpApi {
         })
     }
 
-            //-----Create a new task------//
-            createTask(taskId,clickUpAccessToken,taskName){
-                let data = {
-                    'name': taskName,
-                };
-                return this.api.post(`/list/${taskId}/task`,
-                data,
-                {
-                    headers:{
-                        'Authorization': clickUpAccessToken
-                    }
-                })
-            }
+        //-----Create a new task------//
+        createTask(taskId,clickUpAccessToken,taskName){
+            let data = {
+                'name': taskName,
+            };
+        return this.api.post(`/list/${taskId}/task`,
+            data,
+            {
+                headers:{
+                    'Authorization': clickUpAccessToken
+                }
+            })
+        }
+
+        //Delete a task//
+        deleteTask(taskId,clickUpAccessToken){
+            return this.api.delete(`/task/${taskId}`,
+            {
+                headers:{
+                    'Authorization': clickUpAccessToken
+                }
+            })
+
+        }
         
 
 }

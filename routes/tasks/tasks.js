@@ -61,4 +61,9 @@ router.post('/profile/tasks/:id',(req,res,next)=>{
 })
 
 
+
+//-------DELETE ROUTES------///
+
+router.get('/profile/tasks/:id')
+
 module.exports = router;
