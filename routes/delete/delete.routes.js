@@ -32,7 +32,7 @@ router.get('/profile/list/delete/:id',(req,res,next)=>{
     const {id} = req.params
 
     clickUpApiHandler
-    .deletelist(id,accessToken)
+    .deleteList(id,accessToken)
     .then(response => {
         console.log("RESPONSE DEL DELETE LIST",response)
         res.redirect('back')
