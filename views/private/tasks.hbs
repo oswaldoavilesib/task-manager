@@ -21,7 +21,7 @@
                     <li>{{username}}</li>
                     <li><img class="profile-image-spaces" src="{{profilePicture}}" alt=""></li>
             {{/each}}
-            <td><a class="delete-task" href="https://api.clickup.com/api/v2/task/${{id}}/">Delete</a></td>
+            <td><a class="delete-task" href="/profile/tasks/delete/{{id}}">Delete</a></td>
         </tr>
         {{/each}}
     </table>
