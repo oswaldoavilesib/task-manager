@@ -40,12 +40,11 @@ class ClickUpApi {
         console.log("TEAM ID",teamId)
         console.log("TOKEN: ",clickUpAccessToken )
         console.log("spaceNAME ON APIHANDLER",spaceName)
+        let data = {
+            'name': spaceName,
+        }
         return this.api.post(`/team/${teamId}/space`,
-        {
-            data: {
-                'name': spaceName,
-            }
-        },
+        data,
         {
             headers:{
                 'Authorization': clickUpAccessToken
