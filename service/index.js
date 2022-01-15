@@ -102,6 +102,19 @@ class ClickUpApi {
                 }
             })
         }
+
+        
+        //Delete a list//
+        deleteList(listId,clickUpAccessToken){
+            return this.api.delete(`/list/${listId}`,
+            {
+                headers:{
+                    'Authorization': clickUpAccessToken
+                }
+            })
+
+        }
+        
     
 
     //-----TASKS------//
