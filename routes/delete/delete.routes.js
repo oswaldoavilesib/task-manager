@@ -26,7 +26,7 @@ router.get('/profile/tasks/delete/:id',(req,res,next)=>{
 
 
 
-//Delete a lsit//
+//Delete a list//
 router.get('/profile/list/delete/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken; 
     const {id} = req.params
@@ -39,5 +39,20 @@ router.get('/profile/list/delete/:id',(req,res,next)=>{
     })
     .catch(error=>console.log("ERROR EN DELETE LIST",error))
 })
+
+//Delete a folder//
+router.get('/profile/folders/delete/:id',(req,res,next)=>{
+    const accessToken = req.session.currentUser.clickUpAccessToken; 
+    const {id} = req.params
+
+    clickUpApiHandler
+    .deleteFolder(id,accessToken)
+    .then(response => {
+        console.log("RESPONSE DEL DELETE FOLDER",response)
+        res.redirect('back')
+    })
+    .catch(error=>console.log("ERROR EN DELETE FOLDER",error))
+})
+
 
 module.exports = router;

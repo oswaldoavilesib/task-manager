@@ -4,10 +4,11 @@
     <table class="table folders-table table-hover">
     <thead>
         <tr>
-        <th scope="col">Folder Name</th>
-        <th scope="col">Number of lists</th>
-        <th scope="col">Number of tasks</th>
-        <th scope="col">Go to your lists</th>
+            <th scope="col">Folder Name</th>
+            <th scope="col">Number of lists</th>
+            <th scope="col">Number of tasks</th>
+            <th scope="col">Go to your lists</th>
+            <th scope="col">Remove folder</th>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,7 @@
             <td>{{lists.length}}</td>
             <td>{{task_count}}</td>
             <td><a href="/profile/lists/{{id}}">See all lists.</a></td>
+            <td><a class="delete-task" href="/profile/folders/delete/{{id}}">Delete</a></td>
         </tr>
         {{/each}}
     </table>

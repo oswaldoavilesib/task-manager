@@ -79,6 +79,17 @@ class ClickUpApi {
         })
     }
 
+        //Delete a folder//
+        deleteFolder(folderId,clickUpAccessToken){
+            return this.api.delete(`/folder/${folderId}`,
+            {
+                headers:{
+                    'Authorization': clickUpAccessToken
+                }
+            })
+
+        }
+
     
     //-----LISTS------//
     getLists(folderId,clickUpAccessToken){
