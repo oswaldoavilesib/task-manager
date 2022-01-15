@@ -4,10 +4,11 @@
     <table class="table folders-table table-hover">
     <thead>
         <tr>
-        <th scope="col">Folder Name</th>
-        <th scope="col">Number of lists</th>
-        <th scope="col">Number of tasks</th>
-        <th scope="col">Go to your lists</th>
+            <th scope="col">Folder Name</th>
+            <th scope="col">Number of lists</th>
+            <th scope="col">Number of tasks</th>
+            <th scope="col">Go to your lists</th>
+            <th scope="col">Remove folder</th>
         </tr>
     </thead>
     <tbody>
@@ -17,6 +18,7 @@
             <td>{{lists.length}}</td>
             <td>{{task_count}}</td>
             <td><a href="/profile/lists/{{id}}">See all lists.</a></td>
+            <td><a class="delete-task" href="/profile/folders/delete/{{id}}">Delete</a></td>
         </tr>
         {{/each}}
     </table>
@@ -25,19 +27,17 @@
 
 <h2 class="workspace-titles">Create a new folder</h2>
 <div class="table-responsive table-container">
-    <form action="">
+    <form action="/profile/folders/{{id}}" method="post">
         <table class="table folders-table table-hover">
         <thead>
             <tr>
             <th scope="col">Name your folder</th>
-            <th scope="col">Asign an ID</th>
             <th scope="col">Create your folder</th>
             </tr>
         </thead>
         <tbody>
             <tr>
                 <td><input class="input-create" type="text" name="folderName" id="" placeholder="Write your folder name." required></td>
-                <td><input class="input-create" type="text" name="folderId" id="" placeholder="Write a 5 digit number" required></td>
                 <td>
                     <button class="create-btn" type="submit">Create a new folder</button>
                 </td>

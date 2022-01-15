@@ -37,7 +37,7 @@ router.get('/profile/folders/:id',(req,res,next)=>{
                 }
             })
         }))
-        res.render('private/folders',{folders:response.data.folders})
+        res.render('private/folders',{folders:response.data.folders,id})
     })
     .catch(error=>console.log('ERROR EN GET FOLDERS APIHANDLER',error))
 
@@ -45,7 +45,21 @@ router.get('/profile/folders/:id',(req,res,next)=>{
 
 
 //-----------------CREATE FOLDERS----------------//
+router.post('/profile/folders/:id',(req,res,next)=>{
+    const accessToken = req.session.currentUser.clickUpAccessToken;
+    const {id} = req.params;
+    const {folderName} = req.body;
+    console.log("REQ.BODY",req.body)
+    console.log("SPACENAME: ",folderName)
 
+    clickUpApiHandler
+    .createFolder(id,accessToken,folderName)
+    .then(response => {
+        console.log("RESPONSE OF POST SPACES",response)
+        res.redirect('back')
+    })
+    .catch(error => console.log("ERROR EN CREAR FOLDER",error))
+})
 
 
 module.exports = router;

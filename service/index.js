@@ -39,11 +39,24 @@ class ClickUpApi {
     createSpace(teamId,clickUpAccessToken,spaceName){
         console.log("TEAM ID",teamId)
         console.log("TOKEN: ",clickUpAccessToken )
-                console.log("spaceNAME ON APIHANDLER",spaceName)
+        console.log("spaceNAME ON APIHANDLER",spaceName)
+        let data = {
+            'name': spaceName,
+        }
         return this.api.post(`/team/${teamId}/space`,
+        data,
         {
             headers:{
                 'Authorization': clickUpAccessToken
+            }
+        })
+    }
+        //Delete a folder//
+    deleteSpace(spaceId,clickUpAccessToken){
+        return this.api.delete(`/space/${spaceId}`,
+        {
+            headers:{
+            'Authorization': clickUpAccessToken
             }
         })
     }
@@ -61,6 +74,31 @@ class ClickUpApi {
         })
     }
 
+    //-----create folders------//
+    createFolder(spaceId,clickUpAccessToken,spaceName){
+        let data = {
+            'name': spaceName,
+        };
+        return this.api.post(`/space/${spaceId}/folder`,
+        data,
+        {
+            headers:{
+                'Authorization': clickUpAccessToken
+            }
+        })
+    }
+
+        //Delete a folder//
+        deleteFolder(folderId,clickUpAccessToken){
+            return this.api.delete(`/folder/${folderId}`,
+            {
+                headers:{
+                    'Authorization': clickUpAccessToken
+                }
+            })
+
+        }
+
     
     //-----LISTS------//
     getLists(folderId,clickUpAccessToken){
@@ -70,6 +108,34 @@ class ClickUpApi {
             }
         })
     }
+
+        //-----Create a new list------//
+        createList(folderId,clickUpAccessToken,folderName){
+            let data = {
+                'name': folderName,
+            };
+            return this.api.post(`/folder/${folderId}/list`,
+            data,
+            {
+                headers:{
+                    'Authorization': clickUpAccessToken
+                }
+            })
+        }
+
+        
+        //Delete a list//
+        deleteList(listId,clickUpAccessToken){
+            return this.api.delete(`/list/${listId}`,
+            {
+                headers:{
+                    'Authorization': clickUpAccessToken
+                }
+            })
+
+        }
+        
+    
 
     //-----TASKS------//
     getTasks(listId,clickUpAccessToken){
@@ -81,6 +147,32 @@ class ClickUpApi {
             }
         })
     }
+
+        //-----Create a new task------//
+        createTask(taskId,clickUpAccessToken,taskName){
+            let data = {
+                'name': taskName,
+            };
+        return this.api.post(`/list/${taskId}/task`,
+            data,
+            {
+                headers:{
+                    'Authorization': clickUpAccessToken
+                }
+            })
+        }
+
+        //Delete a task//
+        deleteTask(taskId,clickUpAccessToken){
+            return this.api.delete(`/task/${taskId}`,
+            {
+                headers:{
+                    'Authorization': clickUpAccessToken
+                }
+            })
+
+        }
+        
 
 }
 

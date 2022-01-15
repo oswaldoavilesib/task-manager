@@ -52,6 +52,7 @@ const spacesRoutes = require('./routes/spaces/spaces.routes.js')
 const foldersRoutes = require('./routes/folders/folders.routes.js')
 const listsRoutes = require('./routes/lists/lists.routes')
 const tasksRoutes = require('./routes/tasks/tasks.js')
+const deleteRoutes = require('./routes/delete/delete.routes.js')
 
 app.use("/", index);
 app.use("/", signupRoutes);
@@ -60,6 +61,8 @@ app.use("/", spacesRoutes);
 app.use("/", foldersRoutes);
 app.use("/", listsRoutes);
 app.use("/", tasksRoutes);
+app.use("/", deleteRoutes);
+
 
 
 app.get("/",(req,res,next)=>{

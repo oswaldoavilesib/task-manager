@@ -1,43 +1,34 @@
-<h1 class="workspace-titles">Tasks</strong></h1>
 
-<div class="table-responsive table-container">
-    <table class="table folders-table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Task name</th>
-            <th scope="col">Number of assigness</th>
-            <th scope="col">List of assigness</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>My Task name</td>
-            <td>Number of assigness</td>
-            <td>Number of assigness</td>
-        </tr>
-    </table>
+
+<button data-modal-target="#modals">Open Modal</button>
+
+
+<div class="modals active">
+    <div class="modals-header">
+        <div class="titles">Hola</div>
+        <button data-close-button class="closes-btn">&times;</button>
+    </div>
+
+     <div class="modals-body">
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit sequi a natus ad sit dolorem numquam, cupiditate libero corporis iste!
+    </div>
+    <div id="overlays"></div>
 </div>
 
-<h2 class="workspace-titles">Create a new task</h2>
-
-<div class="table-responsive table-container">
-    <form action="">
-        <table class="table folders-table table-hover">
-        <thead>
-            <tr>
-            <th scope="col">Name your task</th>
-            <th scope="col">Asign an ID</th>
-            <th scope="col">Create your task</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input class="input-create" type="text" name="taskName" id="" placeholder="Write your space name."></td>
-                <td><input class="input-create" type="text" name="taskId" id="" placeholder="Write a 5 digit number"></td>
-                <td>
-                    <button class="create-btn" type="submit">Create a new task</button>
-                </td>
-            </tr>
-        </table>
-    </form>
+<div class="modal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Modal body text goes here.</p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
 </div>
