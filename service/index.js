@@ -65,6 +65,20 @@ class ClickUpApi {
         })
     }
 
+    //-----create folders------//
+    createFolder(folderId,clickUpAccessToken,folderName){
+        let data = {
+            'name': folderName,
+        };
+        return this.api.post(`/space/${folderId}/folder`,
+        data,
+        {
+            headers:{
+                'Authorization': clickUpAccessToken
+            }
+        })
+    }
+
     
     //-----LISTS------//
     getLists(folderId,clickUpAccessToken){
