@@ -34,13 +34,27 @@ router.get("/profile/lists/:id", (req, res, next) => {
                 }
             })
         }))
-        res.render("private/lists",{lists: response.data.lists});
+        res.render("private/lists",{lists: response.data.lists,id});
     })
     .catch(error => console.log("ERROR EN GET LISTS ROUTE",error))
 });
 
 
 
+//-------POST ROUTES------///
+
+router.post('/profile/lists/:id',(req,res,next)=>{
+    const accessToken = req.session.currentUser.clickUpAccessToken;
+    const {id} = req.params;
+    const {listName} = req.body;
+
+    clickUpApiHandler
+    .createList(id,accessToken,listName)
+    .then(response => {
+        res.redirect('back')
+    })
+    .catch(error => console.log("ERROR EN CREAR FOLDER",error))
+})
 
 
 

@@ -66,11 +66,11 @@ class ClickUpApi {
     }
 
     //-----create folders------//
-    createFolder(folderId,clickUpAccessToken,folderName){
+    createFolder(spaceId,clickUpAccessToken,folderName){
         let data = {
             'name': folderName,
         };
-        return this.api.post(`/space/${folderId}/folder`,
+        return this.api.post(`/space/${spaceId}/folder`,
         data,
         {
             headers:{
@@ -88,6 +88,21 @@ class ClickUpApi {
             }
         })
     }
+
+        //-----Create a new list------//
+        createList(folderId,clickUpAccessToken,folderName){
+            let data = {
+                'name': folderName,
+            };
+            return this.api.post(`/folder/${folderId}/list`,
+            data,
+            {
+                headers:{
+                    'Authorization': clickUpAccessToken
+                }
+            })
+        }
+    
 
     //-----TASKS------//
     getTasks(listId,clickUpAccessToken){
