@@ -39,8 +39,13 @@ class ClickUpApi {
     createSpace(teamId,clickUpAccessToken,spaceName){
         console.log("TEAM ID",teamId)
         console.log("TOKEN: ",clickUpAccessToken )
-                console.log("spaceNAME ON APIHANDLER",spaceName)
+        console.log("spaceNAME ON APIHANDLER",spaceName)
         return this.api.post(`/team/${teamId}/space`,
+        {
+            body: {
+                name: spaceName,
+            }
+        },
         {
             headers:{
                 'Authorization': clickUpAccessToken
