@@ -52,6 +52,7 @@ router.post('/profile/spaces/:id',(req,res,next)=>{
     .createSpace(id,accessToken,spaceName)
     .then(response => {
         console.log("RESPONSE OF POST SPACES",response)
+        res.render('/profile/spaces')
     })
     .catch(error => console.log("ERROR EN CREAR SPACEE",error))
 })
