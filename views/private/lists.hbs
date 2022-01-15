@@ -7,6 +7,7 @@
             <th scope="col">List name</th>
             <th scope="col">Number of tasks</th>
             <th scope="col">Go to your tasks</th>
+            <th scope="col">Remove list</th>
         </tr>
     </thead>
     <tbody>
@@ -15,6 +16,7 @@
                 <td>{{name}}</td>
                 <td>{{task_count}}</td>
                 <td><a href="/profile/tasks/{{id}}">See all Tasks.</a></td>
+                <td><a class="delete-task" href="/profile/list/delete/{{id}}">Delete</a></td>
             </tr>
         {{/each}}
     </table>
