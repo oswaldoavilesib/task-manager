@@ -38,7 +38,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             })
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
-
+ 
         res.render('private/tasks',{tasks: response.data.tasks,id})
     })
     .catch(error => console.log("ERROR EN GET TASKS API",error))
@@ -64,6 +64,5 @@ router.post('/profile/tasks/:id',(req,res,next)=>{
 
 //-------DELETE ROUTES------///
 
-router.get('/profile/tasks/:id')
 
 module.exports = router;
