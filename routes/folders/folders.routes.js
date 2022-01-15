@@ -50,7 +50,7 @@ router.post('/profile/folders/:id',(req,res,next)=>{
     const {id} = req.params;
     const {folderName} = req.body;
     console.log("REQ.BODY",req.body)
-    console.log("SPACENAME: ",spaceName)
+    console.log("SPACENAME: ",folderName)
 
     clickUpApiHandler
     .createFolder(id,accessToken,folderName)
