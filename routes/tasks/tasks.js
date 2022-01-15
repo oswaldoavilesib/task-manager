@@ -57,7 +57,7 @@ router.post('/profile/tasks/:id',(req,res,next)=>{
     .then(response => {
         res.redirect('back')
     })
-    .catch(error => console.log("ERROR EN CREAR FOLDER",error))
+    .catch(error => console.log("ERROR EN CREAR TAREA",error))
 })
 
 
