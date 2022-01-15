@@ -54,5 +54,20 @@ router.get('/profile/folders/delete/:id',(req,res,next)=>{
     .catch(error=>console.log("ERROR EN DELETE FOLDER",error))
 })
 
+//Delete a space//
+router.get('/profile/spaces/delete/:id',(req,res,next)=>{
+    const accessToken = req.session.currentUser.clickUpAccessToken; 
+    const {id} = req.params
+
+    clickUpApiHandler
+    .deleteSpace(id,accessToken)
+    .then(response => {
+        console.log("RESPONSE DEL DELETE SPACES",response)
+        res.redirect('back')
+    })
+    .catch(error=>console.log("ERROR EN DELETE SPACES",error))
+})
+
+
 
 module.exports = router;

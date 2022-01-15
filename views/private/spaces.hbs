@@ -4,10 +4,11 @@
     <table class="table folders-table table-hover">
     <thead>
         <tr>
-        <th scope="col">Team's Name</th>
-        <th scope="col">Number of members</th>
-        <th scope="col">List of members</th>
-        <th scope="col">Go to your lists</th>
+            <th scope="col">Team's Name</th>
+            <th scope="col">Number of members</th>
+            <th scope="col">List of members</th>
+            <th scope="col">Go to your lists</th>
+            <th scope="col">Remove space</th>
         </tr>
     </thead>
     <tbody>
@@ -22,6 +23,7 @@
                 {{/each}}
             </td>
             <td><a href="/profile/folders/{{id}}">See all Folders.</a></td>
+            <td><a class="delete-task" href="/profile/spaces/delete/{{id}}">Delete</a></td>
         </tr>
         {{/each}}
     </table>

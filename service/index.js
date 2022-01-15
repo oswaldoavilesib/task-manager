@@ -51,6 +51,15 @@ class ClickUpApi {
             }
         })
     }
+        //Delete a folder//
+    deleteSpace(spaceId,clickUpAccessToken){
+        return this.api.delete(`/space/${spaceId}`,
+        {
+            headers:{
+            'Authorization': clickUpAccessToken
+            }
+        })
+    }
 
 
     //-----FOLDERS------//
