@@ -19,7 +19,7 @@ router.get('/profile/tasks/delete/:id',(req,res,next)=>{
         console.log("RESPONSE DEL DELETE",response)
         res.redirect('back')
     })
-    .catch(error=console.log("ERROR EN DELETE TASKS",error))
+    .catch(error=>console.log("ERROR EN DELETE TASKS",error))
 })
 
 module.exports = router;
