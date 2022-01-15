@@ -43,7 +43,7 @@ class ClickUpApi {
         return this.api.post(`/team/${teamId}/space`,
         {
             body: {
-                name: spaceName,
+                'name': spaceName,
             }
         },
         {
