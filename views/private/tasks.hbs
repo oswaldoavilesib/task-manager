@@ -25,15 +25,17 @@
             {{/each}}
             {{#if due_date}}
             <td>{{due_date}}</td>
+            <td><input type="date" value="{{due_date}}" name="" id=""></td>
             {{else}}
-            <td><input type="date"></td>
+            <td><input class="date-input" type="date"></td>
             {{/if}}
             <td>
                 <select name="" id="">
-                    <option value="low">Log</option>
-                    <option value="normal">Normal</option>
-                    <option value="high">High</option>
-                    <option value="urgent">Urgent</option>
+                    <option class="date-input" value=""></option>
+                    <option class="date-input" value="low">Log</option>
+                    <option class="date-input" value="normal">Normal</option>
+                    <option class="date-input" value="high">High</option>
+                    <option class="date-input" value="urgent">Urgent</option>
                 </select>
             </td>
             <td><a class="delete-task" href="/profile/tasks/delete/{{id}}">Delete</a></td>
