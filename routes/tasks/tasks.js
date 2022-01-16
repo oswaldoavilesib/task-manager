@@ -38,8 +38,11 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             })
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
-        const dateParsed = response.data.tasks.due_date.toLocaleDateString()
-        console.log(dateParsed)
+        const dueDate = response.data.tasks.due_date
+        if(dueDate){
+            dueDate = response.data.tasks.due_date.toLocaleDateString()
+        }
+        //console.log(dateParsed)
         res.render('private/tasks',{tasks: response.data.tasks,id})
     })
     .catch(error => console.log("ERROR EN GET TASKS API",error))
