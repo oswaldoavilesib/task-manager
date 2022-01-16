@@ -42,7 +42,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
         if(dueDate){
             dueDate = response.data.tasks.due_date.toLocaleDateString()
         }
-        //console.log(dateParsed)
+        console.log(dueDate)
         res.render('private/tasks',{tasks: response.data.tasks,id})
     })
     .catch(error => console.log("ERROR EN GET TASKS API",error))

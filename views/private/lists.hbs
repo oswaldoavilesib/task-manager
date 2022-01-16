@@ -13,7 +13,7 @@
     <tbody>
         {{#each lists}}
             <tr>
-                <td>{{name}}</td>
+                <td><a href="/profile/tasks/{{id}}">{{name}}</a></td>
                 <td>{{task_count}}</td>
                 <td><a href="/profile/tasks/{{id}}">See all Tasks.</a></td>
                 <td><a class="delete-task" href="/profile/list/delete/{{id}}">Delete</a></td>
