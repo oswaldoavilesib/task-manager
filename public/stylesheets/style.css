@@ -12459,3 +12459,9 @@ p {
 } 
 
 */
+
+
+.date-input{
+  background-color: transparent;
+  border: none;
+}
