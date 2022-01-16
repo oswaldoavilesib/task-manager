@@ -9,6 +9,8 @@
             <th scope="col">Task name</th>
             <th scope="col">Number of assigness</th>
             <th scope="col">Remove task</th>
+            <th scope="col">Due date</th>
+            <th scope="col">Priority</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +28,14 @@
             {{else}}
             <td><input type="date"></td>
             {{/if}}
+            <td>
+                <select name="" id="">
+                    <option value="low">Log</option>
+                    <option value="normal">Normal</option>
+                    <option value="high">High</option>
+                    <option value="urgent">Urgent</option>
+                </select>
+            </td>
             <td><a class="delete-task" href="/profile/tasks/delete/{{id}}">Delete</a></td>
             <td><a class="update-task" href="/profile/tasks/delete/{{id}}">Edit</a></td>
         </tr>
