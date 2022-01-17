@@ -19,7 +19,7 @@ router.get('/profile/tasks/update/:id',(req,res,next)=>{
         console.log("RESPONSE OF FIND TASK TO EDIT",response)
     })
     .catch(error=>console.log("ERROR EN FIND TASK TO EDIT",error))
-    res.render('private/update')
+    res.render('private/update',{tasks:response})
 })
 
 
