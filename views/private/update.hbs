@@ -1,1 +1,32 @@
 <h1>Update your task here</h1>
+
+<div class="table-responsive table-container">
+    <form action="/profile/update/{{id}}">
+        <table class="table folders-table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Task name</th>
+                <th scope="col">Due date</th>
+                <th scope="col">Priority</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><input type="text" name="taskName" placeholder="{{name}}" id=""></td>
+                <td><input type="date" nameplasceholder="{{due_date}}" name="" id=""></td>
+                <td><input class="date-input" type="date"></td>
+                <td>
+                    <select name="" id="">
+                        <option class="date-input" value=""></option>
+                        <option class="date-input" value="4">Low</option>
+                        <option class="date-input" value="3">Normal</option>
+                        <option class="date-input" value="2">High</option>
+                        <option class="date-input" value="1">Urgent</option>
+                    </select>
+                </td>
+                <td><a class="delete-task" href="/profile/tasks/delete/{{id}}">Delete</a></td>
+                <td><a class="update-task" href="/profile/tasks/update/{{id}}">Edit</a></td>
+            </tr>
+        </table>
+    </form>
+</div>
