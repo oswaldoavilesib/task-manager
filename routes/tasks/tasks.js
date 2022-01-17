@@ -25,6 +25,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
             console.log("CHECKLISTS FROM TASKS",task.checklists)
             const {id,name,...rest} = task
+            console.log("ID EN GETING EACH TASK",id)
             Task.find({id: {$eq:id}})
             .then(response => {
                 console.log("RESPONSE FROM LIST.FINDONE",response)
@@ -38,11 +39,6 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             })
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
-        const dueDate = response.data.tasks.due_date
-        if(dueDate){
-            dueDate = response.data.tasks.due_date.toLocaleDateString()
-        }
-        console.log(dueDate)
         res.render('private/tasks',{tasks: response.data.tasks,id})
     })
     .catch(error => console.log("ERROR EN GET TASKS API",error))
