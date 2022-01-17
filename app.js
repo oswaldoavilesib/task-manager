@@ -53,6 +53,7 @@ const foldersRoutes = require('./routes/folders/folders.routes.js')
 const listsRoutes = require('./routes/lists/lists.routes')
 const tasksRoutes = require('./routes/tasks/tasks.js')
 const deleteRoutes = require('./routes/delete/delete.routes.js')
+const updateRoutes = require('./routes/update/update.routes')
 
 app.use("/", index);
 app.use("/", signupRoutes);
@@ -62,6 +63,7 @@ app.use("/", foldersRoutes);
 app.use("/", listsRoutes);
 app.use("/", tasksRoutes);
 app.use("/", deleteRoutes);
+app.use("/", updateRoutes);
 
 
 
