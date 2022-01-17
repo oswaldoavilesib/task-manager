@@ -11,6 +11,9 @@ const clickUpApiHandler = new clickUpService();
 
 //GET update uri //
 router.get('/profile/tasks/update/:id',(req,res,next)=>{
+    const accessToken = req.session.currentUser.clickUpAccessToken; 
+    const {id} = req.params;
+    console.log("PARAMS",req.params)
 
     res.render('private/update')
 })
