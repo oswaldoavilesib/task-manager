@@ -21,10 +21,9 @@ router.get('/profile/tasks/update/:id',(req,res,next)=>{
     .catch(error=>console.log("ERROR EN FIND TASK TO EDIT",error))
 })
 
-router.post('/profile/tasks/update/id',(req,res,next)=>{
+router.post('/profile/tasks/update/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken; 
     console.log("REQ.BODY DE POST TASK UPDATE",req.body)
-    console.log("PARAMS",req.body)
     res.send("IT WORKS")
 })
 
