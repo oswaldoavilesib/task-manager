@@ -29,15 +29,11 @@
             {{else}}
             <td><input class="date-input" type="date"></td>
             {{/if}}
-            <td>
-                <select name="" id="">
-                    <option class="date-input" value=""></option>
-                    <option class="date-input" value="low">Log</option>
-                    <option class="date-input" value="normal">Normal</option>
-                    <option class="date-input" value="high">High</option>
-                    <option class="date-input" value="urgent">Urgent</option>
-                </select>
-            </td>
+            {{#if priority}}
+            <td>{{priority}}</td>
+            {{else}}
+            <td>Low</td>
+            {{/if}}
             <td><a class="delete-task" href="/profile/tasks/delete/{{id}}">Delete</a></td>
             <td><a class="update-task" href="/profile/tasks/update/{{id}}">Edit</a></td>
         </tr>
