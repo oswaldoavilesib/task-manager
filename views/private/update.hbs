@@ -1,7 +1,7 @@
 <h1>Update your task here</h1>
 
 <div class="table-responsive table-container">
-    <form action="/profile/tasks/update/{{id}}">
+    <form action="/profile/tasks/update/{{id}}" method="post">
         <table class="table folders-table table-hover">
         <thead>
             <tr>
@@ -13,7 +13,7 @@
         <tbody>
             {{#each tasks}}
             <tr>
-                <td><input class="date-input" type="text" placeholder="{{name}}" name="" id=""></td>
+                <td><input name="taskName" class="date-input" type="text" placeholder="{{name}}" name="" id=""></td>
                 <td><input type="date" placeholder="{{name}}" name="" id=""></td>
                 <td>
                     <select class="date-input" name="" id="">
