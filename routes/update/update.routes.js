@@ -13,7 +13,6 @@ const clickUpApiHandler = new clickUpService();
 router.get('/profile/tasks/update/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken; 
     const {id} = req.params;
-    console.log("PARAMS",req.body)
     Task.find({id: {$eq:id}})
     .then(response => {
         console.log("RESPONSE OF FIND TASK TO EDIT",response)
@@ -25,6 +24,8 @@ router.get('/profile/tasks/update/:id',(req,res,next)=>{
 router.post('/profile/tasks/update/id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken; 
     console.log("REQ.BODY DE POST TASK UPDATE",req.body)
+    console.log("PARAMS",req.body)
+    res.send("IT WORKS")
 })
 
 
