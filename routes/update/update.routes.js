@@ -14,8 +14,12 @@ router.get('/profile/tasks/update/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken; 
     const {id} = req.params;
     console.log("PARAMS",req.params)
-
-    res.render('private/update')
+    Task.find({id: {$eq:id}})
+    .then(response => {
+        console.log("RESPONSE OF FIND TASK TO EDIT",response)
+        res.render('private/update')
+    })
+    .catch("ERROR EN FIND TASK TO EDIT",error)
 })
 
 
