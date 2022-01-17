@@ -29,13 +29,6 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             Task.find({id: {$eq:id}})
             .then(response => {
                 console.log("RESPONSE FROM LIST.FINDONE",response)
-                if(!response.length){
-                    Task.create({id,name})
-                    .then(response => console.log('We created a newTask',response))
-                    .catch(error => console.log("ERROR EN ADDING A TASK ON DB",error))
-                } else {
-                    console.log("This Task is already on db")
-                }
             })
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
