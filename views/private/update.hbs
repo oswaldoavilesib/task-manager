@@ -11,8 +11,9 @@
             </tr>
         </thead>
         <tbody>
+            {{#each tasks}}
             <tr>
-                <td>{{{name}}} | {{tasks.name}}</td>
+                <td>{{{name}}}</td>
                 <td><input type="date" nameplasceholder="{{due_date}}" name="" id=""></td>
                 <td>
                     <select name="" id="">
@@ -26,6 +27,7 @@
                 <td><a class="delete-task" href="/profile/tasks/delete/{{id}}">Delete</a></td>
                 <td><a class="update-task" href="/profile/tasks/update/{{id}}">Edit</a></td>
             </tr>
+            {{/each}}
         </table>
     </form>
 </div>
