@@ -11,7 +11,6 @@ const clickUpApiHandler = new clickUpService();
 router.get('/profile/tasks/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken; 
     const {id} = req.params // We get the ID of the LIST from our DB
-    console.log("PRIMER ID",id)
 
     //CLICKUP API HANDLER STARTS HERE
     clickUpApiHandler
@@ -26,12 +25,17 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
             // console.log("CHECKLISTS FROM TASKS",task.checklists)
             const {id,name,...rest} = task
-            id = Number(id)
             console.log("ID EN GETING EACH TASK",id)
             Task.find({id: {$eq:id}})
             .then(response => {
                 console.log("RESPONSE FROM LIST.FINDONE",response)
-
+                if(!response.length){
+                    Task.create({id,name})
+                    .then(response => console.log('We created a newTask',response))
+                    .catch(error => console.log("ERROR EN ADDING A TASK ON DB",error))
+                } else {
+                    console.log("This Task is already on db")
+                }
             })
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
