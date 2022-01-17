@@ -17,28 +17,10 @@ router.get('/profile/tasks/update/:id',(req,res,next)=>{
     Task.find({id: {$eq:id}})
     .then(response => {
         console.log("RESPONSE OF FIND TASK TO EDIT",response)
-        res.render('private/update')
     })
-    .catch("ERROR EN FIND TASK TO EDIT",error)
+    .catch(error=>console.log("ERROR EN FIND TASK TO EDIT",error))
+    res.render('private/update')
 })
-
-
-// router.get('/profile/tasks/delete/:id',(req,res,next)=>{
-//     const accessToken = req.session.currentUser.clickUpAccessToken; 
-//     const {id} = req.params
-
-//     clickUpApiHandler
-//     .deleteTask(id,accessToken)
-//     .then(response => {
-//         console.log("RESPONSE DEL DELETE TASK",response)
-//         res.redirect('back')
-//     })
-//     .catch(error=>console.log("ERROR EN DELETE TASKS",error))
-// })
-
-
-
-
 
 
 
