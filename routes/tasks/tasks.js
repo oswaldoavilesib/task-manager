@@ -29,7 +29,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             .then(response => {
                 console.log("RESPONSE FROM LIST.FINDONE",response)
                 if(!response.length){
-                    List.create({id,name})
+                    Task.create({id,name})
                     .then(response => console.log('We created a newTask',response))
                     .catch(error => console.log("ERROR EN ADDING A TASK ON DB",error))
                 } else {
