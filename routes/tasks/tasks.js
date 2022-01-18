@@ -21,10 +21,10 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
         //Now we neet to iterate in each of the tasks to make sure they are on our database and if they are, do not add the, again
         response.data.tasks.forEach((task => {
-            console.log("ASSIGNESS FROM TASKS",task.assignees)
-
-            console.log("CHECKLISTS FROM TASKS",task.checklists)
+            console.log("RESPONSE OF FOREACH TASK:", response)
+            console.log("RESPONSE.ID of EACH TASK:", response.id)
             const {id,name,...rest} = task
+            console.log("TYPE OF ID DATA",typeof id)
             Task.find({id: {$eq:id}})
             .then(response => {
                 console.log("RESPONSE FROM LIST.FINDONE",response)
