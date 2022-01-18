@@ -1,5 +1,5 @@
 <h1>Teams</h1>
-
+{{!-- 
 <div class="card" style="width: 18rem;">
     {{#each teams}}
         <img src="{{avatar}}" class="card-img-top" alt="...">
@@ -17,5 +17,18 @@
             {{/each}}
         </div>
     {{/each}}
-</div>
+</div> --}}
 
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card" >
+          {{#each teams}}
+        <img src="{{avatar}}" width="10" height="30" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title"><strong>Team's name: {{name}}</strong></h5>
+            <h5 class="card-title"><strong>Members</strong></h5>
+            <p>Number of members: {{members.length}}</p>
+            <p>List of members</p>
+<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off"><a href="/profile/spaces/{{id}}">See all Spaces</a>
+</button>           
