@@ -45,7 +45,7 @@
 <div class="container mt-5">
   <div class="card container-summary">
     <div class="card-header">
-      <h1>Total tasks:</h1>
+      <h1>Total tasks: {{tasks.length}}</h1>
     </div>
   </div>
 </div>
@@ -65,15 +65,16 @@
         </a>
         <p>{{name}}</p>
       </div>
-      {{#each assignees}}
         <div class="col col-lg-3">
-          <p><b>Assigned to:</b></p>
-          <div class="d-flex task-member-container">
-            <img class="task-member-pic" src="/images/defaultprofile.png" alt="">
-            <p>Oswaldo</p>
-          </div>
+          {{#each assignees}}
+            <p><b>Assigned to:</b></p>
+            <div class="d-flex task-member-container">
+              <img class="task-member-pic" src="/images/defaultprofile.png" alt="">
+              <p>Oswaldo</p>
+            </div>
+          {{/each}}
         </div>
-      {{/each}}
+
 
       <div class="col col-lg-2">
         {{#if due_date}}
@@ -96,6 +97,8 @@
       </div>
     </div>
   {{/each}}
+
+</div>
 
 </div>
 
