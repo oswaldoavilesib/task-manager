@@ -21,6 +21,7 @@ router.get("/profile/lists/:id", (req, res, next) => {
 
         //Adding to DB
         response.data.lists.forEach((list => {
+            console.log("DATA TYPE FOR ID OF LISTS",typeof lists.id)
             const {id,name,...rest} = list;
             List.find({id: {$eq:id}})
             .then(response => {
