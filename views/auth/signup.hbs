@@ -1,4 +1,4 @@
-
+{{!-- 
 
 <div class="container">
 	<div class="screen">
@@ -44,34 +44,43 @@
 			<span class="screen__background__shape screen__background__shape1"></span>
 		</div>		
 	</div>
-</div>
+</div> --}}
 
-<section class="text-center">
-	<main class="form-signin">
-		<form>
-			<img class="mb-4" src="/docs/5.1/assets/brand/bootstrap-logo.svg" alt="" width="72" height="57">
+<section class="text-center container mt-5">
+	<main class="form-signin col-lg-4 mx-auto contenedor-formulario">
+		<form action="/signup" method="post" class="formulario" >
+			<img class="mb-4" src="/images/logo1.png" alt="" width="72" height="57">
 			<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
 			<div class="form-floating">
-			<input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
-			<label for="floatingInput">Email address</label>
-			</div>
-			<div class="form-floating">
-			<input type="password" class="form-control" id="floatingPassword" placeholder="Password">
-			<label for="floatingPassword">Password</label>
+				<input name="username" type="text" class="form-control" id="floatingInput" placeholder="Name">
+				<label for="floatingInput">Name</label>
 			</div>
 
-			<div class="checkbox mb-3">
-			<label>
-				<input type="checkbox" value="remember-me"> Remember me
-			</label>
+			<div class="form-floating">
+				<input name="email" type="email" class="form-control mt-3" id="floatingInput" placeholder="name@example.com">
+				<label for="floatingInput">Your best email</label>
 			</div>
-			<button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
-			<p class="mt-5 mb-3 text-muted">&copy; 2017–2021</p>
+
+			<div class="form-floating">
+				<input name="password" type="password" class="form-control mt-3" id="floatingPassword" placeholder="Password">
+				<label for="floatingPassword">Password</label>
+			</div>
+
+			<button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Sign in</button>
+			
 		</form>
+			<div class="row mt-3">
+				<div class="col google-btn-container">
+					<img  src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+					<a href="/auth/google">Sign in with google</a>
+				</div>
+			</div>
+
+			<p class="mt-5 mb-3 text-muted">&copy; Task Manager 2021</p>
 	</main>
 </section>
 
-{{!-- {{#if errorMessage}}
+{{#if errorMessage}}
 <p>{{errorMessage}}</p>
-{{/if}} --}}
+{{/if}}
