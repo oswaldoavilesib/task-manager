@@ -24,6 +24,8 @@ router.get('/profile/tasks/update/:id',(req,res,next)=>{
 router.post('/profile/tasks/update/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken; 
     console.log("REQ.BODY DE POST TASK UPDATE",req.body)
+    
+    console.log("REQ.BODY DE POST TASK UPDATE",req.body.dueDate.value)
     res.redirect("back")
 })
 
