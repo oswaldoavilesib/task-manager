@@ -36,6 +36,7 @@ router.get('/profile/folders/:id',(req,res,next)=>{
                     console.log("Folders is already on DB")
                 }
             })
+            .catch(error=>console.log("ERROR EN FINDING NEW FOLDERS IN DB",error))
         }))
         res.render('private/folders',{folders:response.data.folders,id})
     })
