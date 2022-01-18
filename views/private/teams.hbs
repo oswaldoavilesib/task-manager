@@ -19,24 +19,3 @@
     {{/each}}
 </div>
 
-{{#each teams}}
-<div class="container">
-  <div class="cardss">
-    <img src="{{avatar}}" alt="Person" class="card__image">
-    <p class="card__name">Team's name: {{name}}</p>
-    <div class="grid-container">
-
-      <div class="grid-child-posts">
-        List of members
-      </div>
-
-      <div class="grid-child-followers">
-        <a href="/profile/spaces/{{id}}">See all Spaces</a>
-      </div>
-    {{#each members}}
-            <ul>
-                <li>{{user.username}}</li>
-            </ul>
-        {{/each}}
-</div>
-{{/each}}
