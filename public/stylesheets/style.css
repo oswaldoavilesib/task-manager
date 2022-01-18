@@ -12406,7 +12406,7 @@ p {
 /*TEST*/
 @import url("https://fonts.googleapis.com/css2?family=Baloo+Paaji+2:wght@400;500&display=swap");
 
-.container {
+.containerss {
   display: grid;
   grid-template-columns: 300px 300px 300px;
   grid-gap: 50px;
@@ -12563,7 +12563,6 @@ p {
   -webkit-transform: scale(2.2);
   color: #ff003c;
   background: -webkit-linear-gradient(45deg, #ff003c, #c648c8);
-  -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   transition: all 265ms ease-in;
 }
