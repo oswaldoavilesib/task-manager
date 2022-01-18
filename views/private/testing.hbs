@@ -1,81 +1,58 @@
-
-
-<div class="container">
-	<div class="screen">
-		<div class="screen__content">
-			<form action="/signup" method="post"  id="signup"class="login">
-        <div class="login__field signup-di">
-					<i class="login__icon fas fa-user"></i>
-					<input name="username" type="text" class="login__input" placeholder="Name">
-				</div>
-
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input name="email" type="text" class="login__input" placeholder="Email">
-				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input name="password" type="password" class="login__input" placeholder="Password">
-				</div>
-				<button class="button login__submit" type="submit">
-					<span class="button__text">Sign Up Now</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
-			</form>
-			<div class="social-login">
-				<h3>Sign Up via</h3>
-				<div class="social-icons">
-				<div class="google-btn">
-          <a href="/auth/google">
-  <div class="google-icon-wrapper">
-    <img id="googleLogo"href="/auth/google" class="google-icon" src="/images/google.png"/>
+<div class="container mt-5">
+  <div class="card container-summary">
+    <div class="card-header">
+      <h1>Total tasks:</h1>
+    </div>
   </div>
-  <p class="btn-text"><b><a href="/auth/google">Google Sign In</a></b></p>
 </div>
+
+
+
+<div class="container mt-5">
+
+  {{#each tasks}} 
+    <div class="row task-row align-items-center">
+      <div class="col col-lg-4 d-lg-flex">
+        <a href="/profile/tasks/update/{{id}}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-pencil-square task-icon" viewBox="0 0 16 16">
+          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+          <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg>
         </a>
-		
-				</div>
-			</div>
-		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>		
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
-		</div>		
-	</div>
+        <p>{{name}}</p>
+      </div>
+      {{#each assignees}}
+        <div class="col col-lg-3">
+          <p><b>Assigned to:</b></p>
+          <div class="d-flex task-member-container">
+            <img class="task-member-pic" src="/images/defaultprofile.png" alt="">
+            <p>Oswaldo</p>
+          </div>
+        </div>
+      {{/each}}
+
+      <div class="col col-lg-2">
+        {{#if due_date}}
+          <p>{{due_date}}</p>
+        {{else}}
+          <p>No due date.</p>
+        {{/if}}
+      </div>
+
+      <div class="col col-lg-2">
+         {{#if priority}}
+          <p>{{priority}}</p>
+        {{else}}
+          <p>Low</p>
+        {{/if}}
+      </div>
+      
+      <div class="col col-lg-1">
+        <a href="/profile/tasks/delete/{{id}}">Delete</a>
+      </div>
+    </div>
+  {{/each}}
+
 </div>
 
-<section class="text-center container mt-5">
-	<main class="form-signin col-lg-4 mx-auto contenedor-formulario">
-		<form action="/signup" method="post" class="formulario" >
-			<img class="mb-4" src="/images/logo1.png" alt="" width="72" height="57">
-			<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-
-			<div class="form-floating">
-				<input name="username" type="text" class="form-control" id="floatingInput" placeholder="Name">
-				<label for="floatingInput">Name</label>
-			</div>
-
-			<div class="form-floating">
-				<input name="email" type="email" class="form-control mt-3" id="floatingInput" placeholder="name@example.com">
-				<label for="floatingInput">Your best email</label>
-			</div>
-
-			<div class="form-floating">
-				<input type="password" class="form-control mt-3" id="floatingPassword" placeholder="Password">
-				<label for="floatingPassword">Password</label>
-			</div>
-
-			<button class="w-100 btn btn-lg btn-primary mt-3" type="submit"><a href="/">Sign in</a></button>
-			<div class="google-btn">
-				<div class="google-icon-wrapper">
-					<img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
-				</div>
-				<p class="btn-text"><b>Sign in with google</b></p>
-			</div>
-			<p class="mt-5 mb-3 text-muted">&copy; Task Manager 2021</p>
-		</form>
-	</main>
-</section>
-
+ {{!-- align-items-center d-flex --}}
