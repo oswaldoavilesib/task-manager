@@ -311,8 +311,7 @@ p {
 } */
 
 /* NUEVO CÓDIGO CSS */
-/* 
-Botones de la homepage */
+/* Botones de la homepage */
 
 .homepage-above-fold .main-text{
   color: white;
@@ -321,6 +320,10 @@ Botones de la homepage */
 .btn-outline-info a{
   color: #0DCAF0;
   text-decoration: none;
+}
+
+.btn-outline-info:hover{
+  color: #212529;
 }
 
 .btn-outline-info a:hover{
@@ -334,4 +337,44 @@ Botones de la homepage */
 
 .btn-outline-light a:hover{
   color: #212529;
+}
+
+.contenedor-formulario{
+  background-color: #212529;
+  padding: 20px 20px;
+  color: white;
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 0px 11px 2px rgba(13,202,240,0.36); 
+  box-shadow: 0px 0px 11px 2px rgba(13,202,240,0.36);
+}
+
+
+/* 
+BOTONES PRIMARIOS Y SECUNDARIOS */
+
+.btn-primary{
+  background-color: #0DCAF0;
+  border: 1px solid #0DCAF0;  
+  -webkit-box-shadow: 0px 0px 11px 2px rgba(13,202,240,0.36); 
+  box-shadow: 0px 0px 11px 2px rgba(13,202,240,0.36);
+  font-weight: 600;
+}
+
+.btn-primary:hover{
+  background-color: #212529;
+  border: 1px solid #0DCAF0;  
+  -webkit-box-shadow: 0px 0px 11px 2px rgba(13,202,240,0.36); 
+  box-shadow: 0px 0px 11px 2px rgba(13,202,240,0.36);
+  font-weight: 600;
+}
+
+.btn-primary a{
+  color: #212529;
+  text-decoration: none;
+  padding: 100px 50px;
+}
+
+.btn-primary a:hover{
+  color: #0DCAF0;
+  text-decoration: none;
 }
