@@ -23,8 +23,10 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
         response.data.tasks.forEach((task => {
             console.log("RESPONSE OF FOREACH TASK:", task)
             console.log("RESPONSE.ID of EACH TASK:", task.id)
-            const {id,name,...rest} = task
+            const id = Number(task.id)
+            const {name,...rest} = task
             console.log("TYPE OF ID DATA",typeof id)
+            console.log("TYPE OF ID NAME",name)
             Task.find({id: {$eq:id}})
             .then(response => {
                 console.log("RESPONSE FROM LIST.FINDONE",response)
