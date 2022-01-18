@@ -20,6 +20,7 @@ router.get('/profile/spaces/:id',(req,res,next)=>{
             const {id,name} = space
             Space.find({id: {$eq:id}})
             .then(response=>{
+                console.log("RESPONSE OF SPACE.FIND:",response)
                 if(!response.length){
                     Space.create({id,name})
                         .then(response=>console.log("RESPONSE OF CREATE SPACE",response))
