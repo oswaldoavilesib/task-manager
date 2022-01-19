@@ -38,7 +38,7 @@ router.get('/profile/folders/:id',(req,res,next)=>{
             })
             .catch(error=>console.log("ERROR EN FINDING NEW FOLDERS IN DB",error))
         }))
-        res.render('private/folders',{folders:response.data.folders,id})
+        res.render('private/folders',{folders:response.data.folders,id,teamID:req.params.id})
     })
     .catch(error=>console.log('ERROR EN GET FOLDERS APIHANDLER',error))
 
