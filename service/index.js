@@ -178,7 +178,22 @@ class ClickUpApi {
 
         }
         
+        //Delete a task//
+        updateTask(taskId,clickUpAccessToken,taskName,assigneesArray,priority){
+            let data = {
+                'name': taskName,
+                'assignees': assigneesArray,
+                'priority': priority,
+            };
+            return this.api.put(`/task/${taskId}`,
+            data,
+            {
+                headers:{
+                    'Authorization': clickUpAccessToken
+                }
+            })
 
+        }
 }
 
 module.exports = ClickUpApi;

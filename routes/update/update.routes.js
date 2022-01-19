@@ -24,9 +24,18 @@ router.get('/profile/tasks/update/:id',(req,res,next)=>{
 router.post('/profile/tasks/update/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken; 
     console.log("REQ.BODY DE POST TASK UPDATE",req.body)
-    
-    console.log("REQ.BODY DE POST TASK UPDATE",req.body.dueDate.value)
-    res.redirect("backk")
+    const assigneesArray = [];
+    const {id} = req.params;
+    const {taskName,assignee,priority,dueDate} = req.body;
+    const priorityNumber = Number(priority)
+    assigneesArray.push(assignee)
+
+    clickUpApiHandler
+    .updateTask(id,accessToken,taskName,assigneesArray,priorityNumber)
+    .then(response => {
+        res.redirect("back")
+    })
+    .catch(error=>console.log("error en UPDATE Tarea",error))
 })
 
 
