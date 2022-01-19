@@ -156,6 +156,7 @@ class ClickUpApi {
                 'priority': priority,
             };
             console.log("PRIORITY ON API HANDLER",priority)
+            console.log("DATA ON API HANDLER",data)
 
         return this.api.post(`/list/${taskId}/task`,
             data,
