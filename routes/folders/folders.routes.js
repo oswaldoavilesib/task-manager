@@ -22,6 +22,7 @@ router.get('/profile/folders/:id',(req,res,next)=>{
     .then(response =>{
         //console.log("RESPONSE OF getFOLDERS APIHANDLER",response)
         console.log("RESPONSE.DATA OF getFOLDERS APIHANDLER",response.data)
+        console.log("RESPONSE.DATA OF getFOLDERS APIHANDLER",response.data.list)
 
         //Adding to DB
         response.data.folders.forEach((folder =>{
