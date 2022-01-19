@@ -1,34 +1,55 @@
 
 
-<button data-modal-target="#modals">Open Modal</button>
 
+<div class="container mt-5">
 
-<div class="modals active">
-    <div class="modals-header">
-        <div class="titles">Hola</div>
-        <button data-close-button class="closes-btn">&times;</button>
-    </div>
-
-     <div class="modals-body">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit sequi a natus ad sit dolorem numquam, cupiditate libero corporis iste!
-    </div>
-    <div id="overlays"></div>
-</div>
-
-<div class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card card-container-lists">
+        <div class="card-body card-header-lists">
+          <h5 class="card-title">Card title</h5>
+        </div>
+        <div class="card-body">
+          <p><strong>Space:</strong></p>
+          <p><strong>Folder:</strong></p>
+          <p><strong>Number of Tasks:</strong></p>
+          <div class="row row-cols-12 row-cols-lg-2 g-4 botones-contenedor-lista">
+            <div class="col mx-auto ">
+              <a class="see-next-btn" href="">See all tasks</a>
+            </div>
+            <div class="col mx-auto">
+              <a class="delete-button" href="">Delete</a>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+
+
+    <div class="col">
+      <div class="card card-container-lists">
+        <div class="card-body card-header-lists">
+          <h5 class="card-title">Card title</h5>
+        </div>
+        <div class="card-body">
+          <p><strong>Space:</strong></p>
+          <p><strong>Folder:</strong></p>
+          <p><strong>Number of Tasks:</strong></p>
+          <div class="row row-cols-12 row-cols-lg-2 g-4 botones-contenedor-lista">
+            <div class="col mx-auto ">
+              <a class="see-next-btn" href="">See all tasks</a>
+            </div>
+            <div class="col mx-auto">
+              <a class="delete-button" href="">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
   </div>
+
 </div>
+{{!-- 
+row-cols-1 row-cols-md-2 --}}

@@ -1,7 +1,41 @@
-<h1 class="workspace-titles" >Lists</h1>
-<h1 class="workspace-titles" >{{lists.folder.name}}</h1>
+<div class="container mt-5">
+    <div class="card container-summary">
+        <div class="card-header">
+            <h1>Total Lists: {{lists.length}}</h1>
+        </div>
+    </div>
+</div>
 
-<div class="table-responsive table-container">
+<div class="container mt-5">
+    {{#each lists}}
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col">
+        <div class="card card-container-lists">
+            <div class="card-body card-header-lists">
+            <h5 class="card-title">{{name}}</h5>
+            </div>
+            <div class="card-body">
+            <p><strong>Space: {{space.name}}</strong></p>
+            <p><strong>Folder: {{folder.name}}</strong></p>
+            <p><strong>Number of Tasks:{{task_count}}</strong></p>
+            <div class="row row-cols-12 row-cols-lg-2 g-4 botones-contenedor-lista">
+                <div class="col mx-auto ">
+                <a class="see-next-btn" href="/profile/tasks/{{id}}">See all tasks</a>
+                </div>
+                <div class="col mx-auto">
+                <a class="delete-button" href="/profile/list/delete/{{id}}">Delete</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    {{/each}}
+
+  </div>
+
+</div>
+
+{{!-- <div class="table-responsive table-container">
     <table class="table folders-table table-hover">
     <thead>
         <tr>
@@ -21,7 +55,7 @@
             </tr>
         {{/each}}
     </table>
-</div>
+</div> --}}
 
 <h2 class="workspace-titles">Create a new list</h2>
 <div class="table-responsive table-container">

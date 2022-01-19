@@ -433,3 +433,54 @@ BOTONES PRIMARIOS Y SECUNDARIOS */
 .container-summary{
   border: none;
 }
+
+/* STYLES FOR LISTS */
+
+.card-container-lists{
+  border-radius: 8px;
+  border: 1px solid #212529;
+  background-color: #212529;
+  -webkit-box-shadow: 0px 0px 6px 5px rgba(33,37,41,0.63); 
+  box-shadow: 0px 0px 6px 5px rgba(33,37,41,0.63);
+}
+
+.card-header-lists{
+  padding-bottom:0;
+  border-bottom: 1px solid #0DCAF0;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+}
+
+.card-title{
+  color: #fff;
+}
+
+.card-body{
+  color: #fff;
+}
+
+.botones-contenedor-lista{
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 15px;
+  
+  
+}
+
+.see-next-btn{
+  /* background-color: #0DCAF0; */
+  color: #0DCAF0;
+  text-decoration: none;
+  font-weight: 800;
+  padding: 8px;
+  border: 1px solid #0DCAF0;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
+.delete-button{
+  text-decoration: none;
+  color: #F90716;
+  font-weight: 700;
+  padding: 8px;
+}
