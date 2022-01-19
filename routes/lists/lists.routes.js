@@ -21,18 +21,21 @@ router.get("/profile/lists/:id", (req, res, next) => {
 
         //Adding to DB
         response.data.lists.forEach((list => {
+            console.log("RETRIEVE FOLDERS DATA FROM LISTS",list.folder)
+            console.log("RETRIEVE FOLDERS DATA FROM LISTSS",list.space)
             const {id,name,...rest} = list;
             List.find({id: {$eq:id}})
             .then(response => {
-                console.log("RESPONSE.DATA DE LISTS",response.data)
+                console.log("RESPONSE.DATA DE LISTS",response)
                 if(!response.length){
                     List.create({id,name})
-                    .then(response => console.log(response))
+                    .then(response => console.log("WE CREATED A NEW LIST",response))
                     .catch(error => console.log("ERROR EN CREAR LISTS EN DB", error))
                 } else {
-                    console.log("list is alreado on DB")
+                    console.log("list is alreadY on DB")
                 }
             })
+            .catch(error => console.log("ERROR EN FINDING NEW LIST IN DB",error))
         }))
         res.render("private/lists",{lists: response.data.lists,id});
     })

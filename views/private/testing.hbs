@@ -1,34 +1,212 @@
 
-
-<button data-modal-target="#modals">Open Modal</button>
-
-
-<div class="modals active">
-    <div class="modals-header">
-        <div class="titles">Hola</div>
-        <button data-close-button class="closes-btn">&times;</button>
+<div class="container mt-5">
+    <div class="card container-summary">
+        <div class="card-header d-flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-folde-fill align-self-center icon-data" viewBox="0 0 16 16">
+            <path d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm7.5-6.923c-.67.204-1.335.82-1.887 1.855A7.97 7.97 0 0 0 5.145 4H7.5V1.077zM4.09 4a9.267 9.267 0 0 1 .64-1.539 6.7 6.7 0 0 1 .597-.933A7.025 7.025 0 0 0 2.255 4H4.09zm-.582 3.5c.03-.877.138-1.718.312-2.5H1.674a6.958 6.958 0 0 0-.656 2.5h2.49zM4.847 5a12.5 12.5 0 0 0-.338 2.5H7.5V5H4.847zM8.5 5v2.5h2.99a12.495 12.495 0 0 0-.337-2.5H8.5zM4.51 8.5a12.5 12.5 0 0 0 .337 2.5H7.5V8.5H4.51zm3.99 0V11h2.653c.187-.765.306-1.608.338-2.5H8.5zM5.145 12c.138.386.295.744.468 1.068.552 1.035 1.218 1.65 1.887 1.855V12H5.145zm.182 2.472a6.696 6.696 0 0 1-.597-.933A9.268 9.268 0 0 1 4.09 12H2.255a7.024 7.024 0 0 0 3.072 2.472zM3.82 11a13.652 13.652 0 0 1-.312-2.5h-2.49c.062.89.291 1.733.656 2.5H3.82zm6.853 3.472A7.024 7.024 0 0 0 13.745 12H11.91a9.27 9.27 0 0 1-.64 1.539 6.688 6.688 0 0 1-.597.933zM8.5 12v2.923c.67-.204 1.335-.82 1.887-1.855.173-.324.33-.682.468-1.068H8.5zm3.68-1h2.146c.365-.767.594-1.61.656-2.5h-2.49a13.65 13.65 0 0 1-.312 2.5zm2.802-3.5a6.959 6.959 0 0 0-.656-2.5H12.18c.174.782.282 1.623.312 2.5h2.49zM11.27 2.461c.247.464.462.98.64 1.539h1.835a7.024 7.024 0 0 0-3.072-2.472c.218.284.418.598.597.933zM10.855 4a7.966 7.966 0 0 0-.468-1.068C9.835 1.897 9.17 1.282 8.5 1.077V4h2.355z"/>
+            </svg>
+            <h1 class="align-self-center" >Total Folders: {{folders.length}}</h1>
+        </div>
     </div>
-
-     <div class="modals-body">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Impedit sequi a natus ad sit dolorem numquam, cupiditate libero corporis iste!
-    </div>
-    <div id="overlays"></div>
 </div>
 
-<div class="modal" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <p>Modal body text goes here.</p>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+  
+        <div class="col">
+        <div class="card card-container-lists">
+            <div class="card-body card-header-lists">
+            <h5 class="card-title items-title"><a href="">Name</a>
+
+            </h5>
+            </div>
+            <div class="card-body">
+            <p><strong>Number of Spaces:</strong>{{spaces.length}}</p>
+            <p><strong>Number of members: </strong>{{members.length}}</p>
+
+            {{!-- EACH --}}
+            <div class="d-flex">
+              <img src="/images/logo1.png" class="logo-items " alt="">
+              <p class="align-self-center profile-name">Oswaldo</p>
+            </div>
+
+            <div class="row row-cols-12 row-cols-lg-2 g-4 botones-contenedor-lista">
+                <div class="col mx-auto ">
+                <a class="see-next-btn" href="/profile/lists/{{id}}">See all folders</a>
+                </div>
+                <div class="col mx-auto">
+                <a class="delete-button" href="/profile/folders/delete/{{id}}">Delete</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
   </div>
+
 </div>
+
+
+{{!-- FRONT FOR ONBOARDING --}}
+
+{{!-- <section class="text-center container mt-5">
+	<main class="form-signin col-lg-4 mx-auto contenedor-formulario contenedor-saludo">
+    <h1>Hi, Oswaldo!</h1>
+			<div class="form-floating">
+        <p>We love you are back to work. Are you prepare to be productive today?</p>
+			</div>
+			<button class="w-100 btn btn-lg btn-primary mt-3" type="submit"><a href="https://app.clickup.com/api?client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&redirect_uri=https://task-managermx.herokuapp.com/workspace">Yes, take me to my spaces</a></button>
+	</main>
+</section> --}}
+
+{{!-- LIST ROUTES TO CREATE --}}
+
+{{!-- <div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <div class="col">
+        <div class="card card-container-lists">
+            <div class="card-body card-header-lists">
+            <h5 class="card-title"></h5>
+            </div>
+            <div class="card-body">
+            <p><strong>Space: </strong></p>
+            <p><strong>Folder: </strong></p>
+            <p><strong>Number of Tasks: </strong></p>
+            <div class="row row-cols-12 row-cols-lg-2 g-4 botones-contenedor-lista">
+                <div class="col mx-auto ">
+                <a class="see-next-btn" href="/profile/tasks/{{id}}">See all tasks</a>
+                </div>
+                <div class="col mx-auto">
+                <a class="delete-button" href="/profile/list/delete/{{id}}">Delete</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+  </div>
+
+<div class="container mt-5 mb-5 d-flex justify-content-start">
+      <form action="/profile/tasks/{{id}}" method="post"></form>
+      <div class="row list-row-create ">
+              <div class="col col-lg-12 align-self-center input-container">
+                <label class="create-list-label" for="">Create a new list here:</label>
+                <input type="text" name="taskName" id="" placeholder="Name your new list here.">
+              </div>
+              <div class="col col-lg-12 mx-auto input-container">
+                  <button type="submit" class="create-button create-button-link">Create</button>
+              </div>
+        </div>
+      </form>
+</div> --}}
+
+{{!-- TASKS GET Y CREATE --}}
+
+{{!-- <div class="container mt-5">
+  <div class="row task-row align-items-center">
+      <div class="col col-lg-4 d-lg-flex">
+          <a href="/profile/tasks/update/{{id}}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-pencil-square task-icon" viewBox="0 0 16 16">
+          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+          <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg>
+          </a>
+          <p>NAME OF TASK</p>
+      </div>
+      <div class="col col-lg-3">
+        <p><b>Assigned to:</b></p>
+        <div class="d-flex task-member-container">
+          <img class="task-member-pic" src="/images/defaultprofile.png" alt="">
+          <p>Oswaldo</p>
+        </div>
+      </div>
+      <div class="col col-lg-2">
+        <p>No due date.</p>
+      </div>
+
+      <div class="col col-lg-2">
+          <p>Low</p>
+      </div>
+        
+      <div class="col col-lg-1">
+          <a href="/profile/tasks/delete/{{id}}">Delete</a>
+      </div>
+  </div>
+
+</div> --}}
+
+
+
+
+
+{{!-- <div class="container mt-5 mb-5">
+    <form action="/profile/tasks/{{id}}" method="post"></form>
+    <div class="row task-row-create align-items-center">
+            <div class="col col-lg-4 d-lg-flex">
+                <input type="text" name="taskName" id="" placeholder="Create a new task here.">
+            </div>
+            <div class="col col-lg-3">
+                <div class="d-flex">
+                <select name="" id="">
+                    <option class="date-input" value="1">Oswaldo</option>
+                </select>
+                </div>
+            </div>
+            <div class="col col-lg-2">
+                <input type="date" name="dueDate">
+            </div>
+
+            <div class="col col-lg-2">
+                <select class="select-priority"  name="priority" id="" selected="selected">
+                <option value="">--</option>
+                <option  value="4">Low</option>
+                <option  value="3">Normal</option>
+                <option  value="2">High</option>
+                <option  value="1">Urgent</option>
+                </select>
+            </div>
+            <div class="col mx-auto ">
+                <button type="submit" class="create-button create-button-link">Create</button>
+            </div>
+      </div>
+    </form>
+</div> --}}
+
+
+
+
+
+{{!-- LIST FRONT END --}}
+
+
+{{!-- <div class="container mt-5">
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col">
+      <div class="card card-container-lists">
+        <div class="card-body card-header-lists">
+          <h5 class="card-title">Card title</h5>
+        </div>
+        <div class="card-body">
+          <p><strong>Space:</strong></p>
+          <p><strong>Folder:</strong></p>
+          <p><strong>Number of Tasks:</strong></p>
+          <div class="row row-cols-12 row-cols-lg-2 g-4 botones-contenedor-lista">
+            <div class="col mx-auto ">
+              <a class="see-next-btn" href="">See all tasks</a>
+            </div>
+            <div class="col mx-auto">
+              <a class="delete-button" href="">Delete</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+  </div>
+
+</div> --}}

@@ -18,18 +18,29 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
     .then(response=>{
         console.log("RESPONSE:DATA FROM TASKS",response.data) //We recieve al th data from api call
 
-
         //Now we neet to iterate in each of the tasks to make sure they are on our database and if they are, do not add the, again
         response.data.tasks.forEach((task => {
-            console.log("ASSIGNESS FROM TASKS",task.assignees)
+            //console.log("RESPONSE OF FOREACH TASK ID:", task.id)
+            //console.log("RESPONSE OF FOREACH TASK assignees:", task.assignees)
+            const {id,name,due_date,...rest} = task
+            console.log("PRIORITY OBJ",task.priority) 
+            console.log("DUE DATEEEEE",due_date)
 
-            console.log("CHECKLISTS FROM TASKS",task.checklists)
-            const {id,name,...rest} = task
-            Task.find({id: {$eq:id}})
+            const dateObj = new Date(due_date*1000);
+
+            const dateToLocal = dateObj.toLocaleDateString();
+
+
+            console.log("DATETEST",dateObj)
+            console.log("dateToLocaleDateString",dateToLocal)
+  
+
+
+            Task.find({name: {$eq:name}})
             .then(response => {
                 console.log("RESPONSE FROM LIST.FINDONE",response)
                 if(!response.length){
-                    List.create({id,name})
+                    Task.create({id,name})
                     .then(response => console.log('We created a newTask',response))
                     .catch(error => console.log("ERROR EN ADDING A TASK ON DB",error))
                 } else {
@@ -48,12 +59,31 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 //-------POST ROUTES------///
 
 router.post('/profile/tasks/:id',(req,res,next)=>{
+    const assigneesArray = [];
     const accessToken = req.session.currentUser.clickUpAccessToken;
     const {id} = req.params;
-    const {taskName} = req.body;
+    const {taskName,assignee,priority,dueDate} = req.body;
+    const priorityNumber = Number(priority)
+    assigneesArray.push(assignee)
+
+    const date = new Date(dueDate)
+
+    const dateInMilliseconds = date.getTime()
+
+    const dateInMillisecondsDivided = date.getTime()/1000
+
+    console.log("DATE IN MILLISECONDS",dateInMilliseconds)
+    console.log("DATE IN dateInMillisecondsDivided",dateInMillisecondsDivided)
+
+    console.log("NEW DATE OBJECT",date)
+    
+
+    console.log("REQ. BODY de CREAR TASK",req.body)
+    console.log("assigneesArray",assigneesArray)
+    console.log("priorityNumber",priorityNumber)
 
     clickUpApiHandler
-    .createTask(id,accessToken,taskName)
+    .createTask(id,accessToken,taskName,assigneesArray,priorityNumber)
     .then(response => {
         res.redirect('back')
     })

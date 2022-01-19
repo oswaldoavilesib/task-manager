@@ -1,34 +1,110 @@
-<h1>Tasks</h1>
+<div class="container mt-5">
+    <div class="card container-summary">
+        <div class="card-header d-flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-folde-fill align-self-center icon-data" viewBox="0 0 16 16">
+            <path d="M14.5 3a.5.5 0 0 1 .5.5v9a.5.5 0 0 1-.5.5h-13a.5.5 0 0 1-.5-.5v-9a.5.5 0 0 1 .5-.5h13zm-13-1A1.5 1.5 0 0 0 0 3.5v9A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-9A1.5 1.5 0 0 0 14.5 2h-13z"/>
+            <path d="M7 5.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 1 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0zM7 9.5a.5.5 0 0 1 .5-.5h5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1-.5-.5zm-1.496-.854a.5.5 0 0 1 0 .708l-1.5 1.5a.5.5 0 0 1-.708 0l-.5-.5a.5.5 0 0 1 .708-.708l.146.147 1.146-1.147a.5.5 0 0 1 .708 0z"/>
+            </svg>
+            <h1 class="align-self-center" >Total tasks: {{tasks.length}}</h1>
+        </div>
+    </div>
+</div>
 
-<h1 class="workspace-titles">Tasks</strong></h1>
 
-<div class="table-responsive table-container">
-    <table class="table folders-table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Task name</th>
-            <th scope="col">Number of assigness</th>
-            <th scope="col">Remove task</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each tasks}}
-        <tr>
-            <td>{{name}}</td>
-            <td>{{assignees.length}}</td>
-            {{#each assignees}}
-                <td class="table-uri">
-                    <li>{{username}}</li>
-                    <li><img class="profile-image-spaces" src="{{profilePicture}}" alt=""></li>
-            {{/each}}
-            <td><a class="delete-task" href="/profile/tasks/delete/{{id}}">Delete</a></td>
-            <td><a class="update-task" href="/profile/tasks/delete/{{id}}">Edit</a></td>
-        </tr>
-        {{/each}}
-    </table>
+<div class="container mt-5">
+    {{#each tasks}} 
+        <div class="row task-row align-items-center">
+            <div class="col col-lg-4 d-lg-flex">
+                <a href="/profile/tasks/update/{{id}}">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-pencil-square task-icon" viewBox="0 0 16 16">
+                <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+                <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+                </svg>
+                </a>
+                <p>{{name}}</p>
+            </div>
+            <div class="col col-lg-3">
+                {{#each assignees}}
+                    <p><b>Assigned to:</b></p>
+                    <div class="d-flex task-member-container">
+                        <img class="task-member-pic" src="{{profilePicture}}" alt="">
+                        <p>{{username}}</p>
+                    </div>
+                {{/each}}
+            </div>
+
+
+            <div class="col col-lg-2">
+                {{#if due_date}}
+                <p>{{due_date}}</p>
+                {{else}}
+                <p>No due date.</p>
+                {{/if}}
+            </div>
+
+            <div class="col col-lg-2">
+                {{#if priority}}
+                <p>{{priority.priority}}</p>
+                {{else}}
+                <p>Low</p>
+                {{/if}}
+            </div>
+        
+            <div class="col col-lg-1">
+                <a href="/profile/tasks/delete/{{id}}">Delete</a>
+            </div>
+        </div>
+    {{/each}}
+
+
+    
+
+
 
 </div>
 
+
+
+
+
+
+<form action="/profile/tasks/{{id}}" method="post">
+<div class="container mt-5 mb-5">
+    <div class="row task-row-create align-items-center">
+            <div class="col col-lg-4 d-lg-flex">
+                <input type="text" name="taskName" id="" placeholder="Create a new task here.">
+            </div>
+            <div class="col col-lg-3">
+                <div class="d-flex">
+                <select name="assignee" id="">
+                        <option class="date-input" value="16806147">Oswaldo</option>
+                </select>
+                </div>
+            </div>
+            <div class="col col-lg-2">
+                <input type="date" name="dueDate">
+            </div>
+
+            <div class="col col-lg-2">
+                <select class="select-priority"  name="priority" id="" selected="selected">
+                    <option value="">--</option>
+                    <option  value="4">Low</option>
+                    <option  value="3">Normal</option>
+                    <option  value="2">High</option>
+                    <option  value="1">Urgent</option>
+                </select>
+            </div>
+            <div class="col mx-auto ">
+                <button type="submit" class="create-button create-button-link">Create</button>
+            </div>
+    </div>
+</div>
+</form>
+
+
+
+
+{{!-- 
 <h2 class="workspace-titles">Create a new task</h2>
 
 <div class="table-responsive table-container">
@@ -50,4 +126,4 @@
             </tr>
         </table>
     </form>
-</div>
+</div> --}}

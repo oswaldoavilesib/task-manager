@@ -1,50 +1,37 @@
+<section class="text-center container mt-5">
+	<main class="form-signin col-lg-4 mx-auto contenedor-formulario">
+		<form action="/signup" method="post" class="formulario" >
+			<img class="mb-4" src="/images/logo1.png" alt="" width="72" height="57">
+			<h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
+			<div class="form-floating">
+				<input name="username" type="text" class="form-control" id="floatingInput" placeholder="Name">
+				<label for="floatingInput">Name</label>
+			</div>
 
-<div class="container">
-	<div class="screen">
-		<div class="screen__content">
-			<form action="/signup" method="post"  id="signup"class="login">
-        <div class="login__field signup-di">
-					<i class="login__icon fas fa-user"></i>
-					<input name="username" type="text" class="login__input" placeholder="Name">
-				</div>
+			<div class="form-floating">
+				<input name="email" type="email" class="form-control mt-3" id="floatingInput" placeholder="name@example.com">
+				<label for="floatingInput">Your best email</label>
+			</div>
 
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input name="email" type="text" class="login__input" placeholder="Email">
-				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input name="password" type="password" class="login__input" placeholder="Password">
-				</div>
-				<button class="button login__submit" type="submit">
-					<span class="button__text">Sign Up Now</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
-			</form>
-			<div class="social-login">
-				<h3>Sign Up via</h3>
-				<div class="social-icons">
-				<div class="google-btn">
-          <a href="/auth/google">
-  <div class="google-icon-wrapper">
-    <img id="googleLogo"href="/auth/google" class="google-icon" src="/images/google.png"/>
-  </div>
-  <p class="btn-text"><b><a href="/auth/google">Google Sign In</a></b></p>
-</div>
-        </a>
-		
+			<div class="form-floating">
+				<input name="password" type="password" class="form-control mt-3" id="floatingPassword" placeholder="Password">
+				<label for="floatingPassword">Password</label>
+			</div>
+
+			<button class="w-100 btn btn-lg btn-primary mt-3" type="submit">Sign in</button>
+			
+		</form>
+			<div class="row mt-3">
+				<div class="col google-btn-container">
+					<img  src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
+					<a href="/auth/google">Sign in with google</a>
 				</div>
 			</div>
-		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>		
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
-		</div>		
-	</div>
-</div>
+
+			<p class="mt-5 mb-3 text-muted">&copy; Task Manager 2021</p>
+	</main>
+</section>
 
 {{#if errorMessage}}
 <p>{{errorMessage}}</p>

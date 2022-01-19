@@ -149,10 +149,15 @@ class ClickUpApi {
     }
 
         //-----Create a new task------//
-        createTask(taskId,clickUpAccessToken,taskName){
+        createTask(taskId,clickUpAccessToken,taskName,assigneesArray,priority){
             let data = {
                 'name': taskName,
+                'assignees': assigneesArray,
+                'priority': priority,
             };
+            console.log("PRIORITY ON API HANDLER",priority)
+            console.log("DATA ON API HANDLER",data)
+
         return this.api.post(`/list/${taskId}/task`,
             data,
             {
@@ -173,7 +178,22 @@ class ClickUpApi {
 
         }
         
+        //Delete a task//
+        updateTask(taskId,clickUpAccessToken,taskName,assigneesArray,priority){
+            let data = {
+                'name': taskName,
+                'assignees': assigneesArray,
+                'priority': priority,
+            };
+            return this.api.put(`/task/${taskId}`,
+            data,
+            {
+                headers:{
+                    'Authorization': clickUpAccessToken
+                }
+            })
 
+        }
 }
 
 module.exports = ClickUpApi;

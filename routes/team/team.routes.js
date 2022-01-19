@@ -16,7 +16,7 @@ router.get('/profile/teams',(req,res)=>{
 
         console.log('RESPONSE DE TEAMS',response)
         console.log('RESPONSE.DATA DE TEAMS',response.data)
-        console.log('CONSOLE TEAMS_ID',response.data.teams.id)
+        console.log('CONSOLE TEAMS_ID',response.data.teams.id) //no me da el ID por que es un arreglo, pero no importa. Lo agarró más adelante
         //clickUpApiHandler.getTeamsId(response.data.teams.id)
 
         //Extraer el id de cada Team y mandar
@@ -25,7 +25,7 @@ router.get('/profile/teams',(req,res)=>{
         //Agregar a bse de datos
         response.data.teams.forEach((team=>{
             const {id, name,...rest} = team
-            console.log("TE IDAPI=",id)
+            console.log("THE TEAM=",id)
             Team.find({id: {$eq:id}})
             .then(response => {
                 console.log('RESPONSE FROM Team.findOne: ',response)

@@ -1,44 +1,57 @@
-<h1 class="workspace-titles" >Lists</h1>
 
-<div class="table-responsive table-container">
-    <table class="table folders-table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">List name</th>
-            <th scope="col">Number of tasks</th>
-            <th scope="col">Go to your tasks</th>
-            <th scope="col">Remove list</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each lists}}
-            <tr>
-                <td>{{name}}</td>
-                <td>{{task_count}}</td>
-                <td><a href="/profile/tasks/{{id}}">See all Tasks.</a></td>
-                <td><a class="delete-task" href="/profile/list/delete/{{id}}">Delete</a></td>
-            </tr>
-        {{/each}}
-    </table>
+<div class="container mt-5">
+    <div class="card container-summary">
+        <div class="card-header d-flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-folde-fill align-self-center icon-data" viewBox="0 0 16 16">
+            <path fill-rule="evenodd" d="M10.854 7.146a.5.5 0 0 1 0 .708l-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708 0z"/>
+            <path d="M4 1.5H3a2 2 0 0 0-2 2V14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3.5a2 2 0 0 0-2-2h-1v1h1a1 1 0 0 1 1 1V14a1 1 0 0 1-1 1H3a1 1 0 0 1-1-1V3.5a1 1 0 0 1 1-1h1v-1z"/>
+            <path d="M9.5 1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5v-1a.5.5 0 0 1 .5-.5h3zm-3-1A1.5 1.5 0 0 0 5 1.5v1A1.5 1.5 0 0 0 6.5 4h3A1.5 1.5 0 0 0 11 2.5v-1A1.5 1.5 0 0 0 9.5 0h-3z"/>
+            </svg>
+            <h1 class="align-self-center" >Total Lists: {{lists.length}}</h1>
+        </div>
+    </div>
 </div>
 
-<h2 class="workspace-titles">Create a new list</h2>
-<div class="table-responsive table-container">
-    <form action="/profile/lists/{{id}}" method="post">
-        <table class="table folders-table table-hover">
-        <thead>
-            <tr>
-            <th scope="col">Name your list</th>
-            <th scope="col">Create your list</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input class="input-create" type="text" name="listName" id="" placeholder="Write your list name." required></td>
-                <td>
-                    <button class="create-btn" type="submit">Create a new list</button>
-                </td>
-            </tr>
-        </table>
-    </form>
+
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    {{#each lists}}
+        <div class="col">
+        <div class="card card-container-lists">
+            <div class="card-body card-header-lists">
+            <h5 class="card-title items-title"><a href="/profile/tasks/{{id}}">{{name}}</a></h5>
+            </div>
+            <div class="card-body">
+            <p><strong>Space: </strong>{{space.name}}</p>
+            <p><strong>Folder: </strong>{{folder.name}}</p>
+            <p><strong>Number of Tasks: </strong>{{task_count}}</p>
+            <div class="row row-cols-12 row-cols-lg-2 g-4 botones-contenedor-lista">
+                <div class="col mx-auto ">
+                <a class="see-next-btn" href="/profile/tasks/{{id}}">See all tasks</a>
+                </div>
+                <div class="col mx-auto">
+                <a class="delete-button" href="/profile/list/delete/{{id}}">Delete</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+    {{/each}}
+
+  </div>
+
+</div>
+
+<div class="container mt-5 mb-5 d-flex justify-content-start">
+      <form action="/profile/lists/{{id}}" method="post">
+      <div class="row list-row-create ">
+              <div class="col col-lg-12 align-self-center input-container">
+                <label class="create-list-label" for="">Create a new list here:</label>
+                <input type="text" name="listName" id="" placeholder="Name your new list here.">
+              </div>
+              <div class="col col-lg-12 mx-auto input-container">
+                  <button type="submit" class="create-button create-button-link">Create</button>
+              </div>
+        </div>
+      </form>
 </div>
