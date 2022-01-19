@@ -26,7 +26,12 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             console.log("DUE DATEEEEE",due_date)
 
             const dateObj = new Date(due_date*1000);
+
+            const dateToLocal = dateObj.toLocaleDateString();
+
+
             console.log("DATETEST",dateObj)
+            console.log("dateToLocaleDateString",dateToLocal)
   
 
 
