@@ -23,12 +23,16 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             console.log("RESPONSE OF FOREACH TASK ID:", task.id)
             console.log("RESPONSE OF FOREACH TASK assignees:", task.assignees)
             const {id,name,due_date,...rest} = task
+            const dateConverted;
 
             //Converting date to readable date
-            const dateObject = new Date (due_date)
-            console.log("dateObject:",dateObject)
-            
-            const dateLocal = dateObject.toLocaleString();
+            if(!due_date){
+                const dateConverted = due_date;
+            }else {
+                const dateObject = new Date (due_date)
+                const dateConverted = dateObject.toLocaleDateString();
+            }
+
             console.log("dateLocal:",dateLocal)
 
 
@@ -36,7 +40,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             .then(response => {
                 console.log("RESPONSE FROM LIST.FINDONE",response)
                 if(!response.length){
-                    List.create({id,name})
+                    Task.create({id,name})
                     .then(response => console.log('We created a newTask',response))
                     .catch(error => console.log("ERROR EN ADDING A TASK ON DB",error))
                 } else {
