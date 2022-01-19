@@ -32,7 +32,9 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
             console.log("new DATE", date)
 
+            let dateReadable = date.toLocaleDateString()
 
+            console.log("dateReadable", dateReadable)
 
 
             Task.find({name: {$eq:name}})
