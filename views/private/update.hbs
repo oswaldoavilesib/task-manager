@@ -1,0 +1,32 @@
+<h1>Update your task here</h1>
+
+<div class="table-responsive table-container">
+    <form action="/profile/tasks/update/{{id}}" method="post">
+        <table class="table folders-table table-hover">
+        <thead>
+            <tr>
+                <th scope="col">Task name</th>
+                <th scope="col">Due date</th>
+                <th scope="col">Priority</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each tasks}}
+            <tr>
+                <td><input name="taskName" class="date-input" type="text" placeholder="{{name}}" name="" id=""></td>
+                <td><input type="date" placeholder="{{name}}" name="dueDate" id=""></td>
+                <td>
+                    <select class="date-input" name="priority" id="">
+                        <option class="date-input" value=""></option>
+                        <option class="date-input" value="4">Low</option>
+                        <option class="date-input" value="3">Normal</option>
+                        <option class="date-input" value="2">High</option>
+                        <option class="date-input" value="1">Urgent</option>
+                    </select>
+                </td>
+                <td><button type="submit">Save</button></td>
+            </tr>
+            {{/each}}
+        </table>
+    </form>
+</div>
