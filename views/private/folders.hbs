@@ -36,8 +36,22 @@
 
   </div>
 
-</div>gi
+</div>
 
+<div class="container mt-5 mb-5 d-flex justify-content-start">
+      <form action="/profile/folders/{{id}}" method="post">
+      <div class="row list-row-create ">
+              <div class="col col-lg-12 align-self-center input-container">
+                <label class="create-list-label" for="">Create a new folder here:</label>
+                <input type="text" name="listName" id="" placeholder="Name your new list here.">
+              </div>
+              <div class="col col-lg-12 mx-auto input-container">
+                  <button type="submit" class="create-button create-button-link">Create</button>
+              </div>
+        </div>
+      </form>
+</div>
+{{!-- 
 <h2 class="workspace-titles">Create a new folder</h2>
 <div class="table-responsive table-container">
     <form action="/profile/folders/{{id}}" method="post">
@@ -57,4 +71,4 @@
             </tr>
         </table>
     </form>
-</div>
+</div> --}}
