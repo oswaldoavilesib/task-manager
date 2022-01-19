@@ -17,7 +17,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
     .getTasks(id,accessToken) //WE pass the ID of the list from the database
     .then(response=>{
         console.log("RESPONSE:DATA FROM TASKS",response.data) //We recieve al th data from api call
-
+        console.log("RESPONSE.DATA.LISTS OF getFOLDERS APIHANDLER",response.data.list)
         //Now we neet to iterate in each of the tasks to make sure they are on our database and if they are, do not add the, again
         response.data.tasks.forEach((task => {
             //console.log("RESPONSE OF FOREACH TASK ID:", task.id)
