@@ -28,6 +28,9 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             console.log("PRIORITY OBJ",task.priority) 
             console.log("DUE DATEEEEE",due_date)
             console.log("TASK.LISTS OBJECTTTTTTT!!!!",task.list)
+            console.log("TASK.PROJECT OBJECTTTTTTT!!!!",task.proyect)
+            console.log("TASK.FOLDER OBJECTTTTTTT!!!!",task.folder)
+            console.log("TASK.SPACE OBJECTTTTTTT!!!!",task.space)
 
             const dateObj = new Date(due_date*1000);
 
