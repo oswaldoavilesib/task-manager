@@ -56,38 +56,40 @@
 
     </div>
 
-</div>
 
-<div class="row task-row-create align-items-center">
-    </form action="/profile/tasks/{{id}}" method="post">
-        <div class="col col-lg-4 d-lg-flex">
-            <input type="text" name="taskName" id="" placeholder="Create a new task here.">
-        </div>
-        <div class="col col-lg-3">
-            <div class="d-flex">
-            <select name="" id="">
-                <option class="date-input" value="1">Oswaldo</option>
-            </select>
+    <div class="row task-row-create align-items-center">
+        </form action="/profile/tasks/{{id}}" method="post">
+            <div class="col col-lg-4 d-lg-flex">
+                <input type="text" name="taskName" id="" placeholder="Create a new task here.">
+            </div>
+            <div class="col col-lg-3">
+                <div class="d-flex">
+                <select name="" id="">
+                    <option class="date-input" value="1">Oswaldo</option>
+                </select>
+                </div>
+            </div>
+            <div class="col col-lg-2">
+                <input type="date" name="dueDate">
+            </div>
+
+            <div class="col col-lg-2">
+                <select class="select-priority"  name="priority" id="" selected="selected">
+                <option value="">--</option>
+                <option  value="4">Low</option>
+                <option  value="3">Normal</option>
+                <option  value="2">High</option>
+                <option  value="1">Urgent</option>
+                </select>
+            </div>
+            <div class="col mx-auto ">
+                <button type="submit" class="create-button"><a class="create-button-link"
+                >Create</a></button>
             </div>
         </div>
-        <div class="col col-lg-2">
-            <input type="date" name="dueDate">
-        </div>
-
-        <div class="col col-lg-2">
-            <select class="select-priority"  name="priority" id="" selected="selected">
-            <option value="">--</option>
-            <option  value="4">Low</option>
-            <option  value="3">Normal</option>
-            <option  value="2">High</option>
-            <option  value="1">Urgent</option>
-            </select>
-        </div>
-        <div class="col mx-auto ">
-            <button type="submit" class="create-button"><a class="create-button-link" href="/profile/tasks/{{id}}">Create</a></button>
-        </div>
+    </form>
     </div>
-  </form>
+
 </div>
 
 {{!-- 
