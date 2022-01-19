@@ -532,3 +532,29 @@ select, select option{
   padding: none;
   width: 100%;
 }
+
+
+/* CREATE LIST STYLES */
+
+.list-row-create{
+  background-color: rgba(33,37,41,0.83);
+  color: white;
+  border-radius: 8px;
+  padding: 25px 25px;
+  margin-top:20px;
+  -webkit-box-shadow: 5px 8px 12px 0px rgba(33,37,41,0.7); 
+  box-shadow: 5px 8px 12px 0px rgba(33,37,41,0.7);
+}
+
+.list-row-create input{
+  width: 100%;
+}
+
+.input-container{
+  padding: 0;
+  margin-top: 10px;
+}
+
+.create-list-label{
+  margin-bottom: 10px;
+}

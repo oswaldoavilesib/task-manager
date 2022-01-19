@@ -35,28 +35,20 @@
 
 </div>
 
-{{!-- <div class="table-responsive table-container">
-    <table class="table folders-table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">List name</th>
-            <th scope="col">Number of tasks</th>
-            <th scope="col">Go to your tasks</th>
-            <th scope="col">Remove list</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each lists}}
-            <tr>
-                <td>{{name}}</td>
-                <td>{{task_count}}</td>
-                <td><a href="/profile/tasks/{{id}}">See all Tasks.</a></td>
-                <td><a class="delete-task" href="/profile/list/delete/{{id}}">Delete</a></td>
-            </tr>
-        {{/each}}
-    </table>
-</div> --}}
-
+<div class="container mt-5 mb-5 d-flex justify-content-start">
+      <form action="/profile/lists/{{id}}" method="post"></form>
+      <div class="row list-row-create ">
+              <div class="col col-lg-12 align-self-center input-container">
+                <label class="create-list-label" for="">Create a new list here:</label>
+                <input type="text" name="taskName" id="" placeholder="Name your new list here.">
+              </div>
+              <div class="col col-lg-12 mx-auto input-container">
+                  <button type="submit" class="create-button create-button-link">Create</button>
+              </div>
+        </div>
+      </form>
+</div>
+{{!-- 
 <h2 class="workspace-titles">Create a new list</h2>
 <div class="table-responsive table-container">
     <form action="/profile/lists/{{id}}" method="post">
@@ -76,4 +68,4 @@
             </tr>
         </table>
     </form>
-</div>
+</div> --}}

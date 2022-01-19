@@ -1,6 +1,47 @@
-
-
 <div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+
+        <div class="col">
+        <div class="card card-container-lists">
+            <div class="card-body card-header-lists">
+            <h5 class="card-title"></h5>
+            </div>
+            <div class="card-body">
+            <p><strong>Space: </strong></p>
+            <p><strong>Folder: </strong></p>
+            <p><strong>Number of Tasks: </strong></p>
+            <div class="row row-cols-12 row-cols-lg-2 g-4 botones-contenedor-lista">
+                <div class="col mx-auto ">
+                <a class="see-next-btn" href="/profile/tasks/{{id}}">See all tasks</a>
+                </div>
+                <div class="col mx-auto">
+                <a class="delete-button" href="/profile/list/delete/{{id}}">Delete</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+  </div>
+
+<div class="container mt-5 mb-5 d-flex justify-content-start">
+      <form action="/profile/tasks/{{id}}" method="post"></form>
+      <div class="row list-row-create ">
+              <div class="col col-lg-12 align-self-center input-container">
+                <label class="create-list-label" for="">Create a new list here:</label>
+                <input type="text" name="taskName" id="" placeholder="Name your new list here.">
+              </div>
+              <div class="col col-lg-12 mx-auto input-container">
+                  <button type="submit" class="create-button create-button-link">Create</button>
+              </div>
+        </div>
+      </form>
+</div>
+
+{{!-- TASKS GET Y CREATE --}}
+
+{{!-- <div class="container mt-5">
   <div class="row task-row align-items-center">
       <div class="col col-lg-4 d-lg-flex">
           <a href="/profile/tasks/update/{{id}}">
@@ -31,13 +72,13 @@
       </div>
   </div>
 
-</div>
+</div> --}}
 
 
 
 
 
-<div class="container mt-5 mb-5">
+{{!-- <div class="container mt-5 mb-5">
     <form action="/profile/tasks/{{id}}" method="post"></form>
     <div class="row task-row-create align-items-center">
             <div class="col col-lg-4 d-lg-flex">
@@ -68,7 +109,7 @@
             </div>
       </div>
     </form>
-</div>
+</div> --}}
 
 
 
