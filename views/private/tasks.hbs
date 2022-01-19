@@ -13,9 +13,8 @@
 <div class="container go-back-link mt-3">
   <div class="row">
     <div class="col">
-    {{#each tasks}}
-        <span><strong>Go back to: </strong></span><a href="/profile/folders/{{this[0].folder.id}}">Previous folder</a>
-      {{/each}}
+        <span><strong>Go back to: </strong></span><a href="/profile/folders/{{tasks.[0].folder.id}}">Previous folder</a>
+
     </div>
   </div>
 </div>
