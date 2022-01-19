@@ -53,9 +53,11 @@ router.post('/profile/tasks/:id',(req,res,next)=>{
     const priorityNumber = Number(priority)
     assigneesArray.push(assignee)
 
-    const dateInMilliseconds = dueDate.getTime()
+    const date = new Date(dueDate)
 
-    const dateInMillisecondsDivided = dueDate.getTime()/1000
+    const dateInMilliseconds = date.getTime()
+
+    const dateInMillisecondsDivided = date.getTime()/1000
 
     console.log("DATE IN MILLISECONDS",dateInMilliseconds)
     console.log("DATE IN dateInMillisecondsDivided",dateInMillisecondsDivided)
