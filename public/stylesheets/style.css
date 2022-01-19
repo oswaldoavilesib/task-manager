@@ -527,3 +527,8 @@ select, select option{
   background-color: transparent;
   border: none;
 }
+
+.create-form{
+  padding: none;
+  width: 100%;
+}
