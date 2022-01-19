@@ -25,7 +25,7 @@
                     <p><b>Assigned to:</b></p>
                     <div class="d-flex task-member-container">
                         <img class="task-member-pic" src="{{profilePicture}}" alt="">
-                        <p>Oswaldo</p>
+                        <p>{{username}}</p>
                     </div>
                 {{/each}}
             </div>
@@ -74,7 +74,9 @@
             <div class="col col-lg-3">
                 <div class="d-flex">
                 <select name="assignee" id="">
-                    <option class="date-input" value="Oswaldo">Oswaldo</option>
+                    {{#each tasks.assignee}} 
+                        <option class="date-input" value="{{id}}">{{username}}</option>
+                    {{/each}}
                 </select>
                 </div>
             </div>
