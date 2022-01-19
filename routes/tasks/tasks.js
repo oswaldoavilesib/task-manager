@@ -23,7 +23,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             console.log("RESPONSE OF FOREACH TASK ID:", task.id)
             console.log("RESPONSE OF FOREACH TASK assignees:", task.assignees)
             const {id,name,due_date,...rest} = task
-            const dateConverted;
+            let dateConverted;
 
             //Converting date to readable date
             if(!due_date){
