@@ -13,7 +13,7 @@
 <div class="container go-back-link mt-3">
   <div class="row go-back-row">
     <div class="col">
-        <span><strong>Go back to List: </strong></span><a href="/profile/lists/{{tasks.[0].folder.id}}">{{tasks.[0].list.name}}</a>
+        <span><strong>Go back to List: </strong></span><a href="/profile/lists/{{tasks.[0].list.id}}">{{tasks.[0].list.name}}</a>
 
     </div>
   </div>
@@ -46,7 +46,7 @@
 
             <div class="col col-lg-2">
                 {{#if due_date}}
-                <p>{{dateReadable}}</p>
+                <p>{{due_date}}</p>
                 {{else}}
                 <p>No due date.</p>
                 {{/if}}
