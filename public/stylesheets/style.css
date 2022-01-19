@@ -575,4 +575,11 @@ select, select option{
 
 .logo-items{
   width: 10%;
+  border-radius: 50px;
+}
+
+
+.items-title a{
+  color: #0DCAF0;
+  text-decoration: none;
 }

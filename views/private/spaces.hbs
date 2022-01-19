@@ -15,7 +15,7 @@
         <div class="col">
         <div class="card card-container-lists">
             <div class="card-body card-header-lists">
-            <h5 class="card-title">{{name}}</h5>
+            <h5 class="card-title items-title"><a href="/profile/folders/{{id}}">{{name}}</a> </h5>
             </div>
             <div class="card-body">
             <p><strong>Number of Spaces:</strong>{{spaces.length}}</p>
@@ -58,25 +58,3 @@
         </div>
       </form>
 </div>
-{{!-- 
-<h2 class="workspace-titles">Create a new space</h2>
-<div class="table-responsive table-container">
-    <form action="/profile/spaces/{{id}}" method="post">
-        <table class="table folders-table table-hover">
-        <thead>
-            <tr>
-            <th scope="col">Name your space</th>
-            <th scope="col">Create your Space</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td><input class="input-create" type="text" name="spaceName" id="" placeholder="Write your space name." ></td>
-                {{!-- <td><input class="input-create" type="text" name="spaceId" id="" placeholder="Write a 5 digit number"></td> --}}
-                <td>
-                    <button class="create-btn" type="submit">Create a new Space</button>
-                </td>
-            </tr>
-        </table>
-    </form>
-</div> --}}
