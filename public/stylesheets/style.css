@@ -558,3 +558,9 @@ select, select option{
 .create-list-label{
   margin-bottom: 10px;
 }
+
+
+/* SALUDO 1 AL LOGGEAR */
+.contenedor-saludo{
+  padding-bottom: 30px;
+}
