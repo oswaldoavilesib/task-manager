@@ -1,43 +1,69 @@
 
 
 <div class="container mt-5">
- 
-        <div class="row task-row align-items-center">
-        <div class="col col-lg-4 d-lg-flex">
-            <a href="/profile/tasks/update/{{id}}">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-pencil-square task-icon" viewBox="0 0 16 16">
-            <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
-            <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
-            </svg>
-            </a>
-            <p>NAME OF TASK</p>
+  <div class="row task-row align-items-center">
+      <div class="col col-lg-4 d-lg-flex">
+          <a href="/profile/tasks/update/{{id}}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" class="bi bi-pencil-square task-icon" viewBox="0 0 16 16">
+          <path d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"/>
+          <path fill-rule="evenodd" d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"/>
+          </svg>
+          </a>
+          <p>NAME OF TASK</p>
+      </div>
+      <div class="col col-lg-3">
+        <p><b>Assigned to:</b></p>
+        <div class="d-flex task-member-container">
+          <img class="task-member-pic" src="/images/defaultprofile.png" alt="">
+          <p>Oswaldo</p>
         </div>
-            <div class="col col-lg-3">
+      </div>
+      <div class="col col-lg-2">
+        <p>No due date.</p>
+      </div>
 
-                <p><b>Assigned to:</b></p>
-                <div class="d-flex task-member-container">
-                <img class="task-member-pic" src="/images/defaultprofile.png" alt="">
-                <p>Oswaldo</p>
-                </div>
- 
-            </div>
-
-
-        <div class="col col-lg-2">
-            <p>No due date.</p>
-        </div>
-
-        <div class="col col-lg-2">
-            <p>Low</p>
-        </div>
+      <div class="col col-lg-2">
+          <p>Low</p>
+      </div>
         
-        <div class="col col-lg-1">
-            <a href="/profile/tasks/delete/{{id}}">Delete</a>
-        </div>
-        </div>
-    </div>
+      <div class="col col-lg-1">
+          <a href="/profile/tasks/delete/{{id}}">Delete</a>
+      </div>
+  </div>
 
+  <div class="row task-row-create align-items-center">
+      <div class="col col-lg-4 d-lg-flex">
+        <input type="text" name="taskName" id="" placeholder="Create a new task here.">
+      </div>
+      <div class="col col-lg-3">
+        <div class="d-flex">
+          <select name="" id="">
+            <option class="date-input" value="1">Oswaldo</option>
+          </select>
+        </div>
+      </div>
+      <div class="col col-lg-2">
+        <input type="date">
+      </div>
+
+      <div class="col col-lg-2">
+        <select class="select-priority"  name="priority" id="" selected="selected">
+          <option value="">--</option>
+          <option  value="4">Low</option>
+          <option  value="3">Normal</option>
+          <option  value="2">High</option>
+          <option  value="1">Urgent</option>
+        </select>
+      </div>
+
+      <div class="col mx-auto ">
+          <button class="create-button"><a class="create-button-link" href="/profile/tasks/{{id}}">Create</a></button>
+      </div>
+  </div>
 </div>
+
+    
+
 
 
 

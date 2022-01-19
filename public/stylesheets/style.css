@@ -484,3 +484,46 @@ BOTONES PRIMARIOS Y SECUNDARIOS */
   font-weight: 700;
   padding: 8px;
 }
+
+
+/*TASK CONTAINER TO CREATE A NEW TASK */
+
+.task-row-create{
+  background-color: rgba(33,37,41,0.83);
+  color: white;
+  border-radius: 8px;
+  padding: 25px 15px;
+  margin-top:20px;
+  -webkit-box-shadow: 5px 8px 12px 0px rgba(33,37,41,0.7); 
+  box-shadow: 5px 8px 12px 0px rgba(33,37,41,0.7);
+}
+
+.task-row-create a{
+  text-decoration: none;
+  color: #F90716;
+  font-weight: 700;
+}
+
+.task-row-create input, select {
+  border: none;
+  padding: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.69); 
+  box-shadow: 0px 0px 8px 0px rgba(0,0,0,0.69);
+}
+
+select, select option{
+  background: white !important;
+  color: black;
+}
+
+.create-button-link{
+  text-decoration: none;
+  color: #0DCAF0 !important;
+  font-weight: 700
+}
+
+.create-button{
+  background-color: transparent;
+  border: none;
+}
