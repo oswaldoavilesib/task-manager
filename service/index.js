@@ -149,10 +149,11 @@ class ClickUpApi {
     }
 
         //-----Create a new task------//
-        createTask(taskId,clickUpAccessToken,taskName,assigneesArray){
+        createTask(taskId,clickUpAccessToken,taskName,assigneesArray,priority){
             let data = {
                 'name': taskName,
                 'assignees': assigneesArray,
+                'priority': priority,
             };
         return this.api.post(`/list/${taskId}/task`,
             data,
