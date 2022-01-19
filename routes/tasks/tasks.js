@@ -50,15 +50,13 @@ router.post('/profile/tasks/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken;
     const {id} = req.params;
     const {taskName,assignee} = req.body;
-    const assigneeObj = {assignee}
-    assigneesArray.push(assigneeObj)
+    assigneesArray.push(assignee)
 
     console.log("REQ. BODY de CREAR TASK",req.body)
-    console.log("assignees Object",assigneeObj)
     console.log("assigneesArray",assigneesArray)
 
     clickUpApiHandler
-    .createTask(id,accessToken,taskName)
+    .createTask(id,accessToken,taskName,assigneesArray)
     .then(response => {
         res.redirect('back')
     })
