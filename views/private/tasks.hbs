@@ -67,8 +67,8 @@
 
 
 <div class="container mt-5 mb-5">
+    <form action="/profile/tasks/{{id}}" method="post"></form>
     <div class="row task-row-create align-items-center">
-        <form action="/profile/tasks/{{id}}" method="post">
             <div class="col col-lg-4 d-lg-flex">
                 <input type="text" name="taskName" id="" placeholder="Create a new task here.">
             </div>
@@ -95,7 +95,6 @@
             <div class="col mx-auto ">
                 <button type="submit" class="create-button create-button-link">Create</button>
             </div>
-        </form>
     </div>
     </form>
 </div>
