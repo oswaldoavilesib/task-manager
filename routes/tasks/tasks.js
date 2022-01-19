@@ -28,10 +28,12 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
             //Converting date to readable date
             if(!due_date){
-                const dateConverted = due_date;
+                due_date = null;
             }else {
                 const dateObject = new Date (due_date)
+                console.log("dateOBJ",dateObject)
                 const dateConverted = dateObject.toLocaleDateString();
+                console.log("dateConverted",dateConverted)
             }
 
             console.log("dateLocal:",dateConverted)
