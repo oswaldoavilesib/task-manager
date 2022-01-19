@@ -616,3 +616,9 @@ select, select option{
   color: #0DCAF0;
   text-decoration: none;
 }
+
+.go-back-link a{
+  color: #0DCAF0;
+  text-decoration: none;
+  font-weight: 700;
+}
