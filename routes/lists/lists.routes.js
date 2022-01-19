@@ -18,12 +18,11 @@ router.get("/profile/lists/:id", (req, res, next) => {
     .getLists(id,accessToken)
     .then(response => {
         console.log("RESPONSE.DATA OF LISTS API",response.data)
-        console.log("RETRIEVE FOLDERS DATA FROM LISTS",response.data[0].folder)
-        console.log("RETRIEVE FOLDERS DATA FROM LISTS",response.data[0].space)
 
         //Adding to DB
         response.data.lists.forEach((list => {
-            console.log("DATA TYPE FOR ID OF LISTS",typeof list.id)
+            console.log("RETRIEVE FOLDERS DATA FROM LISTS",list.folder)
+            console.log("RETRIEVE FOLDERS DATA FROM LISTS",list.space)
             const {id,name,...rest} = list;
             List.find({id: {$eq:id}})
             .then(response => {
