@@ -4,8 +4,8 @@ const {isLoggedIn, isLoggedOut} = require('../../utils/route-guard')
 const Folders = require('../../models/Folders.models')
 const axios = require('axios');
 const clickUpService = require('../../service/index')
-
 const clickUpApiHandler = new clickUpService();
+
 
 
 //----GET FOLDERS//
@@ -27,6 +27,8 @@ router.get('/profile/folders/:id',(req,res,next)=>{
         //Adding to DB
         response.data.folders.forEach((folder =>{
             const {id,name,...rest} = folder;
+            console.log("THE accessTOKEN FROM GET /PROFILE",accessToken)
+            
             Folders.find({id:{$eq:id}})
             .then(response => {
                 if(!response.length){
