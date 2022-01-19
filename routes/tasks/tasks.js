@@ -18,13 +18,11 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
     .then(response=>{
         console.log("RESPONSE:DATA FROM TASKS",response.data) //We recieve al th data from api call
 
-
         //Now we neet to iterate in each of the tasks to make sure they are on our database and if they are, do not add the, again
         response.data.tasks.forEach((task => {
-            console.log("RESPONSE OF FOREACH TASK:", task)
-            console.log("RESPONSE.ID of EACH TASK:", task.id)
+            console.log("RESPONSE OF FOREACH TASK ID:", task.id)
+            console.log("DATA TYPE FOR ID OF TASKS",typeof tasks.id)
             const {id,name,...rest} = task
-            console.log("TYPE OF ID DATA",typeof id)
             Task.find({name: {$eq:name}})
             .then(response => {
                 console.log("RESPONSE FROM LIST.FINDONE",response)

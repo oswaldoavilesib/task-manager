@@ -26,7 +26,7 @@ router.post('/profile/tasks/update/:id',(req,res,next)=>{
     console.log("REQ.BODY DE POST TASK UPDATE",req.body)
     
     console.log("REQ.BODY DE POST TASK UPDATE",req.body.dueDate.value)
-    res.redirect("back")
+    res.redirect("backk")
 })
 
 
