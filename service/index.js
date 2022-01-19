@@ -155,6 +155,8 @@ class ClickUpApi {
                 'assignees': assigneesArray,
                 'priority': priority,
             };
+            console.log("PRIORITY ON API HANDLER",priority)
+
         return this.api.post(`/list/${taskId}/task`,
             data,
             {
