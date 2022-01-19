@@ -8,10 +8,9 @@
 
 <form action="/profile/tasks/update/{{id}}" method="post">
     <div class="container mt-5 mb-5">
-    {{#each tasks}} 
         <div class="row task-row-create align-items-center">
                 <div class="col col-lg-4 d-lg-flex">
-                    <input type="text" name="taskName" id="" placeholder="{{name}}">
+                    <input type="text" name="taskName" id="" placeholder="{{tasks.name}}">
                 </div>
                 <div class="col col-lg-3">
                     <div class="d-flex">
@@ -37,7 +36,6 @@
                     <button type="submit" class="create-button create-button-link">Create</button>
                 </div>
         </div>
-        {{/each}}
     </div>
 </form>
 
