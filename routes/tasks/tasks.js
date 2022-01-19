@@ -28,6 +28,10 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
             console.log("DUE DATE", due_date)
 
+            let date = new Date(due_date)
+
+            console.log("new DATE", date)
+
 
 
 
