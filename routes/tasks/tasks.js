@@ -79,7 +79,7 @@ router.post('/profile/tasks/:id',(req,res,next)=>{
     console.log("priorityNumber",priorityNumber)
 
     clickUpApiHandler
-    .createTask(id,accessToken,taskName,assigneesArray,priorityNumber)
+    .createTask(id,accessToken,taskName,assigneesArray,priorityNumber,dateInMilliseconds)
     .then(response => {
         res.redirect('back')
     })
