@@ -22,7 +22,16 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
         response.data.tasks.forEach((task => {
             console.log("RESPONSE OF FOREACH TASK ID:", task.id)
             console.log("RESPONSE OF FOREACH TASK assignees:", task.assignees)
-            const {id,name,...rest} = task
+            const {id,name,due_date,...rest} = task
+
+            //Converting date to readable date
+            const dateObject = new Date (due_date)
+            console.log("dateObject:",dateObject)
+            
+            const dateLocal = dateObject.toLocaleString();
+            console.log("dateLocal:",dateLocal)
+
+
             Task.find({name: {$eq:name}})
             .then(response => {
                 console.log("RESPONSE FROM LIST.FINDONE",response)
