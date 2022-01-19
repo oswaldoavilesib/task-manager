@@ -12,6 +12,8 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken; 
     const {id} = req.params // We get the ID of the LIST from our DB
 
+    console.log("ID DE LA LISTA DE ESTA TAREA!!!!!!!!",id)
+
     //CLICKUP API HANDLER STARTS HERE
     clickUpApiHandler
     .getTasks(id,accessToken) //WE pass the ID of the list from the database
