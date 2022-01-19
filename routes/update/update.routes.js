@@ -34,8 +34,9 @@ router.post('/profile/tasks/update/:id',(req,res,next)=>{
     .updateTask(id,accessToken,taskName,assigneesArray,priorityNumber)
     .then(response => {
         console.log("THE RESPONSE DATA OF UPDATEE",response.data)
+        const listID = response.data.list.id
         console.log("THE RESPONSE DATA OF UPDATEE",response.data.list.id)
-        res.redirect('back')
+        res.redirect(`/profile/tasks/${listID}`)
     })
     .catch(error=>console.log("error en UPDATE Tarea",error))
 })
