@@ -23,6 +23,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             //console.log("RESPONSE OF FOREACH TASK ID:", task.id)
             //console.log("RESPONSE OF FOREACH TASK assignees:", task.assignees)
             const {id,name,due_date,...rest} = task
+            console.log("PRIORITY OBJ",task.priority) 
             console.log("DUE DATEEEEE",due_date)
 
             const dateObj = new Date(due_date*1000);
