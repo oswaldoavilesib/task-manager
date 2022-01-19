@@ -24,21 +24,10 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             //console.log("RESPONSE OF FOREACH TASK assignees:", task.assignees)
             const {id,name,due_date,...rest} = task
             console.log("DUE DATEEEEE",due_date)
-            let dateConverted;
-            const dateTest = new Date(due_date);
-            console.log("DATETEST",dateTest)
 
-            //Converting date to readable date
-            if(!due_date){
-                due_date = null;
-            }else {
-                const dateObject = new Date(due_date)
-                console.log("dateOBJ",dateObject)
-                const dateConverted = dateObject.toLocaleDateString();
-                console.log("dateConverted",dateConverted)
-            }
-
-            console.log("dateLocal:",dateConverted)
+            const dateObj = new Date(due_date*1000);
+            console.log("DATETEST",dateObj)
+  
 
 
             Task.find({name: {$eq:name}})
