@@ -33,8 +33,8 @@ router.post('/profile/tasks/update/:id',(req,res,next)=>{
     clickUpApiHandler
     .updateTask(id,accessToken,taskName,assigneesArray,priorityNumber)
     .then(response => {
-        console.log("THE RESPONSE OF UPDATEE",response.body)
-        console.log("THE RESPONSE OF UPDATEE",response.list.id)
+        console.log("THE RESPONSE DATA OF UPDATEE",response.data)
+        console.log("THE RESPONSE BODY OF UPDATEE",response.body)
         res.redirect('back')
     })
     .catch(error=>console.log("error en UPDATE Tarea",error))
