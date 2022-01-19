@@ -25,12 +25,14 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             const {id,name,due_date,...rest} = task
             console.log("DUE DATEEEEE",due_date)
             let dateConverted;
+            const dateTest = new Date(due_date);
+            console.log("DATETEST",dateTest)
 
             //Converting date to readable date
             if(!due_date){
                 due_date = null;
             }else {
-                const dateObject = new Date (due_date)
+                const dateObject = new Date(due_date)
                 console.log("dateOBJ",dateObject)
                 const dateConverted = dateObject.toLocaleDateString();
                 console.log("dateConverted",dateConverted)
