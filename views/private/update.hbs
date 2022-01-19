@@ -1,6 +1,50 @@
-<h1>Update your task here</h1>
+<div class="container mt-5">
+    <div class="card container-summary">
+        <div class="card-header">
+            <h1>Edit your task</h1>
+        </div>
+    </div>
+</div>
 
-<div class="table-responsive table-container">
+<form action="/profile/tasks/update/{{id}}" method="post">
+    <div class="container mt-5 mb-5">
+    {{#each tasks}} 
+        <div class="row task-row-create align-items-center">
+                <div class="col col-lg-4 d-lg-flex">
+                    <input type="text" name="taskName" id="" placeholder="{{name}}">
+                </div>
+                <div class="col col-lg-3">
+                    <div class="d-flex">
+                    <select name="assignee" id="">
+                            <option class="date-input" value="16806147">Oswaldo</option>
+                    </select>
+                    </div>
+                </div>
+                <div class="col col-lg-2">
+                    <input type="date" name="dueDate">
+                </div>
+
+                <div class="col col-lg-2">
+                    <select class="select-priority"  name="priority" id="" selected="selected">
+                        <option value="">--</option>
+                        <option  value="4">Low</option>
+                        <option  value="3">Normal</option>
+                        <option  value="2">High</option>
+                        <option  value="1">Urgent</option>
+                    </select>
+                </div>
+                <div class="col mx-auto ">
+                    <button type="submit" class="create-button create-button-link">Create</button>
+                </div>
+        </div>
+        {{/each}}
+    </div>
+</form>
+
+
+
+
+{{!-- <div class="table-responsive table-container">
     <form action="/profile/tasks/update/{{id}}" method="post">
         <table class="table folders-table table-hover">
         <thead>
@@ -29,4 +73,4 @@
             {{/each}}
         </table>
     </form>
-</div>
+</div> --}}
