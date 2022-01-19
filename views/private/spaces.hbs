@@ -45,40 +45,20 @@
 
 </div>
 
-{{!-- <h1 class="workspace-titles">Spaces</strong></h1>
-
-<div class="table-responsive table-container">
-    <table class="table folders-table table-hover">
-    <thead>
-        <tr>
-            <th scope="col">Team's Name</th>
-            <th scope="col">Number of members</th>
-            <th scope="col">List of members</th>
-            <th scope="col">Go to your lists</th>
-            <th scope="col">Remove space</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each spaces}}
-        <tr>
-            <td>{{name}}</td>
-            <td>{{members.length}}</td>
-            <td class="table-uri"> 
-                {{/each}}
-                    <li><img class="profile-image-spaces" src="{{user.profilePicture}}" alt=""></li>
-                    <li>{{user.username}}</li>
-                {{/each}}
-            </td>
-            <td><a href="/profile/folders/{{id}}">See all Folders.</a></td>
-            <td><a class="delete-task" href="/profile/spaces/delete/{{id}}">Delete</a></td>
-        </tr>
-        {{/each}}
-    </table>
-</div> --}}
-
-
-
-
+<div class="container mt-5 mb-5 d-flex justify-content-start">
+      <form action="/profile/spaces/{{id}}" method="post">
+      <div class="row list-row-create ">
+              <div class="col col-lg-12 align-self-center input-container">
+                <label class="create-list-label" for="">Create a new space here:</label>
+                <input type="text" name="spaceName" id="" placeholder="Name your new Space.">
+              </div>
+              <div class="col col-lg-12 mx-auto input-container">
+                  <button type="submit" class="create-button create-button-link">Create</button>
+              </div>
+        </div>
+      </form>
+</div>
+{{!-- 
 <h2 class="workspace-titles">Create a new space</h2>
 <div class="table-responsive table-container">
     <form action="/profile/spaces/{{id}}" method="post">
@@ -99,4 +79,4 @@
             </tr>
         </table>
     </form>
-</div>
+</div> --}}
