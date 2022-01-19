@@ -69,17 +69,10 @@ router.post('/profile/tasks/:id',(req,res,next)=>{
     const priorityNumber = Number(priority)
     assigneesArray.push(assignee)
 
-    // const date = new Date(dueDate)
+    const date = new Date(dueDate)
+    const dateInMilliseconds = date.getTime()
 
-    // const dateInMilliseconds = date.getTime()
-
-    // const dateInMillisecondsDivided = date.getTime()/1000
-
-    // console.log("DATE IN MILLISECONDS",dateInMilliseconds)
-    // console.log("DATE IN dateInMillisecondsDivided",dateInMillisecondsDivided)
-
-    // console.log("NEW DATE OBJECT",date)
-    
+    console.log("DATE IN MILLISECONDS",dateInMilliseconds)
 
     console.log("REQ. BODY de CREAR TASK",req.body)
     console.log("assigneesArray",assigneesArray)
