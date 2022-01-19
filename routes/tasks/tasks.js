@@ -25,21 +25,10 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             //console.log("RESPONSE OF FOREACH TASK ID:", task.id)
             //console.log("RESPONSE OF FOREACH TASK assignees:", task.assignees)
             const {id,name,due_date,...rest} = task
-            console.log("PRIORITY OBJ",task.priority) 
-            console.log("DUE DATEEEEE",due_date)
-            console.log("TASK.LISTS OBJECTTTTTTT!!!!",task.list)
-            console.log("TASK.PROJECT OBJECTTTTTTT!!!!",task.proyect)
-            console.log("TASK.FOLDER OBJECTTTTTTT!!!!",task.folder)
-            console.log("TASK.SPACE OBJECTTTTTTT!!!!",task.space)
 
-            const dateObj = new Date(due_date*1000);
-
-            const dateToLocal = dateObj.toLocaleDateString();
+            console.log("DUE DATE", due_date)
 
 
-            console.log("DATETEST",dateObj)
-            console.log("dateToLocaleDateString",dateToLocal)
-  
 
 
             Task.find({name: {$eq:name}})
@@ -72,16 +61,16 @@ router.post('/profile/tasks/:id',(req,res,next)=>{
     const priorityNumber = Number(priority)
     assigneesArray.push(assignee)
 
-    const date = new Date(dueDate)
+    // const date = new Date(dueDate)
 
-    const dateInMilliseconds = date.getTime()
+    // const dateInMilliseconds = date.getTime()
 
-    const dateInMillisecondsDivided = date.getTime()/1000
+    // const dateInMillisecondsDivided = date.getTime()/1000
 
-    console.log("DATE IN MILLISECONDS",dateInMilliseconds)
-    console.log("DATE IN dateInMillisecondsDivided",dateInMillisecondsDivided)
+    // console.log("DATE IN MILLISECONDS",dateInMilliseconds)
+    // console.log("DATE IN dateInMillisecondsDivided",dateInMillisecondsDivided)
 
-    console.log("NEW DATE OBJECT",date)
+    // console.log("NEW DATE OBJECT",date)
     
 
     console.log("REQ. BODY de CREAR TASK",req.body)
