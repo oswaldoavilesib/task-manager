@@ -370,6 +370,15 @@ BOTONES PRIMARIOS Y SECUNDARIOS */
   font-weight: 600;
 }
 
+.btn-primary:active{
+  background-color: #212529;
+  border: 1px solid #0DCAF0;  
+  color: #0DCAF0;
+  -webkit-box-shadow: 0px 0px 11px 2px rgba(13,202,240,0.36); 
+  box-shadow: 0px 0px 11px 2px rgba(13,202,240,0.36);
+  font-weight: 600;
+}
+
 .btn-primary a{
   color: #212529;
   text-decoration: none;
@@ -468,6 +477,18 @@ BOTONES PRIMARIOS Y SECUNDARIOS */
   
 }
 
+.see-next-btn:hover{
+  /* background-color: #0DCAF0; */
+  color: #212529;
+  background-color: #0DCAF0;
+  text-decoration: none;
+  font-weight: 700;
+  padding: 8px;
+  border: 1px solid #0DCAF0;
+  border-radius: 5px;
+  margin-bottom: 25px;
+}
+
 .see-next-btn{
   /* background-color: #0DCAF0; */
   color: #0DCAF0;
@@ -486,6 +507,14 @@ BOTONES PRIMARIOS Y SECUNDARIOS */
   padding: 8px;
 }
 
+.delete-button:hover{
+  text-decoration: none;
+  color: #F90716;
+  border: 1px solid #F90716;
+  font-weight: 700;
+  padding: 8px;
+  border-radius: 5px;
+}
 
 /*TASK CONTAINER TO CREATE A NEW TASK */
 
