@@ -33,7 +33,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
                 const dateConverted = dateObject.toLocaleDateString();
             }
 
-            console.log("dateLocal:",dateLocal)
+            console.log("dateLocal:",dateConverted)
 
 
             Task.find({name: {$eq:name}})
