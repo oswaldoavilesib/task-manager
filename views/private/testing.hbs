@@ -1,4 +1,44 @@
-<section class="text-center container mt-5">
+
+<div class="container mt-5">
+    <div class="card container-summary">
+        <div class="card-header">
+            <h1>Total Lists: {{lists.length}}</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {{#each lists}}
+        <div class="col">
+        <div class="card card-container-lists">
+            <div class="card-body card-header-lists">
+            <h5 class="card-title">Folder name{{name}}</h5>
+            </div>
+            <div class="card-body">
+            <p><strong>Space: </strong>{{space.name}}</p>            <p><strong>Lists in this folder: </strong>{{lists.length}}</p>
+            <p><strong>Tasks in this folder: </strong>{{task_count}}</p>
+            <div class="row row-cols-12 row-cols-lg-2 g-4 botones-contenedor-lista">
+                <div class="col mx-auto ">
+                <a class="see-next-btn" href="/profile/lists/{{id}}">See all lists</a>
+                </div>
+                <div class="col mx-auto">
+                <a class="delete-button" href="/profile/folders/delete/{{id}}">Delete</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        {{/each}}
+
+  </div>
+
+</div>
+
+
+{{!-- FRONT FOR ONBOARDING --}}
+
+{{!-- <section class="text-center container mt-5">
 	<main class="form-signin col-lg-4 mx-auto contenedor-formulario contenedor-saludo">
     <h1>Hi, Oswaldo!</h1>
 			<div class="form-floating">
@@ -6,7 +46,7 @@
 			</div>
 			<button class="w-100 btn btn-lg btn-primary mt-3" type="submit"><a href="https://app.clickup.com/api?client_id=MTQ6E6ABG2IQZHO4LSAGYKHKY2HAGWCC&redirect_uri=https://task-managermx.herokuapp.com/workspace">Yes, take me to my spaces</a></button>
 	</main>
-</section>
+</section> --}}
 
 {{!-- LIST ROUTES TO CREATE --}}
 
