@@ -22,7 +22,7 @@ router.get("/profile/lists/:id", (req, res, next) => {
         //Adding to DB
         response.data.lists.forEach((list => {
             console.log("RETRIEVE FOLDERS DATA FROM LISTS",list.folder)
-            console.log("RETRIEVE FOLDERS DATA FROM LISTS",list.space)
+            console.log("RETRIEVE FOLDERS DATA FROM LISTSS",list.space)
             const {id,name,...rest} = list;
             List.find({id: {$eq:id}})
             .then(response => {
