@@ -20,9 +20,10 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
         //Now we neet to iterate in each of the tasks to make sure they are on our database and if they are, do not add the, again
         response.data.tasks.forEach((task => {
-            console.log("RESPONSE OF FOREACH TASK ID:", task.id)
-            console.log("RESPONSE OF FOREACH TASK assignees:", task.assignees)
+            //console.log("RESPONSE OF FOREACH TASK ID:", task.id)
+            //console.log("RESPONSE OF FOREACH TASK assignees:", task.assignees)
             const {id,name,due_date,...rest} = task
+            console.log("DUE DATEEEEE",due_date)
             let dateConverted;
 
             //Converting date to readable date
