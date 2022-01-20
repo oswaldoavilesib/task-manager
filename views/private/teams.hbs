@@ -25,11 +25,12 @@
     <img src="" alt="">
     <h1>{{name}}</h1>
 			<div class="form-floating">
-                <p>Number of members:{{members.length}}</p>
-                
-                {{#each members}}
-                    <p>{{user.username}}</p>
-                {{/each}}
+                <p>Number of members: {{members.length}}</p>
+                <ul>
+                    {{#each members}}
+                    <li>{{user.username}}</li>
+                    {{/each}}
+                </ul>
 			</div>
 			<button class="w-100 btn btn-lg btn-primary mt-3" type="submit"><a href="/profile/spaces/{{id}}">See all spaces</a></button>
 	</main>
