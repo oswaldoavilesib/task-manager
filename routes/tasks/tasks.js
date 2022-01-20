@@ -76,7 +76,7 @@ router.post('/profile/tasks/:id',(req,res,next)=>{
 
     console.log("REQ. BODY de CREAR TASK",req.body)
     console.log("assigneesArray",assigneesArray)
-    console.log("priorityNumber",priorityNumber)
+    console.log("priorityNumberr",priorityNumber)
 
     clickUpApiHandler
     .createTask(id,accessToken,taskName,assigneesArray,priorityNumber,dateInMilliseconds)
