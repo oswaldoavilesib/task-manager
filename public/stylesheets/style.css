@@ -632,3 +632,7 @@ select, select option{
 .go-back-row span strong{
   color:white;
 }
+
+.contenedor-teams{
+  text-align: left;
+}

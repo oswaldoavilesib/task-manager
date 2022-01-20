@@ -21,9 +21,9 @@
 
 {{#each teams}}
 <section class="text-center container mt-5">
-	<main class="form-signin col-lg-4 mx-auto contenedor-formulario contenedor-saludo">
+	<main class="form-signin col-lg-4 mx-auto contenedor-formulario contenedor-saludo contenedor-teams">
     <img src="" alt="">
-    <h1>Team's name:{{name}}</h1>
+    <h1>{{name}}</h1>
 			<div class="form-floating">
                 <p>Number of members:{{members.length}}</p>
                 
@@ -31,7 +31,7 @@
                     <p>{{user.username}}</p>
                 {{/each}}
 			</div>
-			<button class="w-100 btn btn-lg btn-primary mt-3" type="submit"><a href="/profile/teams">See all spaces</a></button>
+			<button class="w-100 btn btn-lg btn-primary mt-3" type="submit"><a href="/profile/spaces/{{id}}">See all spaces</a></button>
 	</main>
 </section>
 {{/each}}
