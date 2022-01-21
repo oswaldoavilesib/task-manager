@@ -49,7 +49,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
                 oneTask.dueDate = dueDate
             }))
 
-
+            taskOnDB = arrayOfTasks
    
             Task.find({name: {$eq:name}})
             .then(response => {
