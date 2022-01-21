@@ -29,6 +29,8 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
             let arrayOfTasks = []
 
+            let due_date = task.due_date
+
             // EXTRACTING DATE
             console.log("DUE DATE FIRST", due_date)
             let date = new Date(Number(due_date))
@@ -46,6 +48,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             arrayOfTasks.forEach((oneTask => {
                 oneTask.dueDate = dueDate
             }))
+
 
    
             Task.find({name: {$eq:name}})
