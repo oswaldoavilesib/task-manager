@@ -14,7 +14,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
     console.log("ID DE LA LISTA DE ESTA TAREA!!!!!!!!",id)
 
-    let taskOnDB;;
+    let taskOnDB;
 
     //CLICKUP API HANDLER STARTS HERE
     clickUpApiHandler
@@ -22,15 +22,19 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
     .then(response=>{
         console.log("RESPONSE:DATA FROM TASKS",response.data) //We recieve al th data from api call
         //Now we neet to iterate in each of the tasks to make sure they are on our database and if they are, do not add the, again
+
+        const arrayOfTasks = response.data;
+
+        console.log("RESPONSE:DATA FROM ARRAYYY",arrayOfTasks)
+
         response.data.tasks.forEach((task => {
             //console.log("RESPONSE OF FOREACH TASK ID:", task.id)
             //console.log("RESPONSE OF FOREACH TASK assignees:", task.assignees)
             const {id,name,...rest} = task
 
-            let arrayOfTasks = []
-
             let due_date = task.due_date
 
+        
             // EXTRACTING DATE
             console.log("DUE DATE FIRST", due_date)
             let date = new Date(Number(due_date))
@@ -39,19 +43,6 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             console.log("DUE DATE TO LOCALSTRING",dueDate)
             
 
-
-            // MAKING AN ARRAY OF TASK TO MANIPULATE
-
-            arrayOfTasks.push({task})
-
-            console.log("ARRAYOFTASKS",arrayOfTasks)
-
-            arrayOfTasks.forEach((oneTask => {
-                oneTask.dueDate = dueDate
-            }))
-
-            taskOnDB = arrayOfTasks
-   
             Task.find({name: {$eq:name}})
             .then(response => {
                 console.log("RESPONSE FROM LIST.FINDONE",response)
@@ -67,7 +58,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             })
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
-        console.log("TASK ON DB ARRAY",taskOnDB)
+        // console.log("TASK ON DB ARRAY",taskOnDB)
         res.render('private/tasks',{tasks: response.data.tasks,id,taskArray: taskOnDB})
     })
     .catch(error => console.log("ERROR EN GET TASKS API",error))
