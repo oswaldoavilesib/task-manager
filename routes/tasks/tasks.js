@@ -42,7 +42,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
             testDate = dateReadable
 
-            response.data.tasks.due_date = dateReadable
+            response.data.tasks.newDate = dateReadable
 
             console.log("due_date converted IN FOR EACH",due_date)
 
@@ -60,7 +60,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             })
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
-        console.log("DUE_DATE ANTES DEL RENDER",response.data.tasks[0].due_date)
+        console.log("DUE_DATE ANTES DEL RENDER",response.data.tasks[0].newDate)
         res.render('private/tasks',{tasks: response.data.tasks,id,testDate})
     })
     .catch(error => console.log("ERROR EN GET TASKS API",error))
