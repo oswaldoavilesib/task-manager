@@ -14,7 +14,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
     console.log("ID DE LA LISTA DE ESTA TAREA!!!!!!!!",id)
 
-    let taskOnDB;
+    let taskOnDB = [];
 
     //CLICKUP API HANDLER STARTS HERE
     clickUpApiHandler
