@@ -30,7 +30,9 @@ router.post('/profile/tasks/update/:id',(req,res,next)=>{
     const priorityNumber = Number(priority)
     assigneesArray.push(assignee)
 
-    const dateInMilliseconds = dueDate.getTime()
+    const dueDateClass = new Date(dueDate)
+
+    const dateInMilliseconds = dueDateClass.getTime()
 
     console.log("DATE IN MILLISECONDS POST UPDATE TASK",dateInMilliseconds)
 
