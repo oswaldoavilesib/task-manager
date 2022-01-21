@@ -19,8 +19,6 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
     .getTasks(id,accessToken) //WE pass the ID of the list from the database
     .then(response=>{
         console.log("RESPONSE:DATA FROM TASKS",response.data) //We recieve al th data from api call
-
-        let testDate;;
         //Now we neet to iterate in each of the tasks to make sure they are on our database and if they are, do not add the, again
         response.data.tasks.forEach((task => {
             //console.log("RESPONSE OF FOREACH TASK ID:", task.id)
@@ -38,21 +36,25 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
             console.log("DUE DATE TO LOCALSTRING",dueDate)
 
+            let taskOnDB;
    
             Task.find({name: {$eq:name}})
             .then(response => {
                 console.log("RESPONSE FROM LIST.FINDONE",response)
                 if(!response.length){
                     Task.create({id,name,dueDate})
-                    .then(response => console.log('We created a newTask',response))
+                    .then(response => {
+                        console.log('We created a newTask',response)
+                        taskOnDB.push(response)
+                    })
                     .catch(error => console.log("ERROR EN ADDING A TASK ON DB",error))
                 } else {
                     console.log("This Task is already on db")
-                    console.log("RESPONSE OF FIND TASK IN PROMISE",response)
                 }
             })
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
+        console.log("TASK ON DB ARRAY",taskOnDB)
         res.render('private/tasks',{tasks: response.data.tasks,id})
     })
     .catch(error => console.log("ERROR EN GET TASKS API",error))
