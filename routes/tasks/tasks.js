@@ -20,7 +20,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
     .then(response=>{
         console.log("RESPONSE:DATA FROM TASKS",response.data) //We recieve al th data from api call
 
-
+        let testDate = due_date;
         //Now we neet to iterate in each of the tasks to make sure they are on our database and if they are, do not add the, again
         response.data.tasks.forEach((task => {
             //console.log("RESPONSE OF FOREACH TASK ID:", task.id)
@@ -40,6 +40,8 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
             due_date = dateReadable
 
+            testDatee = dateReadable
+
             console.log("due_date converted IN FOR EACH",due_date)
 
    
@@ -56,6 +58,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             })
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
+        console.log("DUE_DATE ANTES DEL RENDER",testDate)
         res.render('private/tasks',{tasks: response.data.tasks,id})
     })
     .catch(error => console.log("ERROR EN GET TASKS API",error))
