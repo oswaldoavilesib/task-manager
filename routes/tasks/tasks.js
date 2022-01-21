@@ -36,6 +36,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             console.log("new DATE", date)
 
             let dueDate = date.toLocaleDateString()
+            taskOnDB.push(dueDate)
 
             console.log("DUE DATE TO LOCALSTRING",dueDate)
 
