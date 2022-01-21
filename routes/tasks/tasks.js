@@ -42,6 +42,8 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
             testDate = dateReadable
 
+            response.data.tasks.due_date = dateReadable
+
             console.log("due_date converted IN FOR EACH",due_date)
 
    
