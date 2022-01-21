@@ -38,6 +38,8 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
             console.log("dateReadable", dateReadable)
 
+            dateFinal = dateReadable
+
    
             Task.find({name: {$eq:name}})
             .then(response => {
@@ -53,7 +55,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
  
-        res.render('private/tasks',{tasks: response.data.tasks,id,date:dateReadable,})
+        res.render('private/tasks',{tasks: response.data.tasks,id,date:dateFinal,})
     })
     .catch(error => console.log("ERROR EN GET TASKS API",error))
 })
