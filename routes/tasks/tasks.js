@@ -14,6 +14,8 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
     console.log("ID DE LA LISTA DE ESTA TAREA!!!!!!!!",id)
 
+    let taskOnDB;
+
     //CLICKUP API HANDLER STARTS HERE
     clickUpApiHandler
     .getTasks(id,accessToken) //WE pass the ID of the list from the database
@@ -36,7 +38,6 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
             console.log("DUE DATE TO LOCALSTRING",dueDate)
 
-            let taskOnDB;
    
             Task.find({name: {$eq:name}})
             .then(response => {
