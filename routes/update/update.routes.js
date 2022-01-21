@@ -30,6 +30,10 @@ router.post('/profile/tasks/update/:id',(req,res,next)=>{
     const priorityNumber = Number(priority)
     assigneesArray.push(assignee)
 
+    const dateInMilliseconds = dueDate.getTime()
+
+    console.log("DATE IN MILLISECONDS POST UPDATE TASK",dateInMilliseconds)
+
     clickUpApiHandler
     .updateTask(id,accessToken,taskName,assigneesArray,priorityNumber)
     .then(response => {

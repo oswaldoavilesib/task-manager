@@ -180,7 +180,7 @@ class ClickUpApi {
         }
         
         //Delete a task//
-        updateTask(taskId,clickUpAccessToken,taskName,assigneesArray,priority){
+        updateTask(taskId,clickUpAccessToken,taskName,assigneesArray){
             let data = {
                 'name': taskName,
                 'assignees': assigneesArray,
