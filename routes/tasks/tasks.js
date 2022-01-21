@@ -34,34 +34,26 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
             console.log("new DATE", date)
 
-            let dateReadable = date.toLocaleDateString()
+            let dueDate = date.toLocaleDateString()
 
-            console.log("dateReadable", dateReadable)
-
-            due_date = dateReadable
-
-            testDate = dateReadable
-
-            response.data.tasks.newDate = dateReadable
-
-            console.log("due_date converted IN FOR EACH",due_date)
+            console.log("DUE DATE TO LOCALSTRING",dueDate)
 
    
             Task.find({name: {$eq:name}})
             .then(response => {
                 console.log("RESPONSE FROM LIST.FINDONE",response)
                 if(!response.length){
-                    Task.create({id,name})
+                    Task.create({id,name,dueDate})
                     .then(response => console.log('We created a newTask',response))
                     .catch(error => console.log("ERROR EN ADDING A TASK ON DB",error))
                 } else {
                     console.log("This Task is already on db")
+                    console.log("RESPONSE OF FIND TASK IN PROMISE",response)
                 }
             })
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
-        console.log("DUE_DATE ANTES DEL RENDER",response.data.tasks[0].newDate)
-        res.render('private/tasks',{tasks: response.data.tasks,id,testDate})
+        res.render('private/tasks',{tasks: response.data.tasks,id})
     })
     .catch(error => console.log("ERROR EN GET TASKS API",error))
 })
