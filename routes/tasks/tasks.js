@@ -27,7 +27,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
         console.log("RESPONSE:DATA FROM ARRAYYY",arrayOfTasks)
 
-        arrayOfTasks.forEach((task => {
+        arrayOfTasks.tasks.forEach((task => {
             //console.log("RESPONSE OF FOREACH TASK ID:", task.id)
             //console.log("RESPONSE OF FOREACH TASK assignees:", task.assignees)
             const {id,name,...rest} = task
@@ -42,11 +42,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             let dueDate = date.toLocaleDateString()
             console.log("DUE DATE TO LOCALSTRING",dueDate)
 
-
-            //PUSHING NEW DATE TO ARRAY OF TASKS
             task.push(dueDate)
-
-            console.log("ARRAY OF TASKS AFTER PUSHING NEW DUE DATE",arrayOfTasks)
             
 
             Task.find({name: {$eq:name}})
