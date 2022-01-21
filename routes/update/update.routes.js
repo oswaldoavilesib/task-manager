@@ -37,7 +37,7 @@ router.post('/profile/tasks/update/:id',(req,res,next)=>{
     console.log("DATE IN MILLISECONDS POST UPDATE TASK",dateInMilliseconds)
 
     clickUpApiHandler
-    .updateTask(id,accessToken,taskName,assigneesArray,priorityNumber)
+    .updateTask(id,accessToken,taskName,assigneesArray,priorityNumber,dateInMilliseconds)
     .then(response => {
         console.log("THE RESPONSE DATA OF UPDATEE",response.data)
         const listID = response.data.list.id
