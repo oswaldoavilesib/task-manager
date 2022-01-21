@@ -44,9 +44,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
 
             //PUSHING NEW DATE TO ARRAY OF TASKS
-            task.push({
-                dueDate = dueDate,
-            })
+            task.push(dueDate)
 
             console.log("ARRAY OF TASKS AFTER PUSHING NEW DUE DATE",arrayOfTasks)
             
