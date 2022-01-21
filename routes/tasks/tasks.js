@@ -26,6 +26,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             //console.log("RESPONSE OF FOREACH TASK ID:", task.id)
             //console.log("RESPONSE OF FOREACH TASK assignees:", task.assignees)
             const {id,name,...rest} = task
+            taskOnDB.push(task)
             let due_date = task.due_date
 
             console.log("DUE DATE FIRST", due_date)
@@ -46,7 +47,6 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
                     Task.create({id,name,dueDate})
                     .then(response => {
                         console.log('We created a newTask',response)
-                        taskOnDB.push(response)
                     })
                     .catch(error => console.log("ERROR EN ADDING A TASK ON DB",error))
                 } else {
