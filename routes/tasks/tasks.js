@@ -42,7 +42,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
             // MAKING AN ARRAY OF TASK TO MANIPULATE
 
-            arrayOfTasks.push(task)
+            arrayOfTasks.push({task})
 
 
             arrayOfTasks.forEach((oneTask => {
@@ -67,7 +67,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
         console.log("TASK ON DB ARRAY",taskOnDB)
-        res.render('private/tasks',{tasks: response.data.tasks,id})
+        res.render('private/tasks',{tasks: response.data.tasks,id,taskArray: taskOnDB})
     })
     .catch(error => console.log("ERROR EN GET TASKS API",error))
 })
