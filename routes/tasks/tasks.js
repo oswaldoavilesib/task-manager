@@ -59,7 +59,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
         console.log("DUE_DATE ANTES DEL RENDER",testDate)
-        res.render('private/tasks',{tasks: response.data.tasks,id})
+        res.render('private/tasks',{tasks: response.data.tasks,id,testDate})
     })
     .catch(error => console.log("ERROR EN GET TASKS API",error))
 })
