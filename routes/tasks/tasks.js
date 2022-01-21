@@ -20,8 +20,6 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
     .then(response=>{
         console.log("RESPONSE:DATA FROM TASKS",response.data) //We recieve al th data from api call
 
-        let dateFinal;
-
 
         //Now we neet to iterate in each of the tasks to make sure they are on our database and if they are, do not add the, again
         response.data.tasks.forEach((task => {
@@ -29,7 +27,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             //console.log("RESPONSE OF FOREACH TASK assignees:", task.assignees)
             const {id,name,due_date,...rest} = task
 
-            console.log("DUE DATE", due_date)
+            console.log("DUE DATE FIRST", due_date)
 
             let date = new Date(Number(due_date))
 
@@ -39,9 +37,9 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
 
             console.log("dateReadable", dateReadable)
 
-            dateFinal = dateReadable
+            due_date = dateReadable
 
-            console.log("DATEFINAL IN FOR EACH",dateFinal)
+            console.log("due_date converted IN FOR EACH",due_date)
 
    
             Task.find({name: {$eq:name}})

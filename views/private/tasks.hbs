@@ -42,19 +42,15 @@
                     </div>
                 {{/each}}
             </div>
-    {{/each}}
 
-    {{#each date}}
+
             <div class="col col-lg-2">
-                {{#if date}}
-                <p>{{dateFinal}}</p>
+                {{#if due_date}}
+                <p>{{due_date}}</p>
                 {{else}}
                 <p>No due date.</p>
                 {{/if}}
             </div>
-     {{/each}}
-
-     {{#each tasks}} 
 
             <div class="col col-lg-2">
                 {{#if priority}}
