@@ -25,7 +25,8 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
         response.data.tasks.forEach((task => {
             //console.log("RESPONSE OF FOREACH TASK ID:", task.id)
             //console.log("RESPONSE OF FOREACH TASK assignees:", task.assignees)
-            const {id,name,due_date,...rest} = task
+            const {id,name,...rest} = task
+            let due_date = task.due_date
 
             console.log("DUE DATE FIRST", due_date)
 
