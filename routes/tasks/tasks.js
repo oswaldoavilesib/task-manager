@@ -42,9 +42,10 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             let dueDate = date.toLocaleDateString()
             console.log("DUE DATE TO LOCALSTRING",dueDate)
 
-            console.log("CONSOLE EACH TASK OF ARRAYOFTASKS",task)
 
             task.dueDate = dueDate;
+
+            console.log("CONSOLE EACH TASK OF ARRAYOFTASKS",task)
             
 
             Task.find({name: {$eq:name}})
@@ -62,7 +63,7 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             })
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
-        // console.log("TASK ON DB ARRAY",taskOnDB)
+        console.log("arrayOfTasks!!!",arrayOfTasks)
         res.render('private/tasks',{tasks: response.data.tasks,id,taskArray: taskOnDB})
     })
     .catch(error => console.log("ERROR EN GET TASKS API",error))
