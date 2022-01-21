@@ -42,7 +42,9 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             let dueDate = date.toLocaleDateString()
             console.log("DUE DATE TO LOCALSTRING",dueDate)
 
-            task.push(dueDate)
+            console.log("CONSOLE EACH TASK OF ARRAYOFTASKS",task)
+
+            task.dueDate = dueDate;
             
 
             Task.find({name: {$eq:name}})
