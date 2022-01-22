@@ -1,8 +1,8 @@
 const { Schema, model } = require("mongoose");
 
-const taskSchema = new Schema({
+const foldersSchema = new Schema({
     id: {
-        type: String,
+        type: Number
     },
     name:{
         type: String,
@@ -10,18 +10,6 @@ const taskSchema = new Schema({
     _user: {
         type:Schema.Types.ObjectId, ref:"User"
     },
-    dueDate:{
-        type: String
-    },
-
-    _list: {
-        type:Schema.Types.ObjectId, ref:"List"
-    },
-
-    _folder: {
-        type:Schema.Types.ObjectId, ref:"Folders"
-    },
-
     _space: {
         type:Schema.Types.ObjectId, ref:"Space"
     },
@@ -34,4 +22,4 @@ const taskSchema = new Schema({
 
 })
 
-module.exports = model('Task',taskSchema)
+module.exports = model('Folders',foldersSchema)

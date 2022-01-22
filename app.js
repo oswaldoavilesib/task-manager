@@ -47,9 +47,27 @@ app.locals.title = `${capitalized(projectName)} created with IronLauncher`;
 // 👇 Start handling routes here
 const index = require("./routes/index");
 const signupRoutes = require("./routes/auth/auth.routes")
+const teamRoutes = require("./routes/team/team.routes")
+const spacesRoutes = require('./routes/spaces/spaces.routes.js')
+const foldersRoutes = require('./routes/folders/folders.routes.js')
+const listsRoutes = require('./routes/lists/lists.routes')
+const tasksRoutes = require('./routes/tasks/tasks.js')
+const deleteRoutes = require('./routes/delete/delete.routes.js')
+const updateRoutes = require('./routes/update/update.routes.js')
+
 
 app.use("/", index);
 app.use("/", signupRoutes);
+app.use("/", teamRoutes);
+app.use("/", spacesRoutes);
+app.use("/", foldersRoutes);
+app.use("/", listsRoutes);
+app.use("/", tasksRoutes);
+app.use("/", deleteRoutes);
+app.use("/", updateRoutes);
+
+
+
 app.get("/",(req,res,next)=>{
     res.send('<a href ="/auth/google">Authenticate with Google </a>')
 })

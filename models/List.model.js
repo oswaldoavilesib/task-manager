@@ -1,21 +1,14 @@
 const { Schema, model } = require("mongoose");
 
-const taskSchema = new Schema({
+const listSchema = new Schema({
     id: {
-        type: String,
+        type: Number
     },
     name:{
         type: String,
     },
     _user: {
         type:Schema.Types.ObjectId, ref:"User"
-    },
-    dueDate:{
-        type: String
-    },
-
-    _list: {
-        type:Schema.Types.ObjectId, ref:"List"
     },
 
     _folder: {
@@ -34,4 +27,4 @@ const taskSchema = new Schema({
 
 })
 
-module.exports = model('Task',taskSchema)
+module.exports = model('List',listSchema)

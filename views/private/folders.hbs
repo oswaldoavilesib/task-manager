@@ -1,0 +1,62 @@
+
+<div class="container mt-5">
+    <div class="card container-summary">
+        <div class="card-header d-flex">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="currentColor" class="bi bi-folde-fill align-self-center icon-data" viewBox="0 0 16 16">
+            <path d="M9.828 3h3.982a2 2 0 0 1 1.992 2.181l-.637 7A2 2 0 0 1 13.174 14H2.825a2 2 0 0 1-1.991-1.819l-.637-7a1.99 1.99 0 0 1 .342-1.31L.5 3a2 2 0 0 1 2-2h3.672a2 2 0 0 1 1.414.586l.828.828A2 2 0 0 0 9.828 3zm-8.322.12C1.72 3.042 1.95 3 2.19 3h5.396l-.707-.707A1 1 0 0 0 6.172 2H2.5a1 1 0 0 0-1 .981l.006.139z"/>
+            </svg>
+            <h1 class="align-self-center" >Total Folders: {{folders.length}}</h1>
+        </div>
+    </div>
+</div>
+
+<div class="container go-back-link mt-3">
+  <div class="row go-back-row">
+    <div class="col">
+        <span><strong>Go back to Space: </strong></span><a href="/profile/spaces/{{folders.[0].space.id}}">{{folders.[0].space.name}}</a>
+
+    </div>
+  </div>
+</div>
+
+<div class="container mt-5">
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+      {{#each folders}}
+        <div class="col">
+        <div class="card card-container-lists">
+            <div class="card-body card-header-lists">
+            <h5 class="card-title items-title"><a href="/profile/lists/{{id}}">{{name}}</a></h5>
+            </div>
+            <div class="card-body">
+            <p><strong>Space: </strong>{{space.name}}</p>            <p><strong>Lists in this folder: </strong>{{lists.length}}</p>
+            <p><strong>Tasks in this folder: </strong>{{task_count}}</p>
+            <div class="row row-cols-12 row-cols-lg-2 g-4 botones-contenedor-lista">
+                <div class="col mx-auto ">
+                <a class="see-next-btn" href="/profile/lists/{{id}}">See all lists</a>
+                </div>
+                <div class="col mx-auto">
+                <a class="delete-button" href="/profile/folders/delete/{{id}}">Delete</a>
+                </div>
+            </div>
+            </div>
+        </div>
+        </div>
+        {{/each}}
+
+  </div>
+
+</div>
+
+<div class="container mt-5 mb-5 d-flex justify-content-start">
+      <form action="/profile/folders/{{id}}" method="post">
+      <div class="row list-row-create ">
+              <div class="col col-lg-12 align-self-center input-container">
+                <label class="create-list-label" for="">Create a new folder here:</label>
+                <input type="text" name="folderName" id="" placeholder="Name your new folder here.">
+              </div>
+              <div class="col col-lg-12 mx-auto input-container">
+                  <button type="submit" class="create-button create-button-link">Create</button>
+              </div>
+        </div>
+      </form>
+</div>
