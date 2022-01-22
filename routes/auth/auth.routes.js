@@ -101,7 +101,7 @@ router.get('/profile', isLoggedOut ,(req,res,next)=>{
 
 //----WORKSPACE PAGE ROUTES----//
 /* GET WORKSPACE page */
-router.get('/workspace', (req,res,next)=>{
+router.get('/workspace',isLoggedOut, (req,res,next)=>{
     const clickUpCode = req.query.code
     console.log(clickUpCode)
     clickUpApiHandler
