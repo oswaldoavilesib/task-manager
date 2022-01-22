@@ -30,11 +30,19 @@ router.post('/profile/tasks/update/:id',(req,res,next)=>{
     const priorityNumber = Number(priority)
     assigneesArray.push(assignee)
 
+    const dueDateClass = new Date(dueDate)
+
+    const dateInMilliseconds = dueDateClass.getTime()
+
+    console.log("DATE IN MILLISECONDS POST UPDATE TASK",dateInMilliseconds)
+
     clickUpApiHandler
-    .updateTask(id,accessToken,taskName,assigneesArray,priorityNumber)
+    .updateTask(id,accessToken,taskName,assigneesArray,priorityNumber,dateInMilliseconds)
     .then(response => {
-        console.log("THE RESPONSE OF UPDATEE",response.data)
-        res.redirect('back')
+        console.log("THE RESPONSE DATA OF UPDATEE",response.data)
+        const listID = response.data.list.id
+        console.log("THE RESPONSE DATA OF UPDATEE",response.data.list.id)
+        res.redirect(`/profile/tasks/${listID}`)
     })
     .catch(error=>console.log("error en UPDATE Tarea",error))
 })

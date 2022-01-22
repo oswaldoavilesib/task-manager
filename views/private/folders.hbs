@@ -10,6 +10,15 @@
     </div>
 </div>
 
+<div class="container go-back-link mt-3">
+  <div class="row go-back-row">
+    <div class="col">
+        <span><strong>Go back to Space: </strong></span><a href="/profile/spaces/{{folders.[0].space.id}}">{{folders.[0].space.name}}</a>
+
+    </div>
+  </div>
+</div>
+
 <div class="container mt-5">
     <div class="row row-cols-1 row-cols-md-3 g-4">
       {{#each folders}}
@@ -43,7 +52,7 @@
       <div class="row list-row-create ">
               <div class="col col-lg-12 align-self-center input-container">
                 <label class="create-list-label" for="">Create a new folder here:</label>
-                <input type="text" name="folderName" id="" placeholder="Name your new list here.">
+                <input type="text" name="folderName" id="" placeholder="Name your new folder here.">
               </div>
               <div class="col col-lg-12 mx-auto input-container">
                   <button type="submit" class="create-button create-button-link">Create</button>

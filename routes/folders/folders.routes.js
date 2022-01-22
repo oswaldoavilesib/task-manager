@@ -4,8 +4,8 @@ const {isLoggedIn, isLoggedOut} = require('../../utils/route-guard')
 const Folders = require('../../models/Folders.models')
 const axios = require('axios');
 const clickUpService = require('../../service/index')
-
 const clickUpApiHandler = new clickUpService();
+
 
 
 //----GET FOLDERS//
@@ -22,10 +22,13 @@ router.get('/profile/folders/:id',(req,res,next)=>{
     .then(response =>{
         //console.log("RESPONSE OF getFOLDERS APIHANDLER",response)
         console.log("RESPONSE.DATA OF getFOLDERS APIHANDLER",response.data)
+    
 
         //Adding to DB
         response.data.folders.forEach((folder =>{
             const {id,name,...rest} = folder;
+            console.log("THE accessTOKEN FROM GET /PROFILE",accessToken)
+            
             Folders.find({id:{$eq:id}})
             .then(response => {
                 if(!response.length){
@@ -38,7 +41,7 @@ router.get('/profile/folders/:id',(req,res,next)=>{
             })
             .catch(error=>console.log("ERROR EN FINDING NEW FOLDERS IN DB",error))
         }))
-        res.render('private/folders',{folders:response.data.folders,id})
+        res.render('private/folders',{folders:response.data.folders,id,teamID:req.params.id})
     })
     .catch(error=>console.log('ERROR EN GET FOLDERS APIHANDLER',error))
 

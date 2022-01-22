@@ -11,7 +11,9 @@ const clickUpApiHandler = new clickUpService();
 router.get('/profile/spaces/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken;
     const {id} = req.params
-
+    console.log("Team ID from params",id)
+    teamID = id;
+    console.log("Team ID asigned to teamID",teamID)
     clickUpApiHandler
     .getSpaces(id,accessToken)
     .then(response=>{

@@ -12,36 +12,50 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken; 
     const {id} = req.params // We get the ID of the LIST from our DB
 
+    console.log("ID DE LA LISTA DE ESTA TAREA!!!!!!!!",id)
+
+    let taskOnDB;
+
     //CLICKUP API HANDLER STARTS HERE
     clickUpApiHandler
     .getTasks(id,accessToken) //WE pass the ID of the list from the database
     .then(response=>{
         console.log("RESPONSE:DATA FROM TASKS",response.data) //We recieve al th data from api call
-
         //Now we neet to iterate in each of the tasks to make sure they are on our database and if they are, do not add the, again
-        response.data.tasks.forEach((task => {
+
+        const arrayOfTasks = response.data;
+
+        console.log("RESPONSE:DATA FROM ARRAYYY",arrayOfTasks)
+
+        arrayOfTasks.tasks.forEach((task => {
             //console.log("RESPONSE OF FOREACH TASK ID:", task.id)
             //console.log("RESPONSE OF FOREACH TASK assignees:", task.assignees)
-            const {id,name,due_date,...rest} = task
-            console.log("PRIORITY OBJ",task.priority) 
-            console.log("DUE DATEEEEE",due_date)
+            const {id,name,...rest} = task
 
-            const dateObj = new Date(due_date*1000);
+            let due_date = task.due_date
 
-            const dateToLocal = dateObj.toLocaleDateString();
+        
+            // EXTRACTING DATE
+            console.log("DUE DATE FIRST", due_date)
+            let date = new Date(Number(due_date))
+            console.log("new DATE", date)
+            let dueDate = date.toLocaleDateString()
+            console.log("DUE DATE TO LOCALSTRING",dueDate)
 
 
-            console.log("DATETEST",dateObj)
-            console.log("dateToLocaleDateString",dateToLocal)
-  
+            task.dueDate = dueDate;
 
+            console.log("CONSOLE EACH TASK OF ARRAYOFTASKS",task)
+            
 
             Task.find({name: {$eq:name}})
             .then(response => {
                 console.log("RESPONSE FROM LIST.FINDONE",response)
                 if(!response.length){
-                    Task.create({id,name})
-                    .then(response => console.log('We created a newTask',response))
+                    Task.create({id,name,dueDate})
+                    .then(response => {
+                        console.log('We created a newTask',response)
+                    })
                     .catch(error => console.log("ERROR EN ADDING A TASK ON DB",error))
                 } else {
                     console.log("This Task is already on db")
@@ -49,8 +63,8 @@ router.get('/profile/tasks/:id',(req,res,next)=>{
             })
             .catch(error => console.log("ERROR EN FINDING TASKS IN DB",error))
         }))
- 
-        res.render('private/tasks',{tasks: response.data.tasks,id})
+        console.log("arrayOfTasks!!!",arrayOfTasks)
+        res.render('private/tasks',{tasks: response.data.tasks,id,taskArray:arrayOfTasks.tasks})
     })
     .catch(error => console.log("ERROR EN GET TASKS API",error))
 })
@@ -67,23 +81,16 @@ router.post('/profile/tasks/:id',(req,res,next)=>{
     assigneesArray.push(assignee)
 
     const date = new Date(dueDate)
-
     const dateInMilliseconds = date.getTime()
 
-    const dateInMillisecondsDivided = date.getTime()/1000
-
     console.log("DATE IN MILLISECONDS",dateInMilliseconds)
-    console.log("DATE IN dateInMillisecondsDivided",dateInMillisecondsDivided)
-
-    console.log("NEW DATE OBJECT",date)
-    
 
     console.log("REQ. BODY de CREAR TASK",req.body)
     console.log("assigneesArray",assigneesArray)
-    console.log("priorityNumber",priorityNumber)
+    console.log("priorityNumberr",priorityNumber)
 
     clickUpApiHandler
-    .createTask(id,accessToken,taskName,assigneesArray,priorityNumber)
+    .createTask(id,accessToken,taskName,assigneesArray,priorityNumber,dateInMilliseconds)
     .then(response => {
         res.redirect('back')
     })

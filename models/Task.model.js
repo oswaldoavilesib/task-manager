@@ -10,6 +10,9 @@ const taskSchema = new Schema({
     _user: {
         type:Schema.Types.ObjectId, ref:"User"
     },
+    dueDate:{
+        type: String
+    },
 
     _list: {
         type:Schema.Types.ObjectId, ref:"List"

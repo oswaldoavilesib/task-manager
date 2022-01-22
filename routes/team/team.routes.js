@@ -7,6 +7,7 @@ const clickUpService = require('../../service/index')
 const clickUpApiHandler = new clickUpService();
 
 
+
 //----GET ALL THE TEAMS FORM WORKSPACE"-----//
 router.get('/profile/teams',(req,res)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken;
