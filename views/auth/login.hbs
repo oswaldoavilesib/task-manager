@@ -24,11 +24,10 @@
 				</div>
 			</div>
 
-			<a class="create-account" href="/signup">Create an account</a>
+			<a class="create-account" href="/logout">Create an account</a>
 			<p class="mt-5 mb-3 text-muted">&copy; Task Manager 2021</p>
+			{{#if errorMessage}}
+				<p>{{errorMessage}}</p>
+			{{/if}}
 	</main>
 </section>
-
-{{#if errorMessage}}
-<p>{{errorMessage}}</p>
-{{/if}}
