@@ -405,6 +405,9 @@ BOTONES PRIMARIOS Y SECUNDARIOS */
   font-size: 1rem;
 }
 
+.google-btn-container {
+  margin-bottom: 20px;
+}
 .task-row{
   background-color: #212529;
   color: white;
@@ -635,4 +638,12 @@ select, select option{
 
 .contenedor-teams{
   text-align: left;
+}
+
+.create-account {
+  color: white;
+}
+
+.create-account:hover {
+  color: #0DCAF0;
 }
