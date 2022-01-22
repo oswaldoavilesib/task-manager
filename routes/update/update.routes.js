@@ -15,7 +15,6 @@ router.get('/profile/tasks/update/:id',(req,res,next)=>{
     const {id} = req.params;
     Task.find({id: {$eq:id}})
     .then(response => {
-        console.log("RESPONSE OF FIND TASK TO EDIT",response)
         res.render('private/update',{tasks:response,id})
     })
     .catch(error=>console.log("ERROR EN FIND TASK TO EDIT",error))
@@ -23,7 +22,6 @@ router.get('/profile/tasks/update/:id',(req,res,next)=>{
 
 router.post('/profile/tasks/update/:id',(req,res,next)=>{
     const accessToken = req.session.currentUser.clickUpAccessToken; 
-    console.log("REQ.BODY DE POST TASK UPDATE",req.body)
     const assigneesArray = [];
     const {id} = req.params;
     const {taskName,assignee,priority,dueDate} = req.body;
@@ -34,14 +32,11 @@ router.post('/profile/tasks/update/:id',(req,res,next)=>{
 
     const dateInMilliseconds = dueDateClass.getTime()
 
-    console.log("DATE IN MILLISECONDS POST UPDATE TASK",dateInMilliseconds)
 
     clickUpApiHandler
     .updateTask(id,accessToken,taskName,assigneesArray,priorityNumber,dateInMilliseconds)
     .then(response => {
-        console.log("THE RESPONSE DATA OF UPDATEE",response.data)
         const listID = response.data.list.id
-        console.log("THE RESPONSE DATA OF UPDATEE",response.data.list.id)
         res.redirect(`/profile/tasks/${listID}`)
     })
     .catch(error=>console.log("error en UPDATE Tarea",error))
