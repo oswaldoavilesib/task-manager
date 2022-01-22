@@ -1,74 +1,49 @@
 <div class="container mt-5">
-    <div class="card container-summary">
-        <div class="card-header">
-            <h1>Edit your task</h1>
-        </div>
+  <div class="card container-summary">
+    <div class="card-header">
+      <h1>Edit your task</h1>
     </div>
+  </div>
 </div>
 
 <form action="/profile/tasks/update/{{id}}" method="post">
-    <div class="container mt-5 mb-5">
-        <div class="row task-row-create align-items-center">
-                <div class="col col-lg-4 d-lg-flex">
-                    <input type="text" name="taskName" id="" placeholder="Edit name"> 
-                </div>
-                <div class="col col-lg-3">
-                    <div class="d-flex">
-                    <select name="assignee" id="">
-                            <option class="date-input" value="16806147">Oswaldo</option>
-                    </select>
-                    </div>
-                </div>
-                <div class="col col-lg-2">
-                    <input type="date" name="dueDate">
-                </div>
-
-                <div class="col col-lg-2">
-                    <select class="select-priority"  name="priority" id="" selected="selected">
-                        <option value="">--</option>
-                        <option  value="4">Low</option>
-                        <option  value="3">Normal</option>
-                        <option  value="2">High</option>
-                        <option  value="1">Urgent</option>
-                    </select>
-                </div>
-                <div class="col mx-auto ">
-                    <button type="submit" class="create-button create-button-link">Update</button>
-                </div>
+  <div class="container mt-5 mb-5">
+    <div class="row task-row-create align-items-center">
+      <div class="col col-lg-4 d-lg-flex">
+        <input type="text" name="taskName" id="" placeholder="Edit name" />
+      </div>
+      <div class="col col-lg-3">
+        <div class="d-flex">
+          <select name="assignee" id="">
+            <option class="date-input" value="16806147">Oswaldo</option>
+          </select>
         </div>
+      </div>
+      <div class="col col-lg-2">
+        <input type="date" name="dueDate" />
+      </div>
+
+      <div class="col col-lg-2">
+        <select
+          class="select-priority"
+          name="priority"
+          id=""
+          selected="selected"
+        >
+          <option value="">--</option>
+          <option value="4">Low</option>
+          <option value="3">Normal</option>
+          <option value="2">High</option>
+          <option value="1">Urgent</option>
+        </select>
+      </div>
+      <div class="col mx-auto">
+        <button
+          type="submit"
+          class="create-button create-button-link"
+        >Update</button>
+      </div>
     </div>
+  </div>
 </form>
 
-
-
-
-{{!-- <div class="table-responsive table-container">
-    <form action="/profile/tasks/update/{{id}}" method="post">
-        <table class="table folders-table table-hover">
-        <thead>
-            <tr>
-                <th scope="col">Task name</th>
-                <th scope="col">Due date</th>
-                <th scope="col">Priority</th>
-            </tr>
-        </thead>
-        <tbody>
-            {{#each tasks}}
-            <tr>
-                <td><input name="taskName" class="date-input" type="text" placeholder="{{name}}" name="" id=""></td>
-                <td><input type="date" placeholder="{{name}}" name="dueDate" id=""></td>
-                <td>
-                    <select class="date-input" name="priority" id="">
-                        <option class="date-input" value=""></option>
-                        <option class="date-input" value="4">Low</option>
-                        <option class="date-input" value="3">Normal</option>
-                        <option class="date-input" value="2">High</option>
-                        <option class="date-input" value="1">Urgent</option>
-                    </select>
-                </td>
-                <td><button type="submit">Save</button></td>
-            </tr>
-            {{/each}}
-        </table>
-    </form>
-</div> --}}
