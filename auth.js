@@ -10,7 +10,7 @@ const User = require("./models/User.model")
 passport.use(new GoogleStrategy({
     clientID:     GOOGLE_CLIENT_ID,
     clientSecret: GOOGLE_CLIENT_SECRET,
-    callbackURL: "https://task-managermx.herokuapp.com/profile",
+    callbackURL: "http://localhost:3000/google/callback",
     passReqToCallback   : true
   },
   function(request, accessToken, refreshToken, profile, done) {
